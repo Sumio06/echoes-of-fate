@@ -18,7 +18,7 @@ public class LoginScreen extends javax.swing.JPanel {
      * Creates new form LoginScreen
      */
     
-    private MainFrame frame; // Reference to MainFrame
+    private MainFrame frame; // pra mka reference sa MainFrame
     UserData userData; 
     
     public LoginScreen(MainFrame frame, UserData userData) {
@@ -50,9 +50,11 @@ public class LoginScreen extends javax.swing.JPanel {
             frame.showScreen("Menu");
         });
          
-       
-       btnRegister.addActionListener(e -> {frame.showScreen("Register");});      
+       //Mo padulong sa register screen
+       btnRegister.addActionListener(e -> frame.showScreen("Register"));      
     }
+    
+    
     
     public void updateTextFields(){
        txtUsername.setText(userData.getUsername());

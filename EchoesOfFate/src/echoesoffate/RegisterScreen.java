@@ -27,7 +27,7 @@ public class RegisterScreen extends javax.swing.JPanel {
     }
     
     private void registerUser() {
-        // Get input from text fields
+       
         String username = txtUsername.getText();
         String password = txtPassword.getText();
 
@@ -35,21 +35,21 @@ public class RegisterScreen extends javax.swing.JPanel {
         if (username.isEmpty() || password.isEmpty() || username.equals("") || password.equals("")) {
             JOptionPane.showMessageDialog(this, "Fields cannot be empty.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
-        }
-        
+        }   
         if (username.equals("Username") || password.equals("Password")) {
-            JOptionPane.showMessageDialog(this, "UFields cannot be empty.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Fields cannot be empty.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        
 
-        // Update MainFrame's UserData
+        // ma update ang userData instance sa MainFrame
         frame.setUserData(username, password);
         
         
-        // Debugging output (optional)
+        // testing
         System.out.println("Registered: " + username + " / " + password);
         
-        // Switch to the Login screen
+        // balhin to login screen og ma update ang userData sa og mainmenu
         frame.showScreen("Login");
     }
     
