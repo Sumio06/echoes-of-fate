@@ -16,6 +16,10 @@ public class EchoesOfFate {
     public static void main(String[] args) {
         System.out.println("LULU");
         System.out.println("mic test");
+        
+        
+        //Mo print ranig yati
+        System.out.println("KEAN WAS HERE");
     }
     
 }
