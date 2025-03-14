@@ -13,10 +13,15 @@ import javax.swing.*;
 import java.awt.*;
 
 public class RegisterScreen extends javax.swing.JPanel {
-
     
-    public RegisterScreen() {
+    private MainFrame frame;
+    
+    public RegisterScreen(MainFrame frame) {
+        this.frame = frame;
         initComponents();
+        
+        btnSubmit.addActionListener(e -> frame.showScreen("Login"));
+       
     }
 
     /**
@@ -32,8 +37,8 @@ public class RegisterScreen extends javax.swing.JPanel {
         lblGameTitle = new javax.swing.JLabel();
         lblQuote1 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        btnLogin = new javax.swing.JButton();
+        txtPassword = new javax.swing.JTextField();
+        btnSubmit = new javax.swing.JButton();
         lblQuote = new javax.swing.JLabel();
         lblLoginFormBackground = new javax.swing.JLabel();
         lblBackground = new javax.swing.JLabel();
@@ -70,23 +75,23 @@ public class RegisterScreen extends javax.swing.JPanel {
         });
         add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, 450, 40));
 
-        jTextField2.setBackground(new java.awt.Color(83, 77, 169, 100));
-        jTextField2.setFont(new java.awt.Font("Pristina", 1, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField2.setText("Password");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtPassword.setBackground(new java.awt.Color(83, 77, 169, 100));
+        txtPassword.setFont(new java.awt.Font("Pristina", 1, 18)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
+        txtPassword.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtPassword.setText("Password");
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtPasswordActionPerformed(evt);
             }
         });
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 390, 450, 40));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 390, 450, 40));
 
-        btnLogin.setBackground(new java.awt.Color(83, 77, 169, 100));
-        btnLogin.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogin.setText("Submit");
-        add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 500, 220, 50));
+        btnSubmit.setBackground(new java.awt.Color(83, 77, 169, 100));
+        btnSubmit.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
+        btnSubmit.setForeground(new java.awt.Color(255, 255, 255));
+        btnSubmit.setText("Submit");
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 500, 220, 50));
 
         lblQuote.setFont(new java.awt.Font("Pristina", 1, 18)); // NOI18N
         lblQuote.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,20 +116,20 @@ public class RegisterScreen extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogin;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton btnSubmit;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblGameTitle;
     private javax.swing.JLabel lblLoginFormBackground;
     private javax.swing.JLabel lblQuote;
     private javax.swing.JLabel lblQuote1;
     private javax.swing.JLabel lblQuote2;
+    private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

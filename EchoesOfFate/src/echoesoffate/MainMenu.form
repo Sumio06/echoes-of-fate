@@ -44,6 +44,23 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Time is running out, [Username]. What will you do?"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="400" y="220" width="760" height="110"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblQuote2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Pristina" size="24" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Step into the past&#x2026; before it erases you."/>
       </Properties>
       <Constraints>
@@ -67,7 +84,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="710" y="260" width="180" height="50"/>
+          <AbsoluteConstraints x="690" y="330" width="180" height="50"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -86,7 +103,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="710" y="540" width="170" height="50"/>
+          <AbsoluteConstraints x="690" y="610" width="170" height="50"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -105,7 +122,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="710" y="350" width="170" height="50"/>
+          <AbsoluteConstraints x="690" y="420" width="170" height="50"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -124,7 +141,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="710" y="450" width="170" height="50"/>
+          <AbsoluteConstraints x="690" y="520" width="170" height="50"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -171,7 +188,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="380" y="230" width="800" height="380"/>
+          <AbsoluteConstraints x="380" y="230" width="800" height="450"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -184,7 +201,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="10" width="-1" height="-1"/>
+          <AbsoluteConstraints x="0" y="-50" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

@@ -21,24 +21,22 @@ public class MainFrame extends javax.swing.JFrame {
     private JPanel mainPanel;
     
     
-    
     public MainFrame() {
         initComponents();
-        
-        cardLayout = new CardLayout();
-        mainPanel = new JPanel(cardLayout);
         
         // Initialize CardLayout
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
 
-         // Create screens
+        // Create screens
         LoginScreen loginScreen = new LoginScreen(this);
         MainMenu mainMenu = new MainMenu(this);
+        RegisterScreen registerScreen = new RegisterScreen(this);
 
         // Add screens to the CardLayout
         mainPanel.add(loginScreen, "Login");
         mainPanel.add(mainMenu, "Menu");
+        mainPanel.add(registerScreen, "Register");
 
         // Set main panel as content pane
         setContentPane(mainPanel);
