@@ -19,30 +19,43 @@ public class MainMenu extends javax.swing.JPanel {
      */
     
     private MainFrame frame; // Reference to MainFrame
+    UserData userData;
     
-    
-    public MainMenu(MainFrame frame) {
+    public MainMenu(MainFrame frame, UserData userData) {
         this.frame = frame;
+        this.userData = userData;
         initComponents();
-        
+        updateData(); 
        btnExit.addActionListener(e -> exitGame());
         
     }
 
-        private void exitGame() {
+     public void updateData() {
+         this.userData = frame.userData;
+        lblMsg.setText("Time is running out, " + userData.getUsername() + ". What will you do?");
+    }
+
+    private void exitGame() {
         int confirm = JOptionPane.showConfirmDialog(this, 
-            "Leaving already, [Username]? But the past still calls to you…", "Exit Game", JOptionPane.YES_NO_OPTION);
-        
+            "Leaving already, " + userData.getUsername() + "? But the past still calls to you…", 
+            "Exit Game", JOptionPane.YES_NO_OPTION);
+
         if (confirm == JOptionPane.YES_OPTION) {
             System.exit(0); // Close the application
         }
     }
+     
+     public void setUserData(String username, String password) {
+        userData.setUsername(username);
+        userData.setPassword(password);
+    }
+     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         lblGameTitle = new javax.swing.JLabel();
-        lblQuote1 = new javax.swing.JLabel();
+        lblMsg = new javax.swing.JLabel();
         lblQuote2 = new javax.swing.JLabel();
         btnNewGame = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
@@ -60,11 +73,11 @@ public class MainMenu extends javax.swing.JPanel {
         lblGameTitle.setText("Echoes of Fate");
         add(lblGameTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 770, 190));
 
-        lblQuote1.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
-        lblQuote1.setForeground(new java.awt.Color(255, 255, 255));
-        lblQuote1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblQuote1.setText("Time is running out, [Username]. What will you do?");
-        add(lblQuote1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 760, 110));
+        lblMsg.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
+        lblMsg.setForeground(new java.awt.Color(255, 255, 255));
+        lblMsg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMsg.setText("Time is running out, [Username]. What will you do?");
+        add(lblMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 760, 110));
 
         lblQuote2.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
         lblQuote2.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,8 +137,8 @@ public class MainMenu extends javax.swing.JPanel {
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblGameTitle;
     private javax.swing.JLabel lblLoginFormBackground;
+    private javax.swing.JLabel lblMsg;
     private javax.swing.JLabel lblQuote;
-    private javax.swing.JLabel lblQuote1;
     private javax.swing.JLabel lblQuote2;
     // End of variables declaration//GEN-END:variables
 }

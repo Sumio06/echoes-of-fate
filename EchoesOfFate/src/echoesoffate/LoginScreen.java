@@ -19,13 +19,45 @@ public class LoginScreen extends javax.swing.JPanel {
      */
     
     private MainFrame frame; // Reference to MainFrame
+    UserData userData; 
     
-    
-    public LoginScreen(MainFrame frame) {
+    public LoginScreen(MainFrame frame, UserData userData) {
+        
+       this.userData = userData;
        this.frame = frame;
        initComponents(); 
-       btnLogin.addActionListener(e -> frame.showScreen("Menu"));
-       btnRegister.addActionListener(e -> frame.showScreen("Register"));
+       
+      
+         btnLogin.addActionListener(e -> {
+            String enteredUsername = userData.getUsername();
+            
+            //password validation
+             if (!userData.getUsername().equals(txtUsername.getText()) || !userData.getPassword().equals(txtPassword.getText())) {
+            JOptionPane.showMessageDialog(this, "Invalid Password!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }   
+             
+             if (userData.getUsername().equals("") || userData.getPassword().equals("")) {
+            JOptionPane.showMessageDialog(this, "Invalid Password!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }   
+             
+             
+            // Test if mogana
+            System.out.println("Logging in as: " + enteredUsername);
+                
+            // Switch to MainMenu
+            frame.showScreen("Menu");
+        });
+         
+       
+       btnRegister.addActionListener(e -> {frame.showScreen("Register");});      
+    }
+    
+    public void updateTextFields(){
+       txtUsername.setText(userData.getUsername());
+       txtPassword.setText(userData.getPassword());
+        
     }
 
     

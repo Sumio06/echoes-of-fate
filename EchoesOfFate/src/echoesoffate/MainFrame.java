@@ -19,19 +19,21 @@ public class MainFrame extends javax.swing.JFrame {
     
     private CardLayout cardLayout;
     private JPanel mainPanel;
-    
+    public UserData userData;
     
     public MainFrame() {
         initComponents();
+        userData = new UserData();
+        
         
         // Initialize CardLayout
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
 
         // Create screens
-        LoginScreen loginScreen = new LoginScreen(this);
-        MainMenu mainMenu = new MainMenu(this);
-        RegisterScreen registerScreen = new RegisterScreen(this);
+        LoginScreen loginScreen = new LoginScreen(this, userData);
+        MainMenu mainMenu = new MainMenu(this, userData);
+        RegisterScreen registerScreen = new RegisterScreen(this, userData);
 
         // Add screens to the CardLayout
         mainPanel.add(loginScreen, "Login");
@@ -41,16 +43,11 @@ public class MainFrame extends javax.swing.JFrame {
         // Set main panel as content pane
         setContentPane(mainPanel);
         setVisible(true);
-  
         
         //Mao nig maka automatic scale sa frame na mo fit sa Entire Screen
         this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);  
         
-    }  
-    
-    
-    
-
+    }
   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -62,18 +59,26 @@ public class MainFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    
-    
-    
+        
      public void showScreen(String screenName) {
+         
+         //E update niya ag text field sa login after mag register :D
+         
+         if (screenName.equals("Login")) {
+        ((LoginScreen) mainPanel.getComponent(0)).updateTextFields();
+    }       
+         //E update niya ag lblMsg sa menu after mag register :D
+         if (screenName.equals("Menu")) {
+        ((MainMenu) mainPanel.getComponent(1)).updateData();
+    }
         cardLayout.show(mainPanel, screenName);
     }
     
-
-    /**
-     * @param args the command line arguments
-     */
+      public void setUserData(String username, String password) {
+        userData.setUsername(username);
+        userData.setPassword(password);
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -106,6 +111,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         
         System.out.println("Working..");
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
