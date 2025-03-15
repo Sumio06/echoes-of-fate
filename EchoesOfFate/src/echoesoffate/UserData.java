@@ -42,4 +42,8 @@ public class UserData {
         this.characterSelected = characterSelected;
     }
     
+    public String getCharacter(){
+            return characterSelected;
+    }
+    
 }
