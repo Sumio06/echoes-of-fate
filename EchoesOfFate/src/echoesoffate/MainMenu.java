@@ -18,7 +18,8 @@ public class MainMenu extends javax.swing.JPanel {
      * Creates new form LoginScreen
      */
     
-    private MainFrame frame; // Reference to MainFrame
+     //Reference to MainFrame
+    private MainFrame frame;
     UserData userData;
     
     public MainMenu(MainFrame frame, UserData userData) {
@@ -26,8 +27,7 @@ public class MainMenu extends javax.swing.JPanel {
         this.userData = userData;
         initComponents();
         updateData(); 
-       btnExit.addActionListener(e -> exitGame());
-        
+        btnExit.addActionListener(e -> exitGame());
     }
 
      public void updateData() {
@@ -41,7 +41,8 @@ public class MainMenu extends javax.swing.JPanel {
             "Exit Game", JOptionPane.YES_NO_OPTION);
 
         if (confirm == JOptionPane.YES_OPTION) {
-            System.exit(0); // Close the application
+            // Close the application
+            System.exit(0);
         }
     }
      
@@ -121,7 +122,7 @@ public class MainMenu extends javax.swing.JPanel {
         lblLoginFormBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLoginFormBackground.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.lightGray, java.awt.Color.white, java.awt.Color.blue));
         lblLoginFormBackground.setOpaque(true);
-        add(lblLoginFormBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 800, 460));
+        add(lblLoginFormBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 800, 480));
 
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/loginandregisterbackground.jpg"))); // NOI18N

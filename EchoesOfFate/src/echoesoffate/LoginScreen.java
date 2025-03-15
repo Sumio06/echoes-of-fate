@@ -18,7 +18,8 @@ public class LoginScreen extends javax.swing.JPanel {
      * Creates new form LoginScreen
      */
     
-    private MainFrame frame; // pra mka reference sa MainFrame
+    //Reference To MainFrame
+    private MainFrame frame;
     UserData userData; 
     
     public LoginScreen(MainFrame frame, UserData userData) {
@@ -31,30 +32,27 @@ public class LoginScreen extends javax.swing.JPanel {
          btnLogin.addActionListener(e -> {
             String enteredUsername = userData.getUsername();
             
-            //password validation
-             if (!userData.getUsername().equals(txtUsername.getText()) || !userData.getPassword().equals(txtPassword.getText())) {
+            //Password Validation
+            if (!userData.getUsername().equals(txtUsername.getText()) || !userData.getPassword().equals(txtPassword.getText())) {
             JOptionPane.showMessageDialog(this, "Invalid Password!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }   
              
-             if (userData.getUsername().equals("") || userData.getPassword().equals("")) {
+            if (userData.getUsername().equals("") || userData.getPassword().equals("")) {
             JOptionPane.showMessageDialog(this, "Invalid Password!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }   
              
-             
-            // Test if mogana
+            //Test
             System.out.println("Logging in as: " + enteredUsername);
                 
-            // Switch to MainMenu
+            //Switch to MainMenu
             frame.showScreen("Menu");
         });
          
-       //Mo padulong sa register screen
+       //To Register Screen
        btnRegister.addActionListener(e -> frame.showScreen("Register"));      
     }
-    
-    
     
     public void updateTextFields(){
        txtUsername.setText(userData.getUsername());
@@ -70,7 +68,7 @@ public class LoginScreen extends javax.swing.JPanel {
         lblGameTitle = new javax.swing.JLabel();
         lblQuote1 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
-        lblQuote2 = new javax.swing.JLabel();
+        lblLogin = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
         btnRegister = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
@@ -103,13 +101,13 @@ public class LoginScreen extends javax.swing.JPanel {
                 txtUsernameActionPerformed(evt);
             }
         });
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, 400, 40));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 400, 40));
 
-        lblQuote2.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
-        lblQuote2.setForeground(new java.awt.Color(255, 255, 255));
-        lblQuote2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblQuote2.setText("Login");
-        add(lblQuote2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, 760, 40));
+        lblLogin.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
+        lblLogin.setForeground(new java.awt.Color(255, 255, 255));
+        lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogin.setText("Login");
+        add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 340, 110, 40));
 
         txtPassword.setBackground(new java.awt.Color(83, 77, 169, 100));
         txtPassword.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
@@ -120,19 +118,19 @@ public class LoginScreen extends javax.swing.JPanel {
                 txtPasswordActionPerformed(evt);
             }
         });
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 450, 400, 40));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 490, 400, 40));
 
         btnRegister.setBackground(new java.awt.Color(83, 77, 169, 100));
         btnRegister.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnRegister.setText("Register");
-        add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 550, 130, 50));
+        add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 590, 130, 50));
 
         btnLogin.setBackground(new java.awt.Color(83, 77, 169, 100));
         btnLogin.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
-        add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 550, 110, 50));
+        add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 590, 110, 50));
 
         lblQuote.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 18)); // NOI18N
         lblQuote.setForeground(new java.awt.Color(255, 255, 255));
@@ -143,12 +141,12 @@ public class LoginScreen extends javax.swing.JPanel {
         lblPassword.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Password");
-        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 460, -1, -1));
+        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 500, -1, -1));
 
         lblUsername1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         lblUsername1.setForeground(new java.awt.Color(255, 255, 255));
         lblUsername1.setText("Username");
-        add(lblUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, -1, -1));
+        add(lblUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, -1, -1));
 
         lblLoginFormBackground.setBackground(new java.awt.Color(36, 43, 53, 200));
         lblLoginFormBackground.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
@@ -156,7 +154,7 @@ public class LoginScreen extends javax.swing.JPanel {
         lblLoginFormBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLoginFormBackground.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.lightGray, java.awt.Color.white, java.awt.Color.blue));
         lblLoginFormBackground.setOpaque(true);
-        add(lblLoginFormBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 800, 380));
+        add(lblLoginFormBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 730, 410));
 
         lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -178,11 +176,11 @@ public class LoginScreen extends javax.swing.JPanel {
     private javax.swing.JButton btnRegister;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblGameTitle;
+    private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblLoginFormBackground;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblQuote;
     private javax.swing.JLabel lblQuote1;
-    private javax.swing.JLabel lblQuote2;
     private javax.swing.JLabel lblUsername1;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;

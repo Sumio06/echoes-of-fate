@@ -10,47 +10,46 @@ package echoesoffate;
  */
 
 
-//This is the main game window mga pre
+//Main Game Window
 
 import javax.swing.*;
 import java.awt.*;
 
 public class MainFrame extends javax.swing.JFrame {
     
-    //Mao nig maka ingon na maka balhin2 og screen sa isa ka JFrame
+    //Changing Of Screens From One JFrame To Another
     private CardLayout cardLayout;
     private JPanel mainPanel;
     
-    //Mao ni para sa validation username og password
+    //Username and Password
     public UserData userData;
     
     public MainFrame() {
         
-        // mao nig mga designs pre
+        //Designs
         initComponents(); 
         
-        //mga initializations 
+        //Initializations
         userData = new UserData();     
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
 
-        // gi instantiate mga screen nasa uban files para magamit 
+        //Insantiations
         LoginScreen loginScreen = new LoginScreen(this, userData);
         MainMenu mainMenu = new MainMenu(this, userData);
         RegisterScreen registerScreen = new RegisterScreen(this, userData);
 
-        // mag add og screens sa CardLayout (which is like ang sudlanan sa mga screens)
+        //Adding Of Screens In The CardLayout
         mainPanel.add(loginScreen, "Login");
         mainPanel.add(mainMenu, "Menu");
         mainPanel.add(registerScreen, "Register");
 
-        // pra ag mogawas sa frame kay mga screens na naa sa card layout
+        //To Show The Screens In The CardLayout
         setContentPane(mainPanel);
         setVisible(true);
         
-        //Mao nig maka automatic scale sa frame na mo fit sa Entire Screen JUICE!
+        //Automatic Scale Of Screen
         this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);  
-        
     }
   
     @SuppressWarnings("unchecked")
@@ -66,20 +65,20 @@ public class MainFrame extends javax.swing.JFrame {
         
      public void showScreen(String screenName) {
          
-         //E update niya ag username og password text fields sa LoginScreen after mag register :D
+         //Update The Username and Password TextFields After Register
          if (screenName.equals("Login")) {
         ((LoginScreen) mainPanel.getComponent(0)).updateTextFields();
     }       
-         //E update niya ag lblMsg sa MainMenu after mag register :D
+         //Update lblMsg After Register
          if (screenName.equals("Menu")) {
         ((MainMenu) mainPanel.getComponent(1)).updateData();
     }
          
-        //mao ni ag method para mag balhin2 og screen. Makita ni siya nimo sa mga constructors sa uban screen files.
+        //To Change Screens
         cardLayout.show(mainPanel, screenName);
     }
      
-     //mao ni pra after mo register, ma update mga attributes sa userData.
+     //Updating The Attributes Of userData
       public void setUserData(String username, String password) {
         userData.setUsername(username);
         userData.setPassword(password);

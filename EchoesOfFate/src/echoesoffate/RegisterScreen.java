@@ -21,9 +21,7 @@ public class RegisterScreen extends javax.swing.JPanel {
         this.userData = userData;
         initComponents();
         
-        
         btnSubmit.addActionListener(e -> registerUser());
-       
     }
     
     private void registerUser() {
@@ -31,7 +29,7 @@ public class RegisterScreen extends javax.swing.JPanel {
         String username = txtUsername.getText();
         String password = txtPassword.getText();
 
-        // Check if fields are empty
+        // Check If Field Are Empty
         if (username.isEmpty() || password.isEmpty() || username.equals("") || password.equals("")) {
             JOptionPane.showMessageDialog(this, "Fields cannot be empty.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -41,15 +39,13 @@ public class RegisterScreen extends javax.swing.JPanel {
             return;
         }
         
-
-        // ma update ang userData instance sa MainFrame
+        // Update userData to MainFrame
         frame.setUserData(username, password);
         
-        
-        // testing
+        //Test
         System.out.println("Registered: " + username + " / " + password);
         
-        // balhin to login screen og ma update ang userData sa og mainmenu
+        //Go To Login Screen If userData is updated
         frame.showScreen("Login");
     }
     
@@ -59,10 +55,10 @@ public class RegisterScreen extends javax.swing.JPanel {
 
         lblGameTitle = new javax.swing.JLabel();
         lblQuote2 = new javax.swing.JLabel();
-        lblQuote1 = new javax.swing.JLabel();
+        lblRegister = new javax.swing.JLabel();
         lblQuote = new javax.swing.JLabel();
         btnSubmit = new javax.swing.JButton();
-        lblUsername1 = new javax.swing.JLabel();
+        lblUsername = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
@@ -83,11 +79,11 @@ public class RegisterScreen extends javax.swing.JPanel {
         lblQuote2.setText("Step into the past, before it erases you.");
         add(lblQuote2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 540, 40));
 
-        lblQuote1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
-        lblQuote1.setForeground(new java.awt.Color(255, 255, 255));
-        lblQuote1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblQuote1.setText("Register");
-        add(lblQuote1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, 760, 50));
+        lblRegister.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
+        lblRegister.setForeground(new java.awt.Color(255, 255, 255));
+        lblRegister.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRegister.setText("Register");
+        add(lblRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 310, 140, 50));
 
         lblQuote.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 18)); // NOI18N
         lblQuote.setForeground(new java.awt.Color(255, 255, 255));
@@ -106,10 +102,10 @@ public class RegisterScreen extends javax.swing.JPanel {
         });
         add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 550, 220, 50));
 
-        lblUsername1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 20)); // NOI18N
-        lblUsername1.setForeground(new java.awt.Color(255, 255, 255));
-        lblUsername1.setText("Username");
-        add(lblUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, -1, -1));
+        lblUsername.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 20)); // NOI18N
+        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsername.setText("Username");
+        add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, -1, -1));
 
         txtUsername.setBackground(new java.awt.Color(83, 77, 169, 100));
         txtUsername.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
@@ -144,7 +140,7 @@ public class RegisterScreen extends javax.swing.JPanel {
         lblLoginFormBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLoginFormBackground.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.lightGray, java.awt.Color.white, java.awt.Color.blue));
         lblLoginFormBackground.setOpaque(true);
-        add(lblLoginFormBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 800, 380));
+        add(lblLoginFormBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 730, 380));
 
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/loginandregisterbackground.jpg"))); // NOI18N
@@ -173,9 +169,9 @@ public class RegisterScreen extends javax.swing.JPanel {
     private javax.swing.JLabel lblLoginFormBackground;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblQuote;
-    private javax.swing.JLabel lblQuote1;
     private javax.swing.JLabel lblQuote2;
-    private javax.swing.JLabel lblUsername1;
+    private javax.swing.JLabel lblRegister;
+    private javax.swing.JLabel lblUsername;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
