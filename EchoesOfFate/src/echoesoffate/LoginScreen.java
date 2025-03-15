@@ -75,70 +75,80 @@ public class LoginScreen extends javax.swing.JPanel {
         btnRegister = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
         lblQuote = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
+        lblUsername1 = new javax.swing.JLabel();
         lblLoginFormBackground = new javax.swing.JLabel();
         lblBackground = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblGameTitle.setFont(new java.awt.Font("Pristina", 1, 130)); // NOI18N
+        lblGameTitle.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 70)); // NOI18N
         lblGameTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblGameTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblGameTitle.setText("Echoes of Fate");
-        add(lblGameTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 770, 190));
+        add(lblGameTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 770, 90));
 
-        lblQuote1.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
+        lblQuote1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 20)); // NOI18N
         lblQuote1.setForeground(new java.awt.Color(255, 255, 255));
         lblQuote1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblQuote1.setText("Step into the past… before it erases you.");
-        add(lblQuote1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 760, 110));
+        lblQuote1.setText("Step into the past, before it erases you.");
+        add(lblQuote1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 540, 40));
 
         txtUsername.setBackground(new java.awt.Color(83, 77, 169, 100));
-        txtUsername.setFont(new java.awt.Font("Pristina", 1, 18)); // NOI18N
+        txtUsername.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         txtUsername.setForeground(new java.awt.Color(255, 255, 255));
         txtUsername.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtUsername.setText("Username");
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsernameActionPerformed(evt);
             }
         });
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, 450, 40));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, 400, 40));
 
-        lblQuote2.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
+        lblQuote2.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
         lblQuote2.setForeground(new java.awt.Color(255, 255, 255));
         lblQuote2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblQuote2.setText("Login Field");
-        add(lblQuote2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 760, 110));
+        lblQuote2.setText("Login");
+        add(lblQuote2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, 760, 40));
 
         txtPassword.setBackground(new java.awt.Color(83, 77, 169, 100));
-        txtPassword.setFont(new java.awt.Font("Pristina", 1, 18)); // NOI18N
+        txtPassword.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(255, 255, 255));
         txtPassword.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtPassword.setText("Password");
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordActionPerformed(evt);
             }
         });
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 390, 450, 40));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 450, 400, 40));
 
         btnRegister.setBackground(new java.awt.Color(83, 77, 169, 100));
-        btnRegister.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
+        btnRegister.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnRegister.setText("Register");
-        add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 490, 110, 50));
+        add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 550, 130, 50));
 
         btnLogin.setBackground(new java.awt.Color(83, 77, 169, 100));
-        btnLogin.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
+        btnLogin.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
-        add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 490, 110, 50));
+        add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 550, 110, 50));
 
-        lblQuote.setFont(new java.awt.Font("Pristina", 1, 18)); // NOI18N
+        lblQuote.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 18)); // NOI18N
         lblQuote.setForeground(new java.awt.Color(255, 255, 255));
         lblQuote.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblQuote.setText("@2025 OOP 2 Project. All Rights Reserved  | Design by  Group Nuevas");
-        add(lblQuote, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 750, 760, 70));
+        lblQuote.setText("@2025 OOP 2 Project. All Rights Reserved");
+        add(lblQuote, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 800, 430, 30));
+
+        lblPassword.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
+        lblPassword.setText("Password");
+        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 460, -1, -1));
+
+        lblUsername1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        lblUsername1.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsername1.setText("Username");
+        add(lblUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, -1, -1));
 
         lblLoginFormBackground.setBackground(new java.awt.Color(36, 43, 53, 200));
         lblLoginFormBackground.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
@@ -146,10 +156,11 @@ public class LoginScreen extends javax.swing.JPanel {
         lblLoginFormBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLoginFormBackground.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.lightGray, java.awt.Color.white, java.awt.Color.blue));
         lblLoginFormBackground.setOpaque(true);
-        add(lblLoginFormBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 800, 380));
+        add(lblLoginFormBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 800, 380));
 
+        lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBackground.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kean Saligue\\Documents\\GitHub\\echoes-of-fate\\EchoesOfFate\\src\\echoesoffate\\Assets\\background.jpg")); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/loginandregisterbackground.jpg"))); // NOI18N
         add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -168,9 +179,11 @@ public class LoginScreen extends javax.swing.JPanel {
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblGameTitle;
     private javax.swing.JLabel lblLoginFormBackground;
+    private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblQuote;
     private javax.swing.JLabel lblQuote1;
     private javax.swing.JLabel lblQuote2;
+    private javax.swing.JLabel lblUsername1;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
