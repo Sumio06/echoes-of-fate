@@ -38,11 +38,14 @@ public class MainFrame extends javax.swing.JFrame {
         LoginScreen loginScreen = new LoginScreen(this, userData);
         MainMenu mainMenu = new MainMenu(this, userData);
         RegisterScreen registerScreen = new RegisterScreen(this, userData);
-
+        ChooseCharacter chooseCharacter = new ChooseCharacter(this, userData);
+        
+        
         //Adding Of Screens In The CardLayout
         mainPanel.add(loginScreen, "Login");
         mainPanel.add(mainMenu, "Menu");
         mainPanel.add(registerScreen, "Register");
+        mainPanel.add(chooseCharacter, "ChooseCharacter"); 
 
         //To Show The Screens In The CardLayout
         setContentPane(mainPanel);

@@ -11,7 +11,7 @@ package echoesoffate;
 public class UserData {
     private String username;
     private String password;
-       
+    private String characterSelected;
     
     public UserData(String username, String password){
         this.username = username;
@@ -36,6 +36,10 @@ public class UserData {
       
     public String getPassword(){
         return password;
+    }
+    
+    public void setCharacter(String characterSelected){
+        this.characterSelected = characterSelected;
     }
     
 }
