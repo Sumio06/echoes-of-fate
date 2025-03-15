@@ -34,12 +34,12 @@ public class LoginScreen extends javax.swing.JPanel {
             
             //Password Validation
             if (!userData.getUsername().equals(txtUsername.getText()) || !userData.getPassword().equals(txtPassword.getText())) {
-            JOptionPane.showMessageDialog(this, "Invalid Password!", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Username Not Found!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }   
              
             if (userData.getUsername().equals("") || userData.getPassword().equals("")) {
-            JOptionPane.showMessageDialog(this, "Invalid Password!", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Username Not Found!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }   
              
@@ -84,7 +84,7 @@ public class LoginScreen extends javax.swing.JPanel {
         lblGameTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblGameTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblGameTitle.setText("Echoes of Fate");
-        add(lblGameTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 770, 90));
+        add(lblGameTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 470, 90));
 
         lblQuote1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 20)); // NOI18N
         lblQuote1.setForeground(new java.awt.Color(255, 255, 255));
@@ -103,7 +103,7 @@ public class LoginScreen extends javax.swing.JPanel {
         });
         add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 400, 40));
 
-        lblLogin.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
+        lblLogin.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
         lblLogin.setForeground(new java.awt.Color(255, 255, 255));
         lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLogin.setText("Login");
@@ -124,13 +124,13 @@ public class LoginScreen extends javax.swing.JPanel {
         btnRegister.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnRegister.setText("Register");
-        add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 590, 130, 50));
+        add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 590, 160, 50));
 
         btnLogin.setBackground(new java.awt.Color(83, 77, 169, 100));
         btnLogin.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
-        add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 590, 110, 50));
+        add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 590, 140, 50));
 
         lblQuote.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 18)); // NOI18N
         lblQuote.setForeground(new java.awt.Color(255, 255, 255));
@@ -138,15 +138,15 @@ public class LoginScreen extends javax.swing.JPanel {
         lblQuote.setText("@2025 OOP 2 Project. All Rights Reserved");
         add(lblQuote, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 800, 430, 30));
 
-        lblPassword.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        lblPassword.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 20)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Password");
-        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 500, -1, -1));
+        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 500, -1, -1));
 
-        lblUsername1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        lblUsername1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 20)); // NOI18N
         lblUsername1.setForeground(new java.awt.Color(255, 255, 255));
         lblUsername1.setText("Username");
-        add(lblUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, -1, -1));
+        add(lblUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, -1, -1));
 
         lblLoginFormBackground.setBackground(new java.awt.Color(36, 43, 53, 200));
         lblLoginFormBackground.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
@@ -154,7 +154,7 @@ public class LoginScreen extends javax.swing.JPanel {
         lblLoginFormBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLoginFormBackground.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.lightGray, java.awt.Color.white, java.awt.Color.blue));
         lblLoginFormBackground.setOpaque(true);
-        add(lblLoginFormBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 730, 410));
+        add(lblLoginFormBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 770, 390));
 
         lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

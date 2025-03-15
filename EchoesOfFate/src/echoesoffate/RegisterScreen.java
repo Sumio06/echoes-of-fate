@@ -20,8 +20,8 @@ public class RegisterScreen extends javax.swing.JPanel {
         this.frame = frame;
         this.userData = userData;
         initComponents();
-        
         btnSubmit.addActionListener(e -> registerUser());
+        btnBack.addActionListener(e -> frame.showScreen("Login"));
     }
     
     private void registerUser() {
@@ -55,13 +55,14 @@ public class RegisterScreen extends javax.swing.JPanel {
 
         lblGameTitle = new javax.swing.JLabel();
         lblQuote2 = new javax.swing.JLabel();
-        lblRegister = new javax.swing.JLabel();
         lblQuote = new javax.swing.JLabel();
-        btnSubmit = new javax.swing.JButton();
-        lblUsername = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
-        lblPassword = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
+        lblLogin = new javax.swing.JLabel();
+        lblUsername1 = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        btnSubmit = new javax.swing.JButton();
         lblLoginFormBackground = new javax.swing.JLabel();
         lblBackground = new javax.swing.JLabel();
 
@@ -71,41 +72,19 @@ public class RegisterScreen extends javax.swing.JPanel {
         lblGameTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblGameTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblGameTitle.setText("Echoes of Fate");
-        add(lblGameTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 770, 90));
+        add(lblGameTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 470, 90));
 
         lblQuote2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 20)); // NOI18N
         lblQuote2.setForeground(new java.awt.Color(255, 255, 255));
         lblQuote2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblQuote2.setText("Step into the past, before it erases you.");
-        add(lblQuote2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 540, 40));
-
-        lblRegister.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
-        lblRegister.setForeground(new java.awt.Color(255, 255, 255));
-        lblRegister.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRegister.setText("Register");
-        add(lblRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 310, 140, 50));
+        add(lblQuote2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 540, 40));
 
         lblQuote.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 18)); // NOI18N
         lblQuote.setForeground(new java.awt.Color(255, 255, 255));
         lblQuote.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblQuote.setText("@2025 OOP 2 Project. All Rights Reserved");
         add(lblQuote, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 800, 430, 30));
-
-        btnSubmit.setBackground(new java.awt.Color(83, 77, 169, 100));
-        btnSubmit.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
-        btnSubmit.setForeground(new java.awt.Color(255, 255, 255));
-        btnSubmit.setText("Submit");
-        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubmitActionPerformed(evt);
-            }
-        });
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 550, 220, 50));
-
-        lblUsername.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 20)); // NOI18N
-        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
-        lblUsername.setText("Username");
-        add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, -1, -1));
 
         txtUsername.setBackground(new java.awt.Color(83, 77, 169, 100));
         txtUsername.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
@@ -116,12 +95,7 @@ public class RegisterScreen extends javax.swing.JPanel {
                 txtUsernameActionPerformed(evt);
             }
         });
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 390, 360, 40));
-
-        lblPassword.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 20)); // NOI18N
-        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
-        lblPassword.setText("Password");
-        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 470, -1, -1));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 400, 40));
 
         txtPassword.setBackground(new java.awt.Color(83, 77, 169, 100));
         txtPassword.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
@@ -132,7 +106,35 @@ public class RegisterScreen extends javax.swing.JPanel {
                 txtPasswordActionPerformed(evt);
             }
         });
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 460, 360, 40));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 490, 400, 40));
+
+        lblLogin.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
+        lblLogin.setForeground(new java.awt.Color(255, 255, 255));
+        lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogin.setText("Register");
+        add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 340, 110, 40));
+
+        lblUsername1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 20)); // NOI18N
+        lblUsername1.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsername1.setText("Username");
+        add(lblUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, -1, -1));
+
+        lblPassword.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 20)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
+        lblPassword.setText("Password");
+        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 500, -1, -1));
+
+        btnBack.setBackground(new java.awt.Color(83, 77, 169, 100));
+        btnBack.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("Back");
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 590, 140, 50));
+
+        btnSubmit.setBackground(new java.awt.Color(83, 77, 169, 100));
+        btnSubmit.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        btnSubmit.setForeground(new java.awt.Color(255, 255, 255));
+        btnSubmit.setText("Submit");
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 590, 160, 50));
 
         lblLoginFormBackground.setBackground(new java.awt.Color(36, 43, 53, 200));
         lblLoginFormBackground.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
@@ -140,18 +142,13 @@ public class RegisterScreen extends javax.swing.JPanel {
         lblLoginFormBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLoginFormBackground.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.lightGray, java.awt.Color.white, java.awt.Color.blue));
         lblLoginFormBackground.setOpaque(true);
-        add(lblLoginFormBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 730, 380));
+        add(lblLoginFormBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 770, 390));
 
+        lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/loginandregisterbackground.jpg"))); // NOI18N
-        add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-       
-        
-        
-    }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
@@ -163,15 +160,16 @@ public class RegisterScreen extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblGameTitle;
+    private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblLoginFormBackground;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblQuote;
     private javax.swing.JLabel lblQuote2;
-    private javax.swing.JLabel lblRegister;
-    private javax.swing.JLabel lblUsername;
+    private javax.swing.JLabel lblUsername1;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
