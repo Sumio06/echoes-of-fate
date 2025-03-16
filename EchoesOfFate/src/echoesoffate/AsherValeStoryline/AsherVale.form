@@ -50,7 +50,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblDialogue1">
+    <Component class="javax.swing.JLabel" name="lblDialogue">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Franklin Gothic Medium" size="24" style="0"/>
