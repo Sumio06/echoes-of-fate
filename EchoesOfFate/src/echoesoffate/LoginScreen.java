@@ -106,7 +106,7 @@ public class LoginScreen extends javax.swing.JPanel {
         lblLogin.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
         lblLogin.setForeground(new java.awt.Color(255, 255, 255));
         lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLogin.setText("Login");
+        lblLogin.setText("LOGIN");
         add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 340, 110, 40));
 
         txtPassword.setBackground(new java.awt.Color(83, 77, 169, 100));

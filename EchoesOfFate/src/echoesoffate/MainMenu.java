@@ -25,12 +25,8 @@ public class MainMenu extends javax.swing.JPanel {
     public MainMenu(MainFrame frame, UserData userData) {
         this.frame = frame;
         this.userData = userData;
-        
-        
         initComponents();
         updateData(); 
-        
-        
         btnExit.addActionListener(e -> exitGame());
         btnNewGame.addActionListener(e -> frame.showScreen("ChooseCharacter"));
     }

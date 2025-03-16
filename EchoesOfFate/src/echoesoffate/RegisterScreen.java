@@ -111,7 +111,7 @@ public class RegisterScreen extends javax.swing.JPanel {
         lblLogin.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
         lblLogin.setForeground(new java.awt.Color(255, 255, 255));
         lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLogin.setText("Register");
+        lblLogin.setText("REGISTER");
         add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 340, 110, 40));
 
         lblUsername1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 20)); // NOI18N

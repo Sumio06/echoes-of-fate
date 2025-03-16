@@ -26,13 +26,9 @@ public class ChooseCharacter extends javax.swing.JPanel {
     
     
        private void setupButtonActions() {
-        btnCelesteNakamura.addActionListener(e -> selectCharacter("Celeste Nakamura"));
-        btnRenTakahashi.addActionListener(e -> selectCharacter("Ren Takahashi"));
-        btnAsherVale.addActionListener(e -> {
-            selectCharacter("Asher Vale");
-            frame.showScreen("AsherVale");   
-        }
-        );
+        btnCelesteNakamura.addActionListener(e -> selectCharacter("CelesteNakamura"));
+        btnRenTakahashi.addActionListener(e -> selectCharacter("RenTakahashi"));
+        btnAsherVale.addActionListener(e -> selectCharacter("AsherVale"));
     }
        
         private void selectCharacter(String characterName) {
@@ -46,12 +42,9 @@ public class ChooseCharacter extends javax.swing.JPanel {
     if (confirm == JOptionPane.YES_OPTION) { 
         userData.setCharacter(characterName); 
         System.out.println("Selected Character: " + userData.getCharacter());
-        frame.showScreen("GameScreen"); 
-        
+        frame.showScreen(characterName);
     }
 }
-
-
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
