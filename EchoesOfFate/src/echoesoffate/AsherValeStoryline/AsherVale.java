@@ -2,10 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package echoesoffate.AsherValeStoryline;
+package echoesoffate.ashervalestoryline;
 
 import echoesoffate.MainFrame;
 import echoesoffate.UserData;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.SwingUtilities;
+import javax.swing.Timer;
 
 /**
  *
@@ -13,9 +17,8 @@ import echoesoffate.UserData;
  */
 public class AsherVale extends javax.swing.JPanel {
      
-    MainFrame frame;
-    
-     private String[] dialogueLines = {
+    private MainFrame frame;
+    private String[] dialogueLines = {
         "Asher: *sigh* Another day, another mystery...",
         "Asher: Something feels... off today.",
         "???: Hey, you there! Stop right now!",
@@ -25,25 +28,52 @@ public class AsherVale extends javax.swing.JPanel {
     };
     
     private int dialogueIndex = 0;
+    private int charIndex = 0;
+    private Timer timer;
+
     public AsherVale(MainFrame frame) {
-         this.frame = frame;
+        this.frame = frame;
         initComponents();
-        
-        lblDialogue.setText(dialogueLines[dialogueIndex]); 
-        btnContinue.addActionListener(e -> showNextDialogue());
+        lblDialogue.setText("");
+        SwingUtilities.invokeLater(() -> {
+            showNextDialogue();
+        });
+        btnContinue.addActionListener(e -> advanceDialogue());
     }
-    
-     private void showNextDialogue() {
-        dialogueIndex++; 
-        
+
+    private void showNextDialogue() {
         if (dialogueIndex < dialogueLines.length) {
-            lblDialogue.setText(dialogueLines[dialogueIndex]); 
+            charIndex = 0;
+            lblDialogue.setText(""); //Clear Text
+            
+            //Typewriter Effect
+            timer = new Timer(50, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (charIndex < dialogueLines[dialogueIndex].length()) {
+                        lblDialogue.setText(lblDialogue.getText() + dialogueLines[dialogueIndex].charAt(charIndex));
+                        charIndex++;
+                    } else {
+                        timer.stop();
+                    }
+                }
+            });
+            timer.start();
         } else {
-            frame.showScreen("Menu"); 
+            frame.showScreen("Menu");
         }
     }
 
-   
+    private void advanceDialogue() {
+        if (timer != null && timer.isRunning()) {
+            timer.stop(); //Skip Animation
+            lblDialogue.setText(dialogueLines[dialogueIndex]); 
+        } else {
+            dialogueIndex++;
+            showNextDialogue(); //Move To Next Dialogue
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

@@ -12,7 +12,7 @@ package echoesoffate;
 
 //Main Game Window
 
-import echoesoffate.AsherValeStoryline.AsherVale;
+import echoesoffate.ashervalestoryline.AsherVale;
 import javax.swing.*;
 import java.awt.*;
 
