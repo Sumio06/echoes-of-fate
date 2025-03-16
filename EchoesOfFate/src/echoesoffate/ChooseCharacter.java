@@ -22,14 +22,19 @@ public class ChooseCharacter extends javax.swing.JPanel {
         this.userData = userData;
         setupButtonActions();
         btnBack.addActionListener(e -> frame.showScreen("Menu"));
-        btnAsherVale.addActionListener(e -> frame.showScreen("AsherVale"));
+        
+        
     }
     
     
        private void setupButtonActions() {
         btnCelesteNakamura.addActionListener(e -> selectCharacter("Celeste Nakamura"));
         btnRenTakahashi.addActionListener(e -> selectCharacter("Ren Takahashi"));
-        btnAsherVale.addActionListener(e -> selectCharacter("Asher Vale"));
+        btnAsherVale.addActionListener(e -> {
+            selectCharacter("Asher Vale");
+            frame.showScreen("AsherVale");   
+        }
+        );
     }
        
         private void selectCharacter(String characterName) {
@@ -44,6 +49,7 @@ public class ChooseCharacter extends javax.swing.JPanel {
         userData.setCharacter(characterName); 
         System.out.println("Selected Character: " + userData.getCharacter());
         frame.showScreen("GameScreen"); 
+        
     }
 }
 
