@@ -24,17 +24,16 @@ public class ChooseCharacter extends javax.swing.JPanel {
         btnBack.addActionListener(e -> frame.showScreen("Menu"));
     }
     
-    
        private void setupButtonActions() {
-        btnCelesteNakamura.addActionListener(e -> selectCharacter("CelesteNakamura"));
-        btnRenTakahashi.addActionListener(e -> selectCharacter("RenTakahashi"));
-        btnAsherVale.addActionListener(e -> selectCharacter("AsherVale"));
+        btnCelesteNakamura.addActionListener(e -> selectCharacter("CelesteNakamura", "Celeste Nakamura"));
+        btnRenTakahashi.addActionListener(e -> selectCharacter("RenTakahashi", "Ren Takahashi"));
+        btnAsherVale.addActionListener(e -> selectCharacter("AsherVale", "Asher Vale"));
     }
        
-        private void selectCharacter(String characterName) {
+        private void selectCharacter(String characterName, String character) {
           int confirm = JOptionPane.showConfirmDialog(
         this,
-        "Are you sure you want to select " + characterName + "?",
+        "Are you sure you want to select " + character + "?",
         "Confirm Character Selection",
         JOptionPane.YES_NO_OPTION
     );
