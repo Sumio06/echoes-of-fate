@@ -22,8 +22,6 @@ public class ChooseCharacter extends javax.swing.JPanel {
         this.userData = userData;
         setupButtonActions();
         btnBack.addActionListener(e -> frame.showScreen("Menu"));
-        
-        
     }
     
     

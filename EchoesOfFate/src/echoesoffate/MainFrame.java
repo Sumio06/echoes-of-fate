@@ -40,7 +40,7 @@ public class MainFrame extends javax.swing.JFrame {
         MainMenu mainMenu = new MainMenu(this, userData);
         RegisterScreen registerScreen = new RegisterScreen(this, userData);
         ChooseCharacter chooseCharacter = new ChooseCharacter(this, userData);
-        AsherVale asherVale = new AsherVale();
+        AsherVale asherVale = new AsherVale(this);
         
         
         //Adding Of Screens In The CardLayout
