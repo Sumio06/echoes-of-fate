@@ -8,6 +8,10 @@ import echoesoffate.MainFrame;
 import echoesoffate.UserData;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
@@ -15,13 +19,14 @@ import javax.swing.Timer;
  *
  * @author User
  */
+
 public class AsherVale extends javax.swing.JPanel {
      
     private MainFrame frame;
     private String[] dialogueLines = {
-        "Asher: *sigh* Another day, another mystery...",
-        "Asher: Something feels... off today.",
-        "???: Hey, you there! Stop right now!",
+        "March 16, 2025... 2:37 AM...",
+        "(A dimly lit alley in Itaewon. Neon lights flicker. The city hums in the background.)",
+        "<html>Kieran Vale stumbles forward, clutching his stomach, blood spilling between his fingers. A hooded figure stands before him,<br> blade dripping red.</html>",
         "Asher: Who's there?!",
         "Asher: I should probably check it out...",
         "[End of Scene]"
@@ -30,47 +35,79 @@ public class AsherVale extends javax.swing.JPanel {
     private int dialogueIndex = 0;
     private int charIndex = 0;
     private Timer timer;
+    private Clip typewriterClip;
 
     public AsherVale(MainFrame frame) {
         this.frame = frame;
         initComponents();
         lblDialogue.setText("");
-        SwingUtilities.invokeLater(() -> {
-            showNextDialogue();
-        });
+        lblDialogue.revalidate();
+        lblDialogue.repaint();
+        //Typewriter Effect
+        new Timer(7500, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ((Timer) e.getSource()).stop();
+                showNextDialogue();
+            }
+        }).start();
         btnContinue.addActionListener(e -> advanceDialogue());
     }
 
+    private void playTypewriterSound() {
+        try {
+            if (typewriterClip != null && typewriterClip.isRunning()) {
+                typewriterClip.stop();
+            }
+            File soundFile = new File("src/echoesoffate/echoesoffateassets/typings.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+            typewriterClip = AudioSystem.getClip();
+            typewriterClip.open(audioStream);
+            typewriterClip.setFramePosition(0);
+            typewriterClip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void stopTypewriterSound() {
+        if (typewriterClip != null && typewriterClip.isRunning()) {
+            typewriterClip.stop();
+        }
+    }
+    
     private void showNextDialogue() {
         if (dialogueIndex < dialogueLines.length) {
             charIndex = 0;
             lblDialogue.setText(""); //Clear Text
             
-            //Typewriter Effect
-            timer = new Timer(50, new ActionListener() {
+            timer = new Timer(50, new ActionListener() { //Typewriter Effect
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     if (charIndex < dialogueLines[dialogueIndex].length()) {
                         lblDialogue.setText(lblDialogue.getText() + dialogueLines[dialogueIndex].charAt(charIndex));
+                        if (charIndex % 3 == 0) {
+                                playTypewriterSound();
+                        }
                         charIndex++;
                     } else {
                         timer.stop();
+                        stopTypewriterSound();
                     }
                 }
             });
             timer.start();
-        } else {
-            frame.showScreen("Menu");
         }
     }
 
     private void advanceDialogue() {
         if (timer != null && timer.isRunning()) {
-            timer.stop(); //Skip Animation
+            timer.stop(); // Skip Animation
+            stopTypewriterSound(); // Stop the sound when skipping
             lblDialogue.setText(dialogueLines[dialogueIndex]); 
         } else {
             dialogueIndex++;
-            showNextDialogue(); //Move To Next Dialogue
+            showNextDialogue(); // Move To Next Dialogue
         }
     }
 
