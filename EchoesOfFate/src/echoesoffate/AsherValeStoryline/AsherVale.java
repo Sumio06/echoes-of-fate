@@ -74,11 +74,53 @@ public class AsherVale extends javax.swing.JPanel {
         "(Then, a noise. Footsteps. Distant, but fast. Someone is running)",
         "(Asher’s head snaps up)",
         "(At the far end of the alley, a shadowy figure turns the corner, vanishing)",
-        "(Asher's body tenses, but his legs refuse to move)",
-        "(He’s still holding Kieran)",
-        "(His mind screams at him to chase the bastard down. But he can’t)",
-        "(Because this moment, this exact second—feels impossible)",
-        "(The city keeps moving. The world keeps spinning. But Asher is frozen in place, trapped in a reality where his brother is gone)",
+        "Asher (sharply): HEY!",
+        "(The figure bolts, Asher doesn’t hesitate. He’s up and running before his mind even registers it)",
+        "(His boots slam against the pavement, adrenaline replacing his grief)",
+        "(The figure weaves through the maze of alleyways, but Asher is fast, he’s gaining)",
+        "Asher (gritted teeth): You’re not getting away, you bastard!",
+        "(The killer cuts left, Asher follows. He’s so close, almost close enough to reach out and grab...)",
+        "(Then, the figure suddenly disappears.)",
+        "(Asher skids to a stop, chest heaving. He looks around wildly. No sign of them)",
+        "(Then, he sees it. A door. Old. Rusted. It wasn’t there before)"
+    };
+    
+    private String[] SCENE3 = {
+        "(Asher stands before the old, weathered door, his breath still ragged from the chase)",
+        "(The killer is gone. Vanished. But this door... it wasn’t here before)",
+        "Asher (gritted teeth): Tch... Did they go in here?",
+        "(He exhales sharply, jaw clenched, and grips the handle)",
+        "(The metal is ice-cold. Too cold. Like it's been sitting in the snow.)",
+        "(With a deep breath, he pushes the door open)",
+        "(The hinges groan as it swings inward, revealing nothing.)",
+        "(A dimly lit corridor stretches ahead, empty, silent. A single, flickering lightbulb buzzes overhead)",
+        "(The air is thick with dust, untouched. No footprints. No movement. The killer isn’t here)",
+        "Asher (scanning the space, frustrated): Where did he go?",
+        "(His footsteps echo as he walks inside, searching every corner)",
+        "(Nothing. Just old walls and silence)",
+        "Asher (under his breath): Damn... waste of time",
+        "(Shaking his head, he turns back toward the door)",
+        "(He grips the handle and pushes it open)",
+        "(The alley is still there... but something is wrong)",
+        "(A thick fog has settled across the ground, creeping unnaturally toward him)",
+        "(The neon signs are flickering. Distorted. Like they’re struggling to exist)",
+        "(The air feels heavier, thick, like moving through water)",
+        "Asher (frowning): What the...?",
+        "(He steps forward and the ground bends beneath him. Like stepping onto something that isn’t solid)",
+        "(His vision blurs for a moment. Shapes twist. The alley stretches, pulling away from him, no, pulling him in)",
+        "(A sharp ringing pierces his ears. The sound warps, stretching like a voice speaking underwater)",
+        "(His breath catches. His head spins)",
+        "(He blinks and the world snaps back)",
+        "(The alley is normal again. But the sounds of Itaewon’s nightlife are... gone)",
+        "(No voices. No cars. Just... silence)",
+        "(His phone buzzes in his pocket)",
+        "(He pulls it out and his stomach drops. The screen reads: February 15, 2025. One month before Kieran’s death)",
+        "Asher (staring at the screen, whispering): No...",
+        "(His breath quickens. His hands shake)",
+        "(The air still feels wrong. Heavy. Like something is pressing down on reality itself)",
+        "(He looks back at the door, but it's gone. As if it never existed)",
+        "(The realization sinks in)",
+        "(The world hasn’t just changed. Time has unraveled)"
     };
     
     private int dialogueIndex = 0;
@@ -149,16 +191,19 @@ public class AsherVale extends javax.swing.JPanel {
     
     private void showNextDialogue() {
         if (dialogueIndex < SCENE1.length) {
-            // Display SCENE1 Dialogue
-            displayText(SCENE1[dialogueIndex]);
+            displayText(SCENE1[dialogueIndex]); //Display SCENE1 Dialogue
         } else if (dialogueIndex - SCENE1.length < SCENE2.length) {
-            // Transition To SCENE2
             if (dialogueIndex == SCENE1.length) {
                 lblDialogue.setText("");
             }
-            displayText(SCENE2[dialogueIndex - SCENE1.length]);
+            displayText(SCENE2[dialogueIndex - SCENE1.length]); //Display SCENE2 Dialogue
+        } else if (dialogueIndex - SCENE1.length - SCENE2.length < SCENE3.length) {
+            if (dialogueIndex == SCENE1.length + SCENE2.length) {
+                lblDialogue.setText(""); // Clear previous text for SCENE3
+            }
+            displayText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]); //Display SCENE3 Dialogue
         } else {
-            return; //Preventing Overflow
+            return; //Stop
         }
     }
 
@@ -166,22 +211,25 @@ public class AsherVale extends javax.swing.JPanel {
         if (timer != null && timer.isRunning()) {
             timer.stop(); //Skip Animation
             stopTypewriterSound();
+
             if (dialogueIndex < SCENE1.length) {
                 lblDialogue.setText(SCENE1[dialogueIndex]);
             } else if (dialogueIndex - SCENE1.length < SCENE2.length) {
                 lblDialogue.setText(SCENE2[dialogueIndex - SCENE1.length]);
+            } else if (dialogueIndex - SCENE1.length - SCENE2.length < SCENE3.length) {
+                lblDialogue.setText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]);
             }
         } else {
             dialogueIndex++;
 
-            //Move To Scene2
-            if (dialogueIndex == SCENE1.length) {
+            //Move To SCENE 3
+            if (dialogueIndex == SCENE1.length + SCENE2.length) {
                 lblDialogue.setText("");
                 lblDialogue.revalidate();
                 lblDialogue.repaint();
             }
 
-            showNextDialogue(); //Move To Next Dialogue
+            showNextDialogue(); //Next Dialogue
         }
     }
 
