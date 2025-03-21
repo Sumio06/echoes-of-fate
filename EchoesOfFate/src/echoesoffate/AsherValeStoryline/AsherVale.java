@@ -49,7 +49,7 @@ public class AsherVale extends javax.swing.JPanel {
         "(His legs give out. He collapses onto the pavement)",
         "(His chest rises. Falls. Shudders)",
         "(The killer lingers, watching. Then, without a word, they disappear into the darkness)",
-        "(The alley falls silent, except for the faint, dying echo of Kieran’s last breath)",
+        "(The alley falls silent, except for the faint, dying echo of Kieran’s last breath)"
     };
     
     private String[] SCENE2 = {
