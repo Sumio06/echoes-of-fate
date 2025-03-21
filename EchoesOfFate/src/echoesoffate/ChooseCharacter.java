@@ -97,7 +97,7 @@ public class ChooseCharacter extends javax.swing.JPanel {
         btnBack.setText("Back");
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 140, 50));
 
-        lblQuote.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 18)); // NOI18N
+        lblQuote.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         lblQuote.setForeground(new java.awt.Color(255, 255, 255));
         lblQuote.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblQuote.setText("@2025 OOP 2 Project. All Rights Reserved");

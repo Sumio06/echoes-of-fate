@@ -80,7 +80,7 @@ public class RegisterScreen extends javax.swing.JPanel {
         lblQuote2.setText("Step into the past, before it erases you.");
         add(lblQuote2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 540, 40));
 
-        lblQuote.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 18)); // NOI18N
+        lblQuote.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         lblQuote.setForeground(new java.awt.Color(255, 255, 255));
         lblQuote.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblQuote.setText("@2025 OOP 2 Project. All Rights Reserved");

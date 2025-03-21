@@ -132,7 +132,7 @@ public class LoginScreen extends javax.swing.JPanel {
         btnLogin.setText("Login");
         add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 590, 140, 50));
 
-        lblQuote.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 18)); // NOI18N
+        lblQuote.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         lblQuote.setForeground(new java.awt.Color(255, 255, 255));
         lblQuote.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblQuote.setText("@2025 OOP 2 Project. All Rights Reserved");
