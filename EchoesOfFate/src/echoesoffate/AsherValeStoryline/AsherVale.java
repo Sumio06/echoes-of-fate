@@ -79,7 +79,7 @@ public class AsherVale extends javax.swing.JPanel {
         "(The figure weaves through the maze of alleyways, but Asher is fast, he’s gaining)",
         "Asher (gritted teeth): You’re not getting away, you bastard!",
         "(The killer cuts left, Asher follows. He’s so close, almost close enough to reach out and grab...)",
-        "(Then, the figure suddenly disappears.)",
+        "(Then, the figure suddenly disappears)",
         "(Asher skids to a stop, chest heaving. He looks around wildly. No sign of them)",
     };
     
@@ -90,6 +90,9 @@ public class AsherVale extends javax.swing.JPanel {
         "Asher (gritted teeth): Tch... Did they go in here?",
         "(He exhales sharply, jaw clenched, and grips the handle)",
         "(The metal is ice-cold. Too cold. Like it's been sitting in the snow.)",
+    };
+    
+    private String[] SCENE4 = {
         "(With a deep breath, he pushes the door open)",
         "(The hinges groan as it swings inward, revealing nothing.)",
         "(A dimly lit corridor stretches ahead, empty, silent. A single, flickering lightbulb buzzes overhead)",
@@ -108,7 +111,10 @@ public class AsherVale extends javax.swing.JPanel {
         "(He steps forward and the ground bends beneath him. Like stepping onto something that isn’t solid)",
         "(His vision blurs for a moment. Shapes twist. The alley stretches, pulling away from him, no, pulling him in)",
         "(A sharp ringing pierces his ears. The sound warps, stretching like a voice speaking underwater)",
-        "(His breath catches. His head spins)",
+        "(His breath catches. His head spins)"
+    };
+    
+    private String[] SCENE5 = {
         "(He blinks and the world snaps back)",
         "(The alley is normal again. But the sounds of Itaewon’s nightlife are... gone)",
         "(No voices. No cars. Just... silence)",
@@ -119,14 +125,14 @@ public class AsherVale extends javax.swing.JPanel {
         "(The air still feels wrong. Heavy. Like something is pressing down on reality itself)",
         "(He looks back at the door, but it's gone. As if it never existed)",
         "(The realization sinks in)",
-        "(The world hasn’t just changed. Time has unraveled)"
-    };
-    
-    private String[] SCENE4 = {
+        "(The world hasn’t just changed. Time has unraveled)",
         "(Asher takes a shaky breath, his pulse pounding in his ears)",
         "(The alley is the same... but not. The neon lights flicker strangely, the air feels thicker, distorted)",
-        "(His fingers curl into fists, his instincts screaming that something is **deeply, impossibly wrong)",
+        "(His fingers curl into fists, his instincts screaming that something is deeply, impossibly wrong)",
         "(Then a sound cuts through the silence.)",
+    };
+    
+    private String[] SCENE6 = {
         "(A telephone. Ringing.)",
         "(Not his phone. A payphone.)",
         "(His head snaps toward the alley’s entrance where an old telephone booth stands under a flickering streetlight)",
@@ -150,7 +156,10 @@ public class AsherVale extends javax.swing.JPanel {
         "(Then, the call ends)",
         "(No beep. No tone. Just... silence)",
         "(Asher pulls the receiver away, staring at it, his pulse hammering)",
-        "(Then, he blinks)",
+        "(Then, he blinks)"
+    };
+    
+    private String[] SCENE7 = {
         "(The phone booth is gone)",
         "(Like it was never there)",
         "(His chest tightens. His breath quickens)",
@@ -162,10 +171,7 @@ public class AsherVale extends javax.swing.JPanel {
         "(Asher stares at the screen, his breath catching in his throat)",
         "(Kieran is alive. For now)",
         "(The realization slams into him like a freight train)",
-        "(He isn’t just in the past. He has a chance to change it)"
-    };
-    
-    private String[] SCENE5 = {
+        "(He isn’t just in the past. He has a chance to change it)",
         "(Asher's breath is unsteady, his grip tightening around his phone)",
         "(Kieran is alive. But for how long?)",
         "(The weight of the message settles in his chest, heavy and suffocating)",
@@ -183,7 +189,7 @@ public class AsherVale extends javax.swing.JPanel {
         "(The investigation begins now)"
     };
     
-    private String[] SCENE6 = {
+    private String[] SCENE8 = {
         "(Asher walks aimlessly through the quiet streets of Itaewon, his mind racing)",
         "(The city feels different now—like he's walking through a memory instead of reality)",
         "(Then, he stops)",
@@ -268,22 +274,28 @@ public class AsherVale extends javax.swing.JPanel {
     
     private void showNextDialogue() {
         if (dialogueIndex < SCENE1.length) {
-            displayText(SCENE1[dialogueIndex]); //Display SCENE1
+            displayText(SCENE1[dialogueIndex]); // Display SCENE1
         } else if (dialogueIndex - SCENE1.length < SCENE2.length) {
             if (dialogueIndex == SCENE1.length) lblDialogue.setText("");
-            displayText(SCENE2[dialogueIndex - SCENE1.length]); //Display SCENE2
+            displayText(SCENE2[dialogueIndex - SCENE1.length]); // Display SCENE2
         } else if (dialogueIndex - SCENE1.length - SCENE2.length < SCENE3.length) {
             if (dialogueIndex == SCENE1.length + SCENE2.length) lblDialogue.setText("");
-            displayText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]); //Display SCENE3
+            displayText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]); // Display SCENE3
         } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length < SCENE4.length) {
             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length) lblDialogue.setText("");
-            displayText(SCENE4[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length]); //Display SCENE4
+            displayText(SCENE4[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length]); // Display SCENE4
         } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length < SCENE5.length) {
             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length) lblDialogue.setText("");
-            displayText(SCENE5[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length]); //Display SCENE5
+            displayText(SCENE5[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length]); // Display SCENE5
         } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length < SCENE6.length) {
             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length) lblDialogue.setText("");
-            displayText(SCENE6[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length]); //Display SCENE6
+            displayText(SCENE6[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length]); // Display SCENE6
+        } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length < SCENE7.length) {
+            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length) lblDialogue.setText("");
+            displayText(SCENE7[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length]); // Display SCENE7
+        } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length < SCENE8.length) {
+            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length) lblDialogue.setText("");
+            displayText(SCENE8[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length]); // Display SCENE8
         } else {
             return;
         }
@@ -291,7 +303,7 @@ public class AsherVale extends javax.swing.JPanel {
 
     private void advanceDialogue() {
         if (timer != null && timer.isRunning()) {
-            timer.stop(); //Skip Animation
+            timer.stop(); // Skip Animation
             stopTypewriterSound();
 
             if (dialogueIndex < SCENE1.length) {
@@ -306,12 +318,16 @@ public class AsherVale extends javax.swing.JPanel {
                 lblDialogue.setText(SCENE5[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length]);
             } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length < SCENE6.length) {
                 lblDialogue.setText(SCENE6[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length]);
+            } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length < SCENE7.length) {
+                lblDialogue.setText(SCENE7[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length]);
+            } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length < SCENE8.length) {
+                lblDialogue.setText(SCENE8[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length]);
             }
         } else {
             dialogueIndex++;
 
-            //Move To SCENE 6
-            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length) {
+            // Move To SCENE 8
+            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length) {
                 lblDialogue.setText(""); // Clear
                 lblDialogue.revalidate();
                 lblDialogue.repaint();
@@ -358,7 +374,7 @@ public class AsherVale extends javax.swing.JPanel {
 
         lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene1_alleyway.png"))); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene1_alleyway3.png"))); // NOI18N
         add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
