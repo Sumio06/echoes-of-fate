@@ -146,7 +146,7 @@ public class RegisterScreen extends javax.swing.JPanel {
 
         lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/loginandregisterbackground.jpg"))); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/echoesoffatebg.png"))); // NOI18N
         add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 

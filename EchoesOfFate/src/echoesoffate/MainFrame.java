@@ -27,6 +27,8 @@ public class MainFrame extends javax.swing.JFrame {
     
     public MainFrame() {
         
+        setUndecorated(true);
+        
         //Designs
         initComponents(); 
         

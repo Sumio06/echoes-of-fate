@@ -49,11 +49,7 @@ public class AsherVale extends javax.swing.JPanel {
         "(His legs give out. He collapses onto the pavement)",
         "(His chest rises. Falls. Shudders)",
         "(The killer lingers, watching. Then, without a word, they disappear into the darkness)",
-        "(The alley falls silent, except for the faint, dying echo of Kieran’s last breath)"
-    };
-    
-    private String[] SCENE2 = {
-        "(The alley remains still, the neon lights flickering faintly once more)",
+        "(The alley falls silent, except for the faint, dying echo of Kieran’s last breath)",
         "(The city is alive-music, laughter, distant sirens. But in this alley, it’s suffocatingly quiet)",
         "(Asher Vale moves quickly, his breath uneven. His heart pounds in his chest)",
         "(His phone is in his hand. No new messages. No calls)",
@@ -70,7 +66,10 @@ public class AsherVale extends javax.swing.JPanel {
         "(Asher’s breath catches. His chest tightens. No. No, no, no)",
         "(He presses two fingers to Kieran’s neck. Nothing.)",
         "Asher (barely a whisper): No… no, no, no...",
-        "(His hands tremble. His vision blurs)",
+        "(His hands tremble. His vision blurs)"
+    };
+    
+    private String[] SCENE2 = {
         "(Then, a noise. Footsteps. Distant, but fast. Someone is running)",
         "(Asher’s head snaps up)",
         "(At the far end of the alley, a shadowy figure turns the corner, vanishing)",
@@ -82,10 +81,10 @@ public class AsherVale extends javax.swing.JPanel {
         "(The killer cuts left, Asher follows. He’s so close, almost close enough to reach out and grab...)",
         "(Then, the figure suddenly disappears.)",
         "(Asher skids to a stop, chest heaving. He looks around wildly. No sign of them)",
-        "(Then, he sees it. A door. Old. Rusted. It wasn’t there before)"
     };
     
     private String[] SCENE3 = {
+        "(Then, he sees it. A door. Old. Rusted. It wasn’t there before)",
         "(Asher stands before the old, weathered door, his breath still ragged from the chase)",
         "(The killer is gone. Vanished. But this door... it wasn’t here before)",
         "Asher (gritted teeth): Tch... Did they go in here?",
@@ -359,7 +358,7 @@ public class AsherVale extends javax.swing.JPanel {
 
         lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/loginandregisterbackground.jpg"))); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene1_alleyway.png"))); // NOI18N
         add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
