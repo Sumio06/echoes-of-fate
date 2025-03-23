@@ -12,12 +12,13 @@ package echoesoffate;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class BackgroundMusic {
     private static BackgroundMusic instance;
     private Clip clip;
 
-    private BackgroundMusic() {}
+    private BackgroundMusic() {} // Private constructor
 
     public static BackgroundMusic getInstance() {
         if (instance == null) {
@@ -26,15 +27,19 @@ public class BackgroundMusic {
         return instance;
     }
 
-    public void playMusic(String filepath) {
-        if (clip != null && clip.isRunning()) return;
-        
+    public void playMusic(String filename) {
+        if (clip != null && clip.isRunning()) return; // Prevent restarting
+
         try {
-            File file = new File(filepath);
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(filename);
+            if (inputStream == null) {
+                System.out.println("Music file not found: " + filename);
+                return;
+            }
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(inputStream);
             clip = AudioSystem.getClip();
             clip.open(audioStream);
-            clip.loop(Clip.LOOP_CONTINUOUSLY);
+            clip.loop(Clip.LOOP_CONTINUOUSLY); // Loop forever
             clip.start();
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
