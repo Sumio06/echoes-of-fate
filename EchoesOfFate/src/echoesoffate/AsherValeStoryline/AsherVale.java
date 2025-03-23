@@ -370,7 +370,7 @@ public class AsherVale extends javax.swing.JPanel {
         lblContinue.setText("Click to continue...");
         add(lblContinue, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 750, -1, -1));
 
-        lblDialogue.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
+        lblDialogue.setFont(new java.awt.Font("Lucida Fax", 0, 24)); // NOI18N
         lblDialogue.setForeground(new java.awt.Color(255, 255, 255));
         lblDialogue.setText("[Dialogue]");
         add(lblDialogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 610, -1, -1));

@@ -15,12 +15,17 @@ package echoesoffate;
 import echoesoffate.ashervalestoryline.AsherVale;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 public class MainFrame extends javax.swing.JFrame {
     
     //Changing Of Screens From One JFrame To Another
     private CardLayout cardLayout;
     private JPanel mainPanel;
+    private Clip clip;
     
     //Username and Password
     public UserData userData;
@@ -57,7 +62,8 @@ public class MainFrame extends javax.swing.JFrame {
         setVisible(true);
         
         //Automatic Scale Of Screen
-        this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);  
+        this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+        playBackgroundMusic("src/echoesoffate/echoesoffateassets/background_music.wav");
     }
   
     @SuppressWarnings("unchecked")
@@ -70,19 +76,50 @@ public class MainFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-        
-     public void showScreen(String screenName) {
-         
-         //Update The Username and Password TextFields After Register
-         if (screenName.equals("Login")) {
-        ((LoginScreen) mainPanel.getComponent(0)).updateTextFields();
-    }       
-         //Update lblMsg After Register
-         if (screenName.equals("Menu")) {
-        ((MainMenu) mainPanel.getComponent(1)).updateData();
+     
+    private void playBackgroundMusic(String filepath) {
+        try {
+            // Check if the same music is already playing to prevent unnecessary restarts
+            if (clip != null && clip.isRunning()) {
+                String currentTrack = clip.getMicrosecondPosition() > 0 ? clip.toString() : "";
+                if (currentTrack.equals(filepath)) {
+                    return; // Do nothing if the same track is already playing
+                }
+                clip.stop();
+                clip.close();
+            }
+
+            File soundFile = new File(filepath);
+            if (!soundFile.exists()) {
+                System.out.println("File not found: " + soundFile.getAbsolutePath());
+                return;
+            }
+
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+            clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+            clip.start();
+
+            System.out.println("Playing: " + soundFile.getAbsolutePath());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-         
-        //To Change Screens
+
+    public void showScreen(String screenName) {
+        if (screenName.equals("Login")) {
+            ((LoginScreen) mainPanel.getComponent(0)).updateTextFields();
+        }       
+        if (screenName.equals("Menu")) {
+            ((MainMenu) mainPanel.getComponent(1)).updateData();
+        }
+        if (screenName.equals("AsherVale")) {
+            playBackgroundMusic("src/echoesoffate/echoesoffateassets/gameplay_background_music.wav");
+        } else if (clip == null || !clip.isRunning()) {
+            playBackgroundMusic("src/echoesoffate/echoesoffateassets/background_music.wav");
+        }
+
         cardLayout.show(mainPanel, screenName);
     }
      
@@ -126,7 +163,6 @@ public class MainFrame extends javax.swing.JFrame {
         System.out.println("Working..");
         
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

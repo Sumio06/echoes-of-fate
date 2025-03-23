@@ -23,7 +23,6 @@ public class LoginScreen extends javax.swing.JPanel {
     UserData userData; 
     
     public LoginScreen(MainFrame frame, UserData userData) {
-       BackgroundMusic.getInstance().playMusic("src/echoesoffateassets/authentication_background_music.wav");
        this.userData = userData;
        this.frame = frame;
        initComponents(); 
