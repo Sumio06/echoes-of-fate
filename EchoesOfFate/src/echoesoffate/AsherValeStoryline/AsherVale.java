@@ -284,7 +284,7 @@ public class AsherVale extends javax.swing.JPanel {
             displayText(SCENE2[dialogueIndex - SCENE1.length]);
         } else if (dialogueIndex - SCENE1.length - SCENE2.length < SCENE3.length) {
             if (dialogueIndex == SCENE1.length + SCENE2.length) lblDialogue.setText("");
-             lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene3_door.png"))); // Scene 3 background 
+            lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene3_door.png"))); // Scene 3 background 
             displayText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]);
         } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length < SCENE4.length) {
             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length) lblDialogue.setText("");
@@ -292,11 +292,11 @@ public class AsherVale extends javax.swing.JPanel {
             displayText(SCENE4[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length]);
         } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length < SCENE5.length) {
             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length) lblDialogue.setText("");
-           lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene5_time_distortion.png"))); // Scene 5 background
+            lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene5_time_distortion.png"))); // Scene 5 background
             displayText(SCENE5[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length]);
         } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length < SCENE6.length) {
             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length) lblDialogue.setText("");
-          //  lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene6_phone_booth.png"))); // Scene 6 background
+            lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene6_phone_booth.png"))); // Scene 6 background
             displayText(SCENE6[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length]);
         } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length < SCENE7.length) {
             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length) lblDialogue.setText("");
@@ -370,7 +370,7 @@ public class AsherVale extends javax.swing.JPanel {
         lblContinue.setText("Click to continue...");
         add(lblContinue, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 750, -1, -1));
 
-        lblDialogue.setFont(new java.awt.Font("Lucida Fax", 0, 24)); // NOI18N
+        lblDialogue.setFont(new java.awt.Font("Lucida Fax", 0, 22)); // NOI18N
         lblDialogue.setForeground(new java.awt.Color(255, 255, 255));
         lblDialogue.setText("[Dialogue]");
         add(lblDialogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 610, -1, -1));
