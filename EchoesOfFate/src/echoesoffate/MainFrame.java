@@ -34,34 +34,27 @@ public class MainFrame extends javax.swing.JFrame {
         
         setUndecorated(true);
         
-        //Designs
         initComponents(); 
         
-        //Initializations
         userData = new UserData();     
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
 
-        //Insantiations
         LoginScreen loginScreen = new LoginScreen(this, userData);
         MainMenu mainMenu = new MainMenu(this, userData);
         RegisterScreen registerScreen = new RegisterScreen(this, userData);
         ChooseCharacter chooseCharacter = new ChooseCharacter(this, userData);
         AsherVale asherVale = new AsherVale(this);
         
-        
-        //Adding Of Screens In The CardLayout
         mainPanel.add(loginScreen, "Login");
         mainPanel.add(mainMenu, "Menu");
         mainPanel.add(registerScreen, "Register");
         mainPanel.add(chooseCharacter, "ChooseCharacter");
         mainPanel.add(asherVale, "AsherVale");
 
-        //To Show The Screens In The CardLayout
         setContentPane(mainPanel);
         setVisible(true);
         
-        //Automatic Scale Of Screen
         this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
         playBackgroundMusic("src/echoesoffate/echoesoffateassets/background_music.wav");
     }
@@ -79,11 +72,10 @@ public class MainFrame extends javax.swing.JFrame {
      
     private void playBackgroundMusic(String filepath) {
         try {
-            // Check if the same music is already playing to prevent unnecessary restarts
             if (clip != null && clip.isRunning()) {
                 String currentTrack = clip.getMicrosecondPosition() > 0 ? clip.toString() : "";
                 if (currentTrack.equals(filepath)) {
-                    return; // Do nothing if the same track is already playing
+                    return;
                 }
                 clip.stop();
                 clip.close();
@@ -116,6 +108,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
         if (screenName.equals("AsherVale")) {
             playBackgroundMusic("src/echoesoffate/echoesoffateassets/gameplay_background_music.wav");
+            ((AsherVale) mainPanel.getComponent(4)).startDialogue();
         } else if (clip == null || !clip.isRunning()) {
             playBackgroundMusic("src/echoesoffate/echoesoffateassets/background_music.wav");
         }

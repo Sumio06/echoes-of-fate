@@ -215,19 +215,15 @@ public class AsherVale extends javax.swing.JPanel {
         this.frame = frame;
         initComponents();
         lblDialogue.setText("");
-
-        lblDialogue.setText(""); // Ensure it's initialized
+        
         lblDialogue.revalidate();
         lblDialogue.repaint();
-        //Typewriter Effect
-        new Timer(10000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ((Timer) e.getSource()).stop();
-                showNextDialogue();
-            }
-        }).start();
         btnContinue.addActionListener(e -> advanceDialogue());
+    }
+    
+    public void startDialogue() {
+        dialogueIndex = 0;
+        showNextDialogue();
     }
 
     private void playTypewriterSound() {
@@ -273,79 +269,86 @@ public class AsherVale extends javax.swing.JPanel {
         });
         timer.start();
     }
-    
-   private void showNextDialogue() {
-        if (dialogueIndex < SCENE1.length) {
 
-            displayText(SCENE1[dialogueIndex]);
-        } else if (dialogueIndex - SCENE1.length < SCENE2.length) {
-            if (dialogueIndex == SCENE1.length) lblDialogue.setText("");
-            lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene2_alleyway.png"))); // Scene 2 background 
-            displayText(SCENE2[dialogueIndex - SCENE1.length]);
-        } else if (dialogueIndex - SCENE1.length - SCENE2.length < SCENE3.length) {
-            if (dialogueIndex == SCENE1.length + SCENE2.length) lblDialogue.setText("");
-            lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene3_door.png"))); // Scene 3 background 
-            displayText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]);
-        } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length < SCENE4.length) {
-            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length) lblDialogue.setText("");
-            lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene4_corridor.png"))); // Scene 4 background
-            displayText(SCENE4[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length]);
-        } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length < SCENE5.length) {
-            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length) lblDialogue.setText("");
-            lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene5_time_distortion.png"))); // Scene 5 background
-            displayText(SCENE5[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length]);
-        } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length < SCENE6.length) {
-            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length) lblDialogue.setText("");
-            lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene6_phone_booth.png"))); // Scene 6 background
-            displayText(SCENE6[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length]);
-        } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length < SCENE7.length) {
-            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length) lblDialogue.setText("");
-           // lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene7_reality_shift.png"))); // Scene 7 background
-            displayText(SCENE7[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length]);
-        } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length < SCENE8.length) {
-            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length) lblDialogue.setText("");
-          //  lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene8_bar.png"))); // Scene 8 background
-            displayText(SCENE8[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length]);
-        } else {
-            return;
-        }
-    }
+    private void showNextDialogue() {
+         if (dialogueIndex < SCENE1.length) {
+             displayText(SCENE1[dialogueIndex]);
+         } else if (dialogueIndex - SCENE1.length < SCENE2.length) {
+             if (dialogueIndex == SCENE1.length) lblDialogue.setText("");
+             lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene2_alleyway.png"))); // Scene 2 background 
+             displayText(SCENE2[dialogueIndex - SCENE1.length]);
+         } else if (dialogueIndex - SCENE1.length - SCENE2.length < SCENE3.length) {
+             if (dialogueIndex == SCENE1.length + SCENE2.length) lblDialogue.setText("");
+             lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene3_door.png"))); // Scene 3 background 
+             displayText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]);
+         } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length < SCENE4.length) {
+             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length) lblDialogue.setText("");
+             lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene4_corridor.png"))); // Scene 4 background
+             displayText(SCENE4[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length]);
+         } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length < SCENE5.length) {
+             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length) lblDialogue.setText("");
+             lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene5_time_distortion.png"))); // Scene 5 background
+             displayText(SCENE5[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length]);
+         } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length < SCENE6.length) {
+             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length) lblDialogue.setText("");
+             // lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene6_phone_booth.png"))); // Scene 6 background
+             displayText(SCENE6[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length]);
+         } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length < SCENE7.length) {
+             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length) lblDialogue.setText("");
+            // lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene7_reality_shift.png"))); // Scene 7 background
+             displayText(SCENE7[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length]);
+         } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length < SCENE8.length) {
+             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length) lblDialogue.setText("");
+           //  lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene8_bar.png"))); // Scene 8 background
+             displayText(SCENE8[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length]);
+         } else {
+             return;
+         }
+     }
 
+    private void startTypewriterEffect() {
+         new Timer(1000, new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                 ((Timer) e.getSource()).stop();
+                 showNextDialogue();
+             }
+         }).start();
+     }
 
-    private void advanceDialogue() {
-        if (timer != null && timer.isRunning()) {
-            timer.stop(); // Skip Animation
-            stopTypewriterSound();
+     private void advanceDialogue() {
+         if (timer != null && timer.isRunning()) {
+             timer.stop();
+             stopTypewriterSound();
 
-            if (dialogueIndex < SCENE1.length) {
-                lblDialogue.setText(SCENE1[dialogueIndex]);
-            } else if (dialogueIndex - SCENE1.length < SCENE2.length) {
-                lblDialogue.setText(SCENE2[dialogueIndex - SCENE1.length]);
-            } else if (dialogueIndex - SCENE1.length - SCENE2.length < SCENE3.length) {
-                lblDialogue.setText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]);
-            } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length < SCENE4.length) {
-                lblDialogue.setText(SCENE4[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length]);
-            } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length < SCENE5.length) {
-                lblDialogue.setText(SCENE5[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length]);
-            } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length < SCENE6.length) {
-                lblDialogue.setText(SCENE6[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length]);
-            } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length < SCENE7.length) {
-                lblDialogue.setText(SCENE7[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length]);
-            } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length < SCENE8.length) {
-                lblDialogue.setText(SCENE8[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length]);
-            }
-        } else {
-            dialogueIndex++;
+             if (dialogueIndex < SCENE1.length) {
+                 lblDialogue.setText(SCENE1[dialogueIndex]);
+             } else if (dialogueIndex - SCENE1.length < SCENE2.length) {
+                 lblDialogue.setText(SCENE2[dialogueIndex - SCENE1.length]);
+             } else if (dialogueIndex - SCENE1.length - SCENE2.length < SCENE3.length) {
+                 lblDialogue.setText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]);
+             } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length < SCENE4.length) {
+                 lblDialogue.setText(SCENE4[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length]);
+             } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length < SCENE5.length) {
+                 lblDialogue.setText(SCENE5[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length]);
+             } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length < SCENE6.length) {
+                 lblDialogue.setText(SCENE6[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length]);
+             } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length < SCENE7.length) {
+                 lblDialogue.setText(SCENE7[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length]);
+             } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length < SCENE8.length) {
+                 lblDialogue.setText(SCENE8[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length]);
+             }
+         } else {
+             dialogueIndex++;
 
-            // Move To SCENE 8
-            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length) {
-                lblDialogue.setText(""); // Clear
-                lblDialogue.revalidate();
-                lblDialogue.repaint();
-            }
-
-            showNextDialogue();
-        }
+             // Move To SCENE 8
+             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length) {
+                 lblDialogue.setText(""); // Clear
+                 lblDialogue.revalidate();
+                 lblDialogue.repaint();
+             }
+             showNextDialogue();
+         }
     }
 
     @SuppressWarnings("unchecked")
@@ -365,7 +368,7 @@ public class AsherVale extends javax.swing.JPanel {
         btnContinue.setContentAreaFilled(false);
         add(btnContinue, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 570, 1430, 230));
 
-        lblContinue.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
+        lblContinue.setFont(new java.awt.Font("Lucida Fax", 0, 22)); // NOI18N
         lblContinue.setForeground(new java.awt.Color(255, 255, 255));
         lblContinue.setText("Click to continue...");
         add(lblContinue, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 750, -1, -1));
