@@ -23,34 +23,24 @@ public class LoginScreen extends javax.swing.JPanel {
     UserData userData; 
     
     public LoginScreen(MainFrame frame, UserData userData) {
-        
+       BackgroundMusic.getInstance().playMusic("src/echoesoffateassets/authentication_background_music.wav");
        this.userData = userData;
        this.frame = frame;
        initComponents(); 
        
-      
-         btnLogin.addActionListener(e -> {
-            String enteredUsername = userData.getUsername();
-            
-            //Password Validation
-            if (!userData.getUsername().equals(txtUsername.getText()) || !userData.getPassword().equals(txtPassword.getText())) {
-            JOptionPane.showMessageDialog(this, "Username Not Found!", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }   
-             
-            if (userData.getUsername().equals("") || userData.getPassword().equals("")) {
-            JOptionPane.showMessageDialog(this, "Username Not Found!", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }   
-             
-            //Test
-            System.out.println("Logging in as: " + enteredUsername);
-                
-            //Switch to MainMenu
-            frame.showScreen("Menu");
-        });
-         
-       //To Register Screen
+       btnLogin.addActionListener(e -> {
+           String enteredUsername = userData.getUsername();
+           if (!userData.getUsername().equals(txtUsername.getText()) || !userData.getPassword().equals(txtPassword.getText())) {
+           JOptionPane.showMessageDialog(this, "Username Not Found!", "Error", JOptionPane.ERROR_MESSAGE);
+           return;
+       }   
+           if (userData.getUsername().equals("") || userData.getPassword().equals("")) {
+           JOptionPane.showMessageDialog(this, "Username Not Found!", "Error", JOptionPane.ERROR_MESSAGE);
+           return;
+       }   
+           System.out.println("Logging in as: " + enteredUsername);
+           frame.showScreen("Menu");
+       });
        btnRegister.addActionListener(e -> frame.showScreen("Register"));      
     }
     
