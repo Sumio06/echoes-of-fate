@@ -5,14 +5,12 @@
 package AsherValeStoryline;
 
 import echoesoffate.MainFrame;
-import echoesoffate.UserData;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
 /**
@@ -271,40 +269,40 @@ public class AsherVale extends javax.swing.JPanel {
     }
 
     private void showNextDialogue() {
-         if (dialogueIndex < SCENE1.length) {
+        if (dialogueIndex < SCENE1.length) {
             displayText(SCENE1[dialogueIndex]);
-         } else if (dialogueIndex - SCENE1.length < SCENE2.length) {
-             if (dialogueIndex == SCENE1.length) lblDialogue.setText("");
+        } else if (dialogueIndex - SCENE1.length < SCENE2.length) {
+            if (dialogueIndex == SCENE1.length) lblDialogue.setText("");
             lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene2_alleyway.png"))); // Scene 2 background 
             displayText(SCENE2[dialogueIndex - SCENE1.length]);
-         } else if (dialogueIndex - SCENE1.length - SCENE2.length < SCENE3.length) {
-             if (dialogueIndex == SCENE1.length + SCENE2.length) lblDialogue.setText("");
+        } else if (dialogueIndex - SCENE1.length - SCENE2.length < SCENE3.length) {
+            if (dialogueIndex == SCENE1.length + SCENE2.length) lblDialogue.setText("");
             lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene3_door.png"))); // Scene 3 background 
             displayText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]);
-         } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length < SCENE4.length) {
-             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length) lblDialogue.setText("");
+        } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length < SCENE4.length) {
+            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length) lblDialogue.setText("");
             lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene4_corridor.png"))); // Scene 4 background
             displayText(SCENE4[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length]);
-         } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length < SCENE5.length) {
-             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length) lblDialogue.setText("");
+        } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length < SCENE5.length) {
+            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length) lblDialogue.setText("");
             lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene5_time_distortion.png"))); // Scene 5 background
             displayText(SCENE5[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length]);
-         } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length < SCENE6.length) {
-             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length) lblDialogue.setText("");
+        } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length < SCENE6.length) {
+            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length) lblDialogue.setText("");
             lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene6_phone_booth.png"))); // Scene 6 background
             displayText(SCENE6[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length]);
-         } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length < SCENE7.length) {
-             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length) lblDialogue.setText("");
+        } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length < SCENE7.length) {
+            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length) lblDialogue.setText("");
             lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene7_reality_shift.png"))); // Scene 7 background
             displayText(SCENE7[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length]);
-         } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length < SCENE8.length) {
-             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length) lblDialogue.setText("");
+        } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length < SCENE8.length) {
+            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length) lblDialogue.setText("");
             lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene8_bar.png"))); // Scene 8 background
             displayText(SCENE8[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length]);
-         } else {
+        } else {
              frame.showScreen("AsherValeItaewonGameplay1");
-         }
-     }
+        }
+    }
 
     private void advanceDialogue() {
         if (timer != null && timer.isRunning()) {

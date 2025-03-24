@@ -10,7 +10,6 @@ package echoesoffate;
  */
 
 import javax.swing.*;
-import java.awt.*;
 
 public class MainMenu extends javax.swing.JPanel {
 

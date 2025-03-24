@@ -8,6 +8,7 @@ package echoesoffate;
  *
  * @author Kean Saligue
  */
+
 public class UserData {
     private String username;
     private String password;

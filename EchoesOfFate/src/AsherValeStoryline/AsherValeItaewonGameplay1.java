@@ -5,7 +5,6 @@
 package AsherValeStoryline;
 
 import echoesoffate.MainFrame;
-import echoesoffate.UserData;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;

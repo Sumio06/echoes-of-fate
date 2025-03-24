@@ -9,9 +9,6 @@ package echoesoffate;
  * @author Kean Saligue
  */
 
-
-//Main Game Window
-
 import AsherValeStoryline.AsherValeItaewonGameplay1;
 import AsherValeStoryline.AsherVale;
 import javax.swing.*;

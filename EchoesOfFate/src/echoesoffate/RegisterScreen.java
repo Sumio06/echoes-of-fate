@@ -10,7 +10,6 @@ package echoesoffate;
  */
 
 import javax.swing.*;
-import java.awt.*;
 
 public class RegisterScreen extends javax.swing.JPanel {
     private UserData userData;
