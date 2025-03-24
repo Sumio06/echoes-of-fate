@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package echoesoffate.ashervalestoryline;
+package AsherValeStoryline;
 
 import echoesoffate.MainFrame;
 import echoesoffate.UserData;
@@ -231,7 +231,7 @@ public class AsherVale extends javax.swing.JPanel {
             if (typewriterClip != null && typewriterClip.isRunning()) {
                 typewriterClip.stop();
             }
-            File soundFile = new File("src/echoesoffate/echoesoffateassets/typings.wav");
+            File soundFile = new File("src/echoesoffateassets/typings.wav");
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
             typewriterClip = AudioSystem.getClip();
             typewriterClip.open(audioStream);
@@ -302,53 +302,48 @@ public class AsherVale extends javax.swing.JPanel {
             lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene8_bar.png"))); // Scene 8 background
             displayText(SCENE8[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length]);
          } else {
-             return;
+             frame.showScreen("AsherValeItaewonGameplay1");
          }
      }
 
-    private void startTypewriterEffect() {
-         new Timer(1000, new ActionListener() {
-             @Override
-             public void actionPerformed(ActionEvent e) {
-                 ((Timer) e.getSource()).stop();
-                 showNextDialogue();
-             }
-         }).start();
-     }
+    private void advanceDialogue() {
+        if (timer != null && timer.isRunning()) {
+            timer.stop();
+            stopTypewriterSound();
 
-     private void advanceDialogue() {
-         if (timer != null && timer.isRunning()) {
-             timer.stop();
-             stopTypewriterSound();
+            if (dialogueIndex < SCENE1.length) {
+                lblDialogue.setText(SCENE1[dialogueIndex]);
+            } else if (dialogueIndex - SCENE1.length < SCENE2.length) {
+                lblDialogue.setText(SCENE2[dialogueIndex - SCENE1.length]);
+            } else if (dialogueIndex - SCENE1.length - SCENE2.length < SCENE3.length) {
+                lblDialogue.setText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]);
+            } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length < SCENE4.length) {
+                lblDialogue.setText(SCENE4[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length]);
+            } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length < SCENE5.length) {
+                lblDialogue.setText(SCENE5[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length]);
+            } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length < SCENE6.length) {
+                lblDialogue.setText(SCENE6[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length]);
+            } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length < SCENE7.length) {
+                lblDialogue.setText(SCENE7[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length]);
+            } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length < SCENE8.length) {
+                lblDialogue.setText(SCENE8[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length]);
+            }
+        } else {
+            dialogueIndex++;
 
-             if (dialogueIndex < SCENE1.length) {
-                 lblDialogue.setText(SCENE1[dialogueIndex]);
-             } else if (dialogueIndex - SCENE1.length < SCENE2.length) {
-                 lblDialogue.setText(SCENE2[dialogueIndex - SCENE1.length]);
-             } else if (dialogueIndex - SCENE1.length - SCENE2.length < SCENE3.length) {
-                 lblDialogue.setText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]);
-             } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length < SCENE4.length) {
-                 lblDialogue.setText(SCENE4[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length]);
-             } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length < SCENE5.length) {
-                 lblDialogue.setText(SCENE5[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length]);
-             } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length < SCENE6.length) {
-                 lblDialogue.setText(SCENE6[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length]);
-             } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length < SCENE7.length) {
-                 lblDialogue.setText(SCENE7[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length]);
-             } else if (dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length < SCENE8.length) {
-                 lblDialogue.setText(SCENE8[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length]);
-             }
-         } else {
-             dialogueIndex++;
-
-             // Move To SCENE 8
-             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length) {
-                 lblDialogue.setText(""); // Clear
-                 lblDialogue.revalidate();
-                 lblDialogue.repaint();
-             }
-             showNextDialogue();
-         }
+            int totalDialogues = SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + 
+                                 SCENE5.length + SCENE6.length + SCENE7.length + SCENE8.length;
+            if (dialogueIndex == totalDialogues - SCENE8.length) {
+                lblDialogue.setText("");
+                lblDialogue.revalidate();
+                lblDialogue.repaint();
+            }
+            if (dialogueIndex >= totalDialogues) {
+                frame.showScreen("AsherValeItaewonGameplay1");
+                return;
+            }
+            showNextDialogue();
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -366,6 +361,11 @@ public class AsherVale extends javax.swing.JPanel {
         btnContinue.setBackground(new java.awt.Color(36, 43, 53, 100));
         btnContinue.setForeground(new java.awt.Color(255, 255, 255));
         btnContinue.setContentAreaFilled(false);
+        btnContinue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContinueActionPerformed(evt);
+            }
+        });
         add(btnContinue, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 570, 1430, 230));
 
         lblContinue.setFont(new java.awt.Font("Lucida Fax", 0, 22)); // NOI18N
@@ -391,6 +391,10 @@ public class AsherVale extends javax.swing.JPanel {
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/echoesoffateassets/scene1_alleyway.png"))); // NOI18N
         add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnContinueActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

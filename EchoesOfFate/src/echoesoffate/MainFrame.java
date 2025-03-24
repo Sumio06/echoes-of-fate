@@ -12,7 +12,8 @@ package echoesoffate;
 
 //Main Game Window
 
-import echoesoffate.ashervalestoryline.AsherVale;
+import AsherValeStoryline.AsherValeItaewonGameplay1;
+import AsherValeStoryline.AsherVale;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -22,12 +23,10 @@ import javax.sound.sampled.Clip;
 
 public class MainFrame extends javax.swing.JFrame {
     
-    //Changing Of Screens From One JFrame To Another
     private CardLayout cardLayout;
     private JPanel mainPanel;
     private Clip clip;
     
-    //Username and Password
     public UserData userData;
     
     public MainFrame() {
@@ -45,18 +44,20 @@ public class MainFrame extends javax.swing.JFrame {
         RegisterScreen registerScreen = new RegisterScreen(this, userData);
         ChooseCharacter chooseCharacter = new ChooseCharacter(this, userData);
         AsherVale asherVale = new AsherVale(this);
+        AsherValeItaewonGameplay1 asherValeGameplay1 = new AsherValeItaewonGameplay1(this);
         
         mainPanel.add(loginScreen, "Login");
         mainPanel.add(mainMenu, "Menu");
         mainPanel.add(registerScreen, "Register");
         mainPanel.add(chooseCharacter, "ChooseCharacter");
         mainPanel.add(asherVale, "AsherVale");
+        mainPanel.add(asherValeGameplay1, "AsherValeItaewonGameplay1");
 
         setContentPane(mainPanel);
         setVisible(true);
         
         this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
-        playBackgroundMusic("src/echoesoffate/echoesoffateassets/background_music.wav");
+        playBackgroundMusic("src/echoesoffateassets/background_music.wav");
     }
   
     @SuppressWarnings("unchecked")
@@ -107,17 +108,15 @@ public class MainFrame extends javax.swing.JFrame {
             ((MainMenu) mainPanel.getComponent(1)).updateData();
         }
         if (screenName.equals("AsherVale")) {
-            playBackgroundMusic("src/echoesoffate/echoesoffateassets/gameplay_background_music.wav");
+            playBackgroundMusic("src/echoesoffateassets/gameplay_background_music.wav");
             ((AsherVale) mainPanel.getComponent(4)).startDialogue();
         } else if (clip == null || !clip.isRunning()) {
-            playBackgroundMusic("src/echoesoffate/echoesoffateassets/background_music.wav");
+            playBackgroundMusic("src/echoesoffateassets/background_music.wav");
         }
-
         cardLayout.show(mainPanel, screenName);
     }
      
-     //Updating The Attributes Of userData
-      public void setUserData(String username, String password) {
+    public void setUserData(String username, String password) {
         userData.setUsername(username);
         userData.setPassword(password);
     }

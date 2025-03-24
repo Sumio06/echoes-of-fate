@@ -24,26 +24,27 @@ public class ChooseCharacter extends javax.swing.JPanel {
         btnBack.addActionListener(e -> frame.showScreen("Menu"));
     }
     
-       private void setupButtonActions() {
+    private void setupButtonActions() {
         btnCelesteNakamura.addActionListener(e -> selectCharacter("CelesteNakamura", "Celeste Nakamura"));
         btnRenTakahashi.addActionListener(e -> selectCharacter("RenTakahashi", "Ren Takahashi"));
         btnAsherVale.addActionListener(e -> selectCharacter("AsherVale", "Asher Vale"));
     }
        
-        private void selectCharacter(String characterName, String character) {
-          int confirm = JOptionPane.showConfirmDialog(
+    private void selectCharacter(String characterName, String character) {
+        int confirm = JOptionPane.showConfirmDialog(
         this,
         "Are you sure you want to select " + character + "?",
         "Confirm Character Selection",
         JOptionPane.YES_NO_OPTION
     );
 
-    if (confirm == JOptionPane.YES_OPTION) { 
-        userData.setCharacter(characterName); 
-        System.out.println("Selected Character: " + userData.getCharacter());
-        frame.showScreen(characterName);
+        if (confirm == JOptionPane.YES_OPTION) { 
+            userData.setCharacter(characterName); 
+            System.out.println("Selected Character: " + userData.getCharacter());
+            frame.showScreen(characterName);
+            //frame.showScreen("AsherValeItaewonGameplay1");
+        }
     }
-}
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
