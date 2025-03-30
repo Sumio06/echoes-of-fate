@@ -106,7 +106,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/echoesoffate/echoesoffateassets/scene1_alleyway.png"/>
+          <Image iconType="3" name="/echoesoffateassets/scene1_alleyway.png"/>
         </Property>
       </Properties>
       <Constraints>

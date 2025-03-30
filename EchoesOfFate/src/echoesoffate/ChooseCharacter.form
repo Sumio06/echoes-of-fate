@@ -202,7 +202,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/echoesoffate/echoesoffateassets/echoesoffatebg.png"/>
+          <Image iconType="3" name="/echoesoffateassets/echoesoffatebg.png"/>
         </Property>
       </Properties>
       <Constraints>
