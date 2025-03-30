@@ -5,6 +5,16 @@
 package AsherValeStoryline;
 
 import echoesoffate.MainFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.*;
 
 /**
  *
@@ -18,9 +28,126 @@ public class AsherValeItaewonGameplayBar extends javax.swing.JPanel {
     
     private MainFrame frame; 
     
+    private String[] SCENE1 = {
+        "(The door creaks as Asher steps inside)",
+        "The warm glow of hanging lights barely reaches the corners of the room.",
+        " The low hum of jazz plays from an old jukebox",
+        "(A bartender, wiping down glasses, barely glances up. A few patrons nurse their drinks, lost in their own worlds)",
+        "(Asher moves toward the bar, scanning the room)",
+        "Bartender (gruffly): Haven’t seen you ‘round here before",
+        "Asher (calmly): Just looking for someone. Kieran Vale. He used to come here",
+        "(The bartender’s hands pause for half a second before he keeps wiping the glass)",
+        "Bartender: Lotta folks come and go. Hard to remember names",
+        "(The bartender exhales through his nose, setting the glass down)",
+        "Bartender: Look, kid, people don’t ask too many questions in a place like this. But... yeah, he was here. Sat right there, corner booth. Alone. Seemed... tense",
+        "Asher: Tense?",
+        "Bartender: Like he was waiting for someone. Kept checking his phone. But whoever he was expecting? They never showed.",
+        "(Asher’s stomach tightens)",
+        "Asher: Did he talk to anyone?",
+        "Bartender (hesitates, then nods toward a table in the back): Ask her",
+        "(Asher follows his gaze. A woman sits alone, swirling a glass of whiskey. Sharp eyes. Like she sees more than she lets on)",
+        "(Asher exhales, then makes his way over)",
+    };
+
+    private int dialogueIndex = 0;
+    private int charIndex = 0;
+    private Timer timer;
+    private Clip typewriterClip;
+
     public AsherValeItaewonGameplayBar(MainFrame frame) {
         this.frame = frame;
         initComponents();
+        lblDialogue.setText("");
+        
+        lblDialogue.revalidate();
+        lblDialogue.repaint();
+        btnContinue.addActionListener(e -> advanceDialogue());
+        this.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                startDialogue();
+            }
+        });
+        btnContinue.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+        .put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0), "advance");
+        btnContinue.getActionMap().put("advance", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                advanceDialogue();
+            }
+        });
+    }
+    
+    public void startDialogue() {
+        dialogueIndex = 0;
+        showNextDialogue();
+    }
+
+    private void playTypewriterSound() {
+        try {
+            if (typewriterClip != null && typewriterClip.isRunning()) {
+                typewriterClip.stop();
+            }
+            File soundFile = new File("src/echoesoffateassets/typings.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+            typewriterClip = AudioSystem.getClip();
+            typewriterClip.open(audioStream);
+            typewriterClip.setFramePosition(0);
+            typewriterClip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void stopTypewriterSound() {
+        if (typewriterClip != null && typewriterClip.isRunning()) {
+            typewriterClip.stop();
+        }
+    }
+    
+    private void displayText(String text) {
+        charIndex = 0;
+        lblDialogue.setText("");
+
+        timer = new Timer(50, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (charIndex < text.length()) {
+                    lblDialogue.setText(lblDialogue.getText() + text.charAt(charIndex));
+                    if (charIndex % 3 == 0) {
+                        playTypewriterSound();
+                    }
+                    charIndex++;
+                } else {
+                    timer.stop();
+                    stopTypewriterSound();
+                }
+            }
+        });
+        timer.start();
+    }
+
+    private void showNextDialogue() {
+        if (dialogueIndex < SCENE1.length) {
+            displayText(SCENE1[dialogueIndex]); 
+            dialogueIndex++;
+        } else {
+            lblDialogue.setText("End of dialogue.");
+        }
+    }
+
+    private void advanceDialogue() {
+        if (timer != null && timer.isRunning()) {
+            timer.stop();
+            stopTypewriterSound();
+            lblDialogue.setText(SCENE1[dialogueIndex - 1]);
+        } else {
+            if (dialogueIndex >= SCENE1.length) {
+                lblDialogue.setText("End of dialogue.");
+                return;
+            }
+            showNextDialogue();
+        }
     }
 
     /**

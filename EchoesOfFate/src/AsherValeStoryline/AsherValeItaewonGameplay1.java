@@ -11,7 +11,7 @@ import java.io.File;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.swing.Timer;
+import javax.swing.*;
 
 /**
  *
@@ -38,6 +38,7 @@ public class AsherValeItaewonGameplay1 extends javax.swing.JPanel {
                 startGameplay();
             }
         });
+        btnDoor.getInputMap().put(KeyStroke.getKeyStroke("SPACE"), "none");
         btnDoor.addActionListener(e -> frame.showScreen("AsherValeItaewonGameplayBar"));
     }
 

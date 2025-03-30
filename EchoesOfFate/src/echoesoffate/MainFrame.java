@@ -110,7 +110,8 @@ public class MainFrame extends javax.swing.JFrame {
         if (screenName.equals("AsherVale")) {
             playBackgroundMusic("src/echoesoffateassets/gameplay_background_music.wav");
             ((AsherVale) mainPanel.getComponent(4)).startDialogue();
-        } else if (clip == null || !clip.isRunning()) {
+        } 
+        else if (clip == null || !clip.isRunning()) {
             playBackgroundMusic("src/echoesoffateassets/background_music.wav");
         }
         cardLayout.show(mainPanel, screenName);
