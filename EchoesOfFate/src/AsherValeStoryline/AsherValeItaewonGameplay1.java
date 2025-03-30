@@ -38,6 +38,7 @@ public class AsherValeItaewonGameplay1 extends javax.swing.JPanel {
                 startGameplay();
             }
         });
+        btnDoor.addActionListener(e -> frame.showScreen("AsherValeItaewonGameplayBar"));
     }
 
     private Timer typewriterTimer;
