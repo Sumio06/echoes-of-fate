@@ -196,11 +196,6 @@ public class AsherVale extends javax.swing.JPanel {
         "Asher (muttering): You always did love this place",
         "(His feet move before his mind can catch up. If he's back in time, he needs to start somewhere)",
         "(And maybe, just maybe, this place still holds something he missed before)",
-        "(He crosses the street and pushes open the door)",
-        "(Inside, the bar is dimly lit, filled with murmured conversations and the clinking of glasses)",
-        "(A few regulars glance up but quickly return to their drinks)",
-        "(The scent of whiskey and cheap cologne lingers in the air)",
-        "(Asher exhales slowly. If Kieran had a reason for coming here often, this is where he’ll find it)",
         "(The investigation begins)"
     };
     

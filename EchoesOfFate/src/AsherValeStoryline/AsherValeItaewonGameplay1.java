@@ -48,7 +48,7 @@ public class AsherValeItaewonGameplay1 extends javax.swing.JPanel {
     private Clip typewriterClip;
 
     public void startGameplay() {
-        playTypewriterEffect("Objective 1:", "Enter the bar...");
+        playTypewriterEffect("Objective:", "Enter the bar...");
     }
 
     private void playTypewriterEffect(String firstText, String secondText) {

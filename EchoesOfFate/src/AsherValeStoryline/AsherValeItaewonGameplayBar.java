@@ -32,20 +32,24 @@ public class AsherValeItaewonGameplayBar extends javax.swing.JPanel {
         "(The door creaks as Asher steps inside)",
         "The warm glow of hanging lights barely reaches the corners of the room.",
         " The low hum of jazz plays from an old jukebox",
-        "(A bartender, wiping down glasses, barely glances up. A few patrons nurse their drinks, lost in their own worlds)",
+        "(A bartender, wiping down glasses, barely glances up)",
+        "(A few patrons nurse their drinks, lost in their own worlds)",
         "(Asher moves toward the bar, scanning the room)",
         "Bartender (gruffly): Haven’t seen you ‘round here before",
         "Asher (calmly): Just looking for someone. Kieran Vale. He used to come here",
         "(The bartender’s hands pause for half a second before he keeps wiping the glass)",
         "Bartender: Lotta folks come and go. Hard to remember names",
         "(The bartender exhales through his nose, setting the glass down)",
-        "Bartender: Look, kid, people don’t ask too many questions in a place like this. But... yeah, he was here. Sat right there, corner booth. Alone. Seemed... tense",
+        "Bartender: Look, kid, people don’t ask too many questions in a place like this",
+        "But... yeah, he was here. Sat right there, corner booth. Alone. Seemed... tense",
         "Asher: Tense?",
-        "Bartender: Like he was waiting for someone. Kept checking his phone. But whoever he was expecting? They never showed.",
+        "Bartender: Like he was waiting for someone. Kept checking his phone",
+        "But whoever he was expecting? They never showed.",
         "(Asher’s stomach tightens)",
         "Asher: Did he talk to anyone?",
         "Bartender (hesitates, then nods toward a table in the back): Ask her",
-        "(Asher follows his gaze. A woman sits alone, swirling a glass of whiskey. Sharp eyes. Like she sees more than she lets on)",
+        "(Asher follows his gaze. A woman sits alone, swirling a glass of whiskey.)",
+        "(Sharp eyes. Like she sees more than she lets on)",
         "(Asher exhales, then makes his way over)",
     };
 
@@ -143,7 +147,7 @@ public class AsherValeItaewonGameplayBar extends javax.swing.JPanel {
             lblDialogue.setText(SCENE1[dialogueIndex - 1]);
         } else {
             if (dialogueIndex >= SCENE1.length) {
-                lblDialogue.setText("End of dialogue.");
+                frame.showScreen("AsherValeItaewonGameplayBar2");
                 return;
             }
             showNextDialogue();
@@ -197,8 +201,8 @@ public class AsherValeItaewonGameplayBar extends javax.swing.JPanel {
 
         lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/scene8_bar.png"))); // NOI18N
-        add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, -1, -1));
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/bar.png"))); // NOI18N
+        add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -80, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
