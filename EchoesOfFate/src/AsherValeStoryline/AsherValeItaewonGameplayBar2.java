@@ -121,42 +121,75 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         }
     }
     
-    private boolean isDialogueComplete = false;  // Flag to check if dialogue is complete
-    private boolean isSkipping = false;           // Flag to check if the user is skipping the dialogue
+    private boolean isDialogueComplete = false;  
+    private boolean isSkipping = false;
 
-    private void playDialogueTypewriterEffect(String text) {
-        lblDialogue.setText("");
-        charIndex = 0;
-        fullText = text;
-        playTypewriterSound();
+    private String[] dialogueLines;
+private int dialogueIndex = 0;
 
-        isDialogueComplete = false;
-        isSkipping = false;
+// Modify playDialogueTypewriterEffect to process multiple lines
+private void playDialogueTypewriterEffect(String[] lines) {
+    // Set the dialogueLines array and reset the index
+    dialogueLines = lines;
+    dialogueIndex = 0;
 
-        typewriterTimer = new Timer(50, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (isSkipping) {
-                    lblDialogue.setText(fullText);
+    // Make sure the dialogue label is visible and start the typewriter effect
+    lblDialogue.setVisible(true);
+    btnContinue.setVisible(true);
+    lblContinue.setVisible(true);
+    lblLoginFormBackground.setVisible(true);
+
+    // Start the typewriter effect
+    showNextLine();
+}
+
+private void showNextLine() {
+    if (dialogueIndex < dialogueLines.length) {
+        String currentLine = dialogueLines[dialogueIndex];
+        playTypewriterEffect(currentLine);
+        dialogueIndex++;
+    } else {
+        // If no more lines, reset or hide buttons and labels
+        lblDialogue.setVisible(false);
+        btnContinue.setVisible(false);
+        lblContinue.setVisible(false);
+        lblLoginFormBackground.setVisible(false);
+    }
+}
+
+private void playTypewriterEffect(String text) {
+    lblDialogue.setText("");
+    charIndex = 0;
+    fullText = text;
+    playTypewriterSound();
+
+    isDialogueComplete = false;
+    isSkipping = false;
+
+    typewriterTimer = new Timer(50, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (isSkipping) {
+                lblDialogue.setText(fullText);
+                typewriterTimer.stop();
+                stopTypewriterSound();
+                isDialogueComplete = true;
+            } else {
+                // Typewriter effect
+                if (charIndex < fullText.length()) {
+                    lblDialogue.setText(lblDialogue.getText() + fullText.charAt(charIndex));
+                    charIndex++;
+                } else {
                     typewriterTimer.stop();
                     stopTypewriterSound();
                     isDialogueComplete = true;
-                } else {
-                    // Typewriter effect
-                    if (charIndex < fullText.length()) {
-                        lblDialogue.setText(lblDialogue.getText() + fullText.charAt(charIndex));
-                        charIndex++;
-                    } else {
-                        typewriterTimer.stop();
-                        stopTypewriterSound();
-                        isDialogueComplete = true;
-                    }
                 }
             }
-        });
+        }
+    });
 
-        typewriterTimer.start();
-    }
+    typewriterTimer.start();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -276,54 +309,35 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBaristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaristaActionPerformed
-        playDialogueTypewriterEffect("Barista: 'It was a quiet night until that incident happened...");
-        lblDialogue.setVisible(true);
-        btnContinue.setVisible(true);
-        lblContinue.setVisible(true);
-        lblLoginFormBackground.setVisible(true);
+        String[] lines = {
+        "Barista: 'It was a quiet night until that incident happened...'",
+        "Barista: 'You won't believe what happened next...'"
+    };
+    playDialogueTypewriterEffect(lines);
     }//GEN-LAST:event_btnBaristaActionPerformed
 
     private void btnCloseFriendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseFriendActionPerformed
-        playDialogueTypewriterEffect("Barista: 'It was a quiet night until that incident happened...");
-        lblDialogue.setVisible(true);
-        btnContinue.setVisible(true);
-        lblContinue.setVisible(true);
-        lblLoginFormBackground.setVisible(true);
+        
     }//GEN-LAST:event_btnCloseFriendActionPerformed
 
     private void btnGlassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGlassActionPerformed
-        playDialogueTypewriterEffect("Barista: 'It was a quiet night until that incident happened...");
-        lblDialogue.setVisible(true);
-        btnContinue.setVisible(true);
-        lblContinue.setVisible(true);
-        lblLoginFormBackground.setVisible(true);
+        
     }//GEN-LAST:event_btnGlassActionPerformed
 
     private void btnStainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStainActionPerformed
-        playDialogueTypewriterEffect("Barista: 'It was a quiet night until that incident happened...");
-        lblDialogue.setVisible(true);
-        btnContinue.setVisible(true);
-        lblContinue.setVisible(true);
-        lblLoginFormBackground.setVisible(true);
+        
     }//GEN-LAST:event_btnStainActionPerformed
 
     private void btnNoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoteActionPerformed
-        playDialogueTypewriterEffect("Barista: 'It was a quiet night until that incident happened...");
-        lblDialogue.setVisible(true);
-        btnContinue.setVisible(true);
-        lblContinue.setVisible(true);
-        lblLoginFormBackground.setVisible(true);
+        
     }//GEN-LAST:event_btnNoteActionPerformed
 
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
         if (isDialogueComplete || isSkipping) {
-            lblDialogue.setVisible(false);
-            btnContinue.setVisible(false);
-            lblContinue.setVisible(false);
-            lblLoginFormBackground.setVisible(false);
-        } else {
-            isSkipping = true;
-        }
+        showNextLine(); // Move to the next line or exit if done
+    } else {
+        isSkipping = true;
+    }
     }//GEN-LAST:event_btnContinueActionPerformed
 
 
