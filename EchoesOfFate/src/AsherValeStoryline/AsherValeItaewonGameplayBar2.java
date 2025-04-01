@@ -125,72 +125,80 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     private boolean isSkipping = false;
 
     private String[] dialogueLines;
-private int dialogueIndex = 0;
+    private int dialogueIndex = 0;
 
-// Modify playDialogueTypewriterEffect to process multiple lines
-private void playDialogueTypewriterEffect(String[] lines) {
-    // Set the dialogueLines array and reset the index
-    dialogueLines = lines;
-    dialogueIndex = 0;
+    private void playDialogueTypewriterEffect(String[] lines) {
+        dialogueLines = lines;
+        dialogueIndex = 0;
 
-    // Make sure the dialogue label is visible and start the typewriter effect
-    lblDialogue.setVisible(true);
-    btnContinue.setVisible(true);
-    lblContinue.setVisible(true);
-    lblLoginFormBackground.setVisible(true);
+        lblDialogue.setVisible(true);
+        btnContinue.setVisible(true);
+        lblContinue.setVisible(true);
+        lblLoginFormBackground.setVisible(true);
 
-    // Start the typewriter effect
-    showNextLine();
-}
-
-private void showNextLine() {
-    if (dialogueIndex < dialogueLines.length) {
-        String currentLine = dialogueLines[dialogueIndex];
-        playTypewriterEffect(currentLine);
-        dialogueIndex++;
-    } else {
-        // If no more lines, reset or hide buttons and labels
-        lblDialogue.setVisible(false);
-        btnContinue.setVisible(false);
-        lblContinue.setVisible(false);
-        lblLoginFormBackground.setVisible(false);
+        showNextLine();
     }
-}
 
-private void playTypewriterEffect(String text) {
-    lblDialogue.setText("");
-    charIndex = 0;
-    fullText = text;
-    playTypewriterSound();
+    private void showNextLine() {
+        if (dialogueIndex < dialogueLines.length) {
+            String currentLine = dialogueLines[dialogueIndex];
+            playTypewriterEffect(currentLine);
+            dialogueIndex++;
+        } else {
+            lblDialogue.setVisible(false);
+            btnContinue.setVisible(false);
+            lblContinue.setVisible(false);
+            lblLoginFormBackground.setVisible(false);
+        }
+    }
 
-    isDialogueComplete = false;
-    isSkipping = false;
+    private void playTypewriterEffect(String text) {
+        lblDialogue.setText("");
+        charIndex = 0;
+        fullText = text;
+        playTypewriterSound();
 
-    typewriterTimer = new Timer(50, new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            if (isSkipping) {
-                lblDialogue.setText(fullText);
-                typewriterTimer.stop();
-                stopTypewriterSound();
-                isDialogueComplete = true;
-            } else {
-                // Typewriter effect
-                if (charIndex < fullText.length()) {
-                    lblDialogue.setText(lblDialogue.getText() + fullText.charAt(charIndex));
-                    charIndex++;
-                } else {
+        isDialogueComplete = false;
+        isSkipping = false;
+
+        typewriterTimer = new Timer(50, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (isSkipping) {
+                    lblDialogue.setText(fullText);
                     typewriterTimer.stop();
                     stopTypewriterSound();
                     isDialogueComplete = true;
+                } else {
+                    if (charIndex < fullText.length()) {
+                        lblDialogue.setText(lblDialogue.getText() + fullText.charAt(charIndex));
+                        charIndex++;
+                    } else {
+                        typewriterTimer.stop();
+                        stopTypewriterSound();
+                        isDialogueComplete = true;
+                    }
                 }
             }
+        });
+
+        typewriterTimer.start();
+    }
+
+    private boolean baristaClicked = false;
+    private boolean closeFriendClicked = false;
+    private boolean glassClicked = false;
+    private boolean noteClicked = false;
+    private boolean stainClicked = false;
+
+    private void checkObjectiveCompletion() {
+        if (baristaClicked && closeFriendClicked && glassClicked && noteClicked && stainClicked) {
+            lblObjective.setText("Objective Complete");
+            lblObjective.setForeground(new java.awt.Color(51, 255, 0));
+            lblObjective1.setText("");
         }
-    });
-
-    typewriterTimer.start();
-}
-
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -309,37 +317,62 @@ private void playTypewriterEffect(String text) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBaristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaristaActionPerformed
+        baristaClicked = true; 
         String[] lines = {
-        "Barista: 'It was a quiet night until that incident happened...'",
-        "Barista: 'You won't believe what happened next...'"
-    };
-    playDialogueTypewriterEffect(lines);
+            "Barista: 'It was a quiet night until that incident happened...'",
+            "Barista: 'You won't believe what happened next...'"
+        };
+        playDialogueTypewriterEffect(lines);
+        checkObjectiveCompletion();
     }//GEN-LAST:event_btnBaristaActionPerformed
 
     private void btnCloseFriendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseFriendActionPerformed
-        
+        closeFriendClicked = true;
+        String[] lines = {
+            "Close Friend: 'I’ve seen things I can’t explain...'",
+            "Close Friend: 'But I know what’s coming next...'"
+        };
+        playDialogueTypewriterEffect(lines);
+        checkObjectiveCompletion();
     }//GEN-LAST:event_btnCloseFriendActionPerformed
 
     private void btnGlassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGlassActionPerformed
-        
+        glassClicked = true;
+        String[] lines = {
+            "Barista: 'The glass shattered, everyone was in shock...'",
+            "Barista: 'I can’t even describe the tension in the room...'"
+        };
+        playDialogueTypewriterEffect(lines);
+        checkObjectiveCompletion();
     }//GEN-LAST:event_btnGlassActionPerformed
 
     private void btnStainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStainActionPerformed
-        
+        stainClicked = true; 
+        String[] lines = {
+            "Barista: 'A stain on the table, a sign of something bigger...'",
+            "Barista: 'It felt like a warning...' "
+        };
+        playDialogueTypewriterEffect(lines);
+        checkObjectiveCompletion();
     }//GEN-LAST:event_btnStainActionPerformed
 
     private void btnNoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoteActionPerformed
-        
+        noteClicked = true;
+        String[] lines = {
+            "Barista: 'A note left on the table, addressed to no one...'",
+            "Barista: 'It contained a strange message, one I couldn’t understand...'"
+        };
+        playDialogueTypewriterEffect(lines);
+        checkObjectiveCompletion();
     }//GEN-LAST:event_btnNoteActionPerformed
 
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
         if (isDialogueComplete || isSkipping) {
-        showNextLine(); // Move to the next line or exit if done
-    } else {
-        isSkipping = true;
-    }
+            showNextLine();
+        } else {
+            isSkipping = true;
+        }
     }//GEN-LAST:event_btnContinueActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBarista;
