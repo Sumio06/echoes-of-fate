@@ -36,6 +36,11 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblContinue.setVisible(false);
         lblLoginFormBackground.setVisible(false);
         btnContinue.setVisible(false);
+        lblBaristaCheck.setVisible(false);
+        lblCloseFriendCheck.setVisible(false);
+        lblNoteCheck.setVisible(false);
+        lblGlassCheck.setVisible(false);
+        lblStainCheck.setVisible(false);
 
         addComponentListener(new java.awt.event.ComponentAdapter() {
             @Override
@@ -144,7 +149,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     private void showNextLine() {
         if (dialogueIndex < dialogueLines.length) {
             String currentLine = dialogueLines[dialogueIndex];
-
+            
             playTypewriterEffect(currentLine);  
 
             if (currentLine.equals("Narrator: 'Something bigger is about to unfold...'")) {
@@ -275,6 +280,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         switch(lastClicked) {
             case "barista":
                 lines = new String[] {
+                    "A barista",
                     "When Asher asks about Kieran, the bartender stiffens",
                     "He wipes the same glass over and over, avoiding eye contact",
                     "\"He asked too many questions\"",
@@ -339,6 +345,23 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         playDialogueTypewriterEffect(lines);
     }
 
+    private Clip foundClip;
+    
+    private void playFoundSound() {
+        try {
+            if (foundClip != null && foundClip.isRunning()) {
+                foundClip.stop();
+            }
+            File soundFile = new File("src/echoesoffateassets/found.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+            foundClip = AudioSystem.getClip();
+            foundClip.open(audioStream);
+            foundClip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -355,6 +378,11 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblContinue = new javax.swing.JLabel();
         lblDialogue = new javax.swing.JLabel();
         lblLoginFormBackground = new javax.swing.JLabel();
+        lblGlassCheck = new javax.swing.JLabel();
+        lblStainCheck = new javax.swing.JLabel();
+        lblNoteCheck = new javax.swing.JLabel();
+        lblBaristaCheck = new javax.swing.JLabel();
+        lblCloseFriendCheck = new javax.swing.JLabel();
         btnNote = new javax.swing.JButton();
         btnStain = new javax.swing.JButton();
         btnGlass = new javax.swing.JButton();
@@ -410,6 +438,21 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblLoginFormBackground.setOpaque(true);
         add(lblLoginFormBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 570, 1430, 230));
 
+        lblGlassCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check.png"))); // NOI18N
+        add(lblGlassCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 460, -1, -1));
+
+        lblStainCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check.png"))); // NOI18N
+        add(lblStainCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 760, -1, -1));
+
+        lblNoteCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check.png"))); // NOI18N
+        add(lblNoteCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 610, -1, -1));
+
+        lblBaristaCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check.png"))); // NOI18N
+        add(lblBaristaCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 420, -1, -1));
+
+        lblCloseFriendCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check.png"))); // NOI18N
+        add(lblCloseFriendCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 540, -1, -1));
+
         btnNote.setContentAreaFilled(false);
         btnNote.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -459,8 +502,10 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     private String lastClicked = "";
     
     private void btnBaristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaristaActionPerformed
+        lblBaristaCheck.setVisible(true);
         lastClicked = "barista";
-        baristaClicked = true; 
+        baristaClicked = true;
+        playFoundSound();
         String[] lines = {
             "When Asher asks about Kieran, the bartender stiffens",
             "He wipes the same glass over and over, avoiding eye contact",
@@ -472,8 +517,10 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBaristaActionPerformed
 
     private void btnCloseFriendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseFriendActionPerformed
+        lblCloseFriendCheck.setVisible(true);
         lastClicked = "closeFriend";
         closeFriendClicked = true;
+        playFoundSound();
         String[] lines = {
             "A friend close to Kieran",
             "That guy... the bartender... saw Kieran last. They argued. Then Kieran left alone",
@@ -485,8 +532,10 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCloseFriendActionPerformed
 
     private void btnGlassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGlassActionPerformed
+        lblGlassCheck.setVisible(true);
         lastClicked = "glass";
         glassClicked = true;
+        playFoundSound();
         String[] lines = {
             "A Glass with No Fingerprints",
             "Asher’s eyes land on a whiskey glass. But something is wrong.",
@@ -499,8 +548,10 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnGlassActionPerformed
 
     private void btnStainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStainActionPerformed
+        lblStainCheck.setVisible(true);
         lastClicked = "stain";
-        stainClicked = true; 
+        stainClicked = true;
+        playFoundSound();
         String[] lines = {
             "A Bar Rag with a Strange Stain",
             "Stuffed into the trash, it looks like any other dirty rag",
@@ -513,8 +564,10 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnStainActionPerformed
 
     private void btnNoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoteActionPerformed
+        lblNoteCheck.setVisible(true);
         lastClicked = "note";
         noteClicked = true;
+        playFoundSound();
         String[] lines = {
             "A torn note...",
             "Hastily written, the ink smudged from sweat or rain. The words barely readable:",
@@ -540,11 +593,16 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     private javax.swing.JButton btnNote;
     private javax.swing.JButton btnStain;
     private javax.swing.JLabel lblBackground;
+    private javax.swing.JLabel lblBaristaCheck;
+    private javax.swing.JLabel lblCloseFriendCheck;
     private javax.swing.JLabel lblContinue;
     private javax.swing.JLabel lblDialogue;
+    private javax.swing.JLabel lblGlassCheck;
     private javax.swing.JLabel lblLoginFormBackground;
+    private javax.swing.JLabel lblNoteCheck;
     private javax.swing.JLabel lblObjective;
     private javax.swing.JLabel lblObjective1;
     private javax.swing.JLabel lblObjectiveBackground;
+    private javax.swing.JLabel lblStainCheck;
     // End of variables declaration//GEN-END:variables
 }
