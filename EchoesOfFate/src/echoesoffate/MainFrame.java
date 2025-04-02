@@ -13,6 +13,7 @@ import AsherValeStoryline.AsherValeItaewonGameplay1;
 import AsherValeStoryline.AsherVale;
 import AsherValeStoryline.AsherValeItaewonGameplayBar;
 import AsherValeStoryline.AsherValeItaewonGameplayBar2;
+import AsherValeStoryline.AsherValeGameplayOutsideBar;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -46,6 +47,7 @@ public class MainFrame extends javax.swing.JFrame {
         AsherValeItaewonGameplay1 asherValeGameplay1 = new AsherValeItaewonGameplay1(this);
         AsherValeItaewonGameplayBar asherValeItaewonGameplayBar = new AsherValeItaewonGameplayBar(this);
         AsherValeItaewonGameplayBar2 asherValeItaewonGameplayBar2 = new AsherValeItaewonGameplayBar2(this);
+        AsherValeGameplayOutsideBar asherValeGameplayOutsideBar = new AsherValeGameplayOutsideBar(this);
         
         mainPanel.add(loginScreen, "Login");
         mainPanel.add(mainMenu, "Menu");
@@ -55,6 +57,7 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanel.add(asherValeGameplay1, "AsherValeItaewonGameplay1");
         mainPanel.add(asherValeItaewonGameplayBar, "AsherValeItaewonGameplayBar");
         mainPanel.add(asherValeItaewonGameplayBar2, "AsherValeItaewonGameplayBar2");
+        mainPanel.add(asherValeGameplayOutsideBar, "AsherValeGameplayOutsideBar");
 
         setContentPane(mainPanel);
         setVisible(true);
