@@ -149,14 +149,12 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
 
             if (currentLine.equals("Narrator: 'Something bigger is about to unfold...'")) {
                 new javax.swing.Timer(5000, e -> {
-    // Stop blinking when the time is up
-    stopBlinkingEffect();
+                    stopBlinkingEffect();
 
-    // Proceed to the next screen after 5 seconds
-    javax.swing.SwingUtilities.invokeLater(() -> {
-        frame.showScreen("AsherValeGameplayOutsideBar");
-    });
-}).start();
+                    javax.swing.SwingUtilities.invokeLater(() -> {
+                        frame.showScreen("AsherValeGameplayOutsideBar");
+                    });
+                }).start();
             }
 
             dialogueIndex++;
@@ -243,9 +241,23 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
                 lblObjective.setForeground(new java.awt.Color(51, 255, 0));
                 lblObjective1.setText("");
 
+                playSolvedSound();
+
                 startDialogueAfterObjectiveComplete();
                 isObjectiveComplete = true;
             }
+        }
+    }
+    
+    private void playSolvedSound() {
+        try {
+            File soundFile = new File("src/echoesoffateassets/solved.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+            Clip solvedClip = AudioSystem.getClip();
+            solvedClip.open(audioStream);
+            solvedClip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
