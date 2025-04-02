@@ -263,8 +263,10 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         switch(lastClicked) {
             case "barista":
                 lines = new String[] {
-                    "Barista: 'It was a quiet night until that incident happened...'",
-                    "Barista: 'You won't believe what happened next...'",
+                    "When Asher asks about Kieran, the bartender stiffens",
+                    "He wipes the same glass over and over, avoiding eye contact",
+                    "\"He asked too many questions\"",
+                    "Kieran wasn’t just waiting for someone. He was pressing for answers",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'"
                 };
@@ -272,8 +274,9 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
 
             case "closeFriend":
                 lines = new String[] {
-                    "Close Friend: 'I’ve seen things I can’t explain...'",
-                    "Close Friend: 'But I know what’s coming next...'",
+                    "A friend close to Kieran",
+                    "That guy... the bartender... saw Kieran last. They argued. Then Kieran left alone",
+                    "A pause. A shake of the head",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'"
                 };
@@ -281,8 +284,11 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
 
             case "glass":
                 lines = new String[] {
-                    "Barista: 'The glass shattered, everyone was in shock...'",
-                    "Barista: 'I can’t even describe the tension in the room...'",
+                    "A Glass with No Fingerprints",
+                    "Asher’s eyes land on a whiskey glass. But something is wrong.",
+                    "The surface is spotless. No smudges. No fingerprints",
+                    "His gut tightens. Everyone leaves prints. Even Kieran. Unless someone wiped them away",
+                    "Beside it, Hale lazily polishes another glass, his movements practiced, too practiced",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'"
                 };
@@ -290,8 +296,9 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
 
             case "note":
                 lines = new String[] {
-                    "Barista: 'A note left on the table, addressed to no one...'",
-                    "Barista: 'It contained a strange message, one I couldn’t understand...'",
+                    "A torn note...",
+                    "Hastily written, the ink smudged from sweat or rain. The words barely readable:",
+                    "\"Asher, March 17, NOT an accident. They know.\"",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'"
                 };
@@ -299,8 +306,11 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
 
             case "stain":
                 lines = new String[] {
-                    "Barista: 'A stain on the table, a sign of something bigger...'",
-                    "Barista: 'It felt like a warning...'",
+                    "A Bar Rag with a Strange Stain",
+                    "Stuffed into the trash, it looks like any other dirty rag",
+                    "But when Asher picks it up, he notices something off, a dark, reddish-brown stain, still damp",
+                    "Not just spilled wine. Not just whiskey. Something else",
+                    "A chill runs down his spine. Had someone tried to clean up a mess that shouldn’t have been there?",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'"
                 };
@@ -470,7 +480,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
             "Asher’s eyes land on a whiskey glass. But something is wrong.",
             "The surface is spotless. No smudges. No fingerprints",
             "His gut tightens. Everyone leaves prints. Even Kieran. Unless someone wiped them away",
-            "Beside it, Hale lazily polishes another glass, his movements practiced, too practiced",
+            "Beside it, Hale lazily polishes another glass, his movements practiced, too practiced"
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
@@ -496,7 +506,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         String[] lines = {
             "A torn note...",
             "Hastily written, the ink smudged from sweat or rain. The words barely readable:",
-            "\"Asher, March 17, NOT an accident. They know.\"",
+            "\"Asher, March 17, NOT an accident. They know.\""
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
