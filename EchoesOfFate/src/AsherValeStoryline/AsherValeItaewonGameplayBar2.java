@@ -138,20 +138,62 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
 
         showNextLine();
     }
-
+    
+    private int i;
+    
     private void showNextLine() {
         if (dialogueIndex < dialogueLines.length) {
             String currentLine = dialogueLines[dialogueIndex];
-            playTypewriterEffect(currentLine);
+
+            playTypewriterEffect(currentLine);  
+
+            if (currentLine.equals("Narrator: 'Something bigger is about to unfold...'")) {
+                new javax.swing.Timer(5000, e -> {
+    // Stop blinking when the time is up
+    stopBlinkingEffect();
+
+    // Proceed to the next screen after 5 seconds
+    javax.swing.SwingUtilities.invokeLater(() -> {
+        frame.showScreen("AsherValeGameplayOutsideBar");
+    });
+}).start();
+            }
+
             dialogueIndex++;
+            
         } else {
             lblDialogue.setVisible(false);
             btnContinue.setVisible(false);
             lblContinue.setVisible(false);
             lblLoginFormBackground.setVisible(false);
-            stopTypewriterSound(); 
+            stopTypewriterSound();
         }
     }
+    
+    private Timer blinkTimer;
+    private boolean isBlinking = false;
+
+    private void startBlinkingEffect() {
+        if (!isBlinking) {
+            isBlinking = true;
+            
+            blinkTimer = new Timer(500, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    lblObjective.setVisible(!lblObjective.isVisible());
+                }
+            });
+            blinkTimer.start();
+        }
+    }
+
+    private void stopBlinkingEffect() {
+        if (blinkTimer != null) {
+            blinkTimer.stop();
+            lblObjective.setVisible(true);
+        }
+    }
+
 
     private void playTypewriterEffect(String text) {
         lblDialogue.setText("");
@@ -192,6 +234,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     private boolean noteClicked = false;
     private boolean stainClicked = false;
     private boolean isObjectiveComplete = false;
+    
 
     private void checkObjectiveCompletion() {
         if (baristaClicked && closeFriendClicked && glassClicked && noteClicked && stainClicked) {
@@ -213,12 +256,63 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblContinue.setVisible(false);
         lblLoginFormBackground.setVisible(true);
 
-        String[] lines = {
-            "Barista: 'A stain on the table, a sign of something bigger...'",
-            "Barista: 'It felt like a warning...' ",
-            "Narrator: 'The objective has been completed... but is that the end?'",
-            "Narrator: 'Something bigger is about to unfold...'"
-        };
+        startBlinkingEffect();
+        
+        String[] lines;
+
+        switch(lastClicked) {
+            case "barista":
+                lines = new String[] {
+                    "Barista: 'It was a quiet night until that incident happened...'",
+                    "Barista: 'You won't believe what happened next...'",
+                    "Narrator: 'The objective has been completed... but is that the end?'",
+                    "Narrator: 'Something bigger is about to unfold...'"
+                };
+                break;
+
+            case "closeFriend":
+                lines = new String[] {
+                    "Close Friend: 'I’ve seen things I can’t explain...'",
+                    "Close Friend: 'But I know what’s coming next...'",
+                    "Narrator: 'The objective has been completed... but is that the end?'",
+                    "Narrator: 'Something bigger is about to unfold...'"
+                };
+                break;
+
+            case "glass":
+                lines = new String[] {
+                    "Barista: 'The glass shattered, everyone was in shock...'",
+                    "Barista: 'I can’t even describe the tension in the room...'",
+                    "Narrator: 'The objective has been completed... but is that the end?'",
+                    "Narrator: 'Something bigger is about to unfold...'"
+                };
+                break;
+
+            case "note":
+                lines = new String[] {
+                    "Barista: 'A note left on the table, addressed to no one...'",
+                    "Barista: 'It contained a strange message, one I couldn’t understand...'",
+                    "Narrator: 'The objective has been completed... but is that the end?'",
+                    "Narrator: 'Something bigger is about to unfold...'"
+                };
+                break;
+
+            case "stain":
+                lines = new String[] {
+                    "Barista: 'A stain on the table, a sign of something bigger...'",
+                    "Barista: 'It felt like a warning...'",
+                    "Narrator: 'The objective has been completed... but is that the end?'",
+                    "Narrator: 'Something bigger is about to unfold...'"
+                };
+                break;
+
+            default:
+                lines = new String[] {
+                    "Narrator: 'The objective has been completed... but is that the end?'",
+                    "Narrator: 'Something bigger is about to unfold...'"
+                };
+                break;
+        }
 
         playDialogueTypewriterEffect(lines);
     }
@@ -340,51 +434,69 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -80, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+    private String lastClicked = "";
+    
     private void btnBaristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaristaActionPerformed
+        lastClicked = "barista";
         baristaClicked = true; 
         String[] lines = {
-            "Barista: 'It was a quiet night until that incident happened...'",
-            "Barista: 'You won't believe what happened next...'"
+            "When Asher asks about Kieran, the bartender stiffens",
+            "He wipes the same glass over and over, avoiding eye contact",
+            "\"He asked too many questions\"",
+            "Kieran wasn’t just waiting for someone. He was pressing for answers"
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
     }//GEN-LAST:event_btnBaristaActionPerformed
 
     private void btnCloseFriendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseFriendActionPerformed
+        lastClicked = "closeFriend";
         closeFriendClicked = true;
         String[] lines = {
-            "Close Friend: 'I’ve seen things I can’t explain...'",
-            "Close Friend: 'But I know what’s coming next...'"
+            "A friend close to Kieran",
+            "That guy... the bartender... saw Kieran last. They argued. Then Kieran left alone",
+            "A pause. A shake of the head",
+            "\"Or so we thought\""
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
     }//GEN-LAST:event_btnCloseFriendActionPerformed
 
     private void btnGlassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGlassActionPerformed
+        lastClicked = "glass";
         glassClicked = true;
         String[] lines = {
-            "Barista: 'The glass shattered, everyone was in shock...'",
-            "Barista: 'I can’t even describe the tension in the room...'"
+            "A Glass with No Fingerprints",
+            "Asher’s eyes land on a whiskey glass. But something is wrong.",
+            "The surface is spotless. No smudges. No fingerprints",
+            "His gut tightens. Everyone leaves prints. Even Kieran. Unless someone wiped them away",
+            "Beside it, Hale lazily polishes another glass, his movements practiced, too practiced",
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
     }//GEN-LAST:event_btnGlassActionPerformed
 
     private void btnStainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStainActionPerformed
+        lastClicked = "stain";
         stainClicked = true; 
         String[] lines = {
-            "Barista: 'A stain on the table, a sign of something bigger...'",
-            "Barista: 'It felt like a warning...' "
+            "A Bar Rag with a Strange Stain",
+            "Stuffed into the trash, it looks like any other dirty rag",
+            "But when Asher picks it up, he notices something off, a dark, reddish-brown stain, still damp",
+            "Not just spilled wine. Not just whiskey. Something else",
+            "A chill runs down his spine. Had someone tried to clean up a mess that shouldn’t have been there?"
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
     }//GEN-LAST:event_btnStainActionPerformed
 
     private void btnNoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoteActionPerformed
+        lastClicked = "note";
         noteClicked = true;
         String[] lines = {
-            "Barista: 'A note left on the table, addressed to no one...'",
-            "Barista: 'It contained a strange message, one I couldn’t understand...'"
+            "A torn note...",
+            "Hastily written, the ink smudged from sweat or rain. The words barely readable:",
+            "\"Asher, March 17, NOT an accident. They know.\"",
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
