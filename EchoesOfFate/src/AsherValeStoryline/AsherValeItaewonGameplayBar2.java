@@ -194,36 +194,33 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     private boolean isObjectiveComplete = false;
 
     private void checkObjectiveCompletion() {
-    // Check if all buttons are clicked
-    if (baristaClicked && closeFriendClicked && glassClicked && noteClicked && stainClicked) {
-        // Only trigger this once after all objectives are completed
-        if (!isObjectiveComplete) {
-            lblObjective.setText("Objective Complete");
-            lblObjective.setForeground(new java.awt.Color(51, 255, 0));
-            lblObjective1.setText("");
+        if (baristaClicked && closeFriendClicked && glassClicked && noteClicked && stainClicked) {
+            if (!isObjectiveComplete) {
+                lblObjective.setText("Objective Complete");
+                lblObjective.setForeground(new java.awt.Color(51, 255, 0));
+                lblObjective1.setText("");
 
-            // Call method to show the final dialogue after objectives are complete
-            startDialogueAfterObjectiveComplete();
-            isObjectiveComplete = true; // Mark as complete to prevent repeating the dialogue
+                startDialogueAfterObjectiveComplete();
+                isObjectiveComplete = true;
+            }
         }
     }
-}
 
     private void startDialogueAfterObjectiveComplete() {
-        stopTypewriterSound(); // Stop any ongoing typing sound
+        stopTypewriterSound();
 
-        // Show the dialogue once all objectives are completed
         lblDialogue.setVisible(true);
-        lblContinue.setVisible(false);  // Hide the continue prompt as it's no longer necessary
-        lblLoginFormBackground.setVisible(true); // Keep background visible
+        lblContinue.setVisible(false);
+        lblLoginFormBackground.setVisible(true);
 
-        // The final narrative after all objectives are completed
         String[] lines = {
+            "Barista: 'A stain on the table, a sign of something bigger...'",
+            "Barista: 'It felt like a warning...' ",
             "Narrator: 'The objective has been completed... but is that the end?'",
             "Narrator: 'Something bigger is about to unfold...'"
         };
 
-        playDialogueTypewriterEffect(lines); // Show the final narrative dialogue
+        playDialogueTypewriterEffect(lines);
     }
 
     /**
