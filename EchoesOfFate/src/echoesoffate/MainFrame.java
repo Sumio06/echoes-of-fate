@@ -110,6 +110,12 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     public void showScreen(String screenName) {
+        System.out.println("Switching to panel: " + screenName);
+
+        if (screenName.equals("AsherValeGameplayOutsideBar")) {
+        new Exception("Debug: Forced switch to AsherValeGameplayOutsideBar").printStackTrace();
+    }
+        
         if (screenName.equals("Login")) {
             ((LoginScreen) mainPanel.getComponent(0)).updateTextFields();
         }       
@@ -123,6 +129,7 @@ public class MainFrame extends javax.swing.JFrame {
         else if (clip == null || !clip.isRunning()) {
             playBackgroundMusic("src/echoesoffateassets/background_music.wav");
         }
+
         cardLayout.show(mainPanel, screenName);
     }
      

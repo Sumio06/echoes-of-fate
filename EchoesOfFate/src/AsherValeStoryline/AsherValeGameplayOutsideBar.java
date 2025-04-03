@@ -56,7 +56,7 @@ public class AsherValeGameplayOutsideBar extends javax.swing.JPanel {
         "Asher (muttering): This is it... the Namdaemun Warehouse.",
         "(He looks around cautiously, making sure no one is watching)",
         "Asher (thinking to himself): I need to be careful. I don’t know who or what’s inside.",
-        "(He takes a deep breath and pushes the door open, stepping into the dark, musty interior.)"
+        "(He takes a deep breath and pushes the door open, stepping into the dark, musty interior)"
     };
     
     private String[] SCENE4 = {
@@ -66,7 +66,7 @@ public class AsherValeGameplayOutsideBar extends javax.swing.JPanel {
         "(There’s no response. The warehouse is eerily quiet, save for the distant sound of something shifting)",
         "(He moves forward cautiously, every step echoing through the empty space)",
         "Asher (gritting his teeth): Someone’s been here recently... I need to find more clues.",
-        "(Suddenly, he spots something on the ground - a strange marking, maybe a symbol?)",
+        "(Suddenly, he spots something on the ground, a strange marking, maybe a symbol?)",
         "(Asher kneels down to inspect it closely)",
         "Asher (to himself): What the hell is this? It doesn’t look like anything I’ve seen before..."
     };
@@ -178,7 +178,6 @@ public class AsherValeGameplayOutsideBar extends javax.swing.JPanel {
             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length) {
                 lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/inside_warehouse.png")));
             }
-
             dialogueIndex++;
         } 
         else {
@@ -200,7 +199,6 @@ public class AsherValeGameplayOutsideBar extends javax.swing.JPanel {
                 lblDialogue.setText(SCENE4[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - 1]);
             }
         } else {
-            // If we've passed Scene 1 and Scene 2, show Scene 3 and Scene 4 dialogues
             if (dialogueIndex >= SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length) {
                 frame.showScreen("AsherValeGameplayWarehouse");
                 return;

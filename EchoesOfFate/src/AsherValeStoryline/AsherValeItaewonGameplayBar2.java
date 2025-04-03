@@ -186,21 +186,17 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     private void showNextLine() {
         if (dialogueIndex < dialogueLines.length) {
             String currentLine = dialogueLines[dialogueIndex];
-            
-            playTypewriterEffect(currentLine);  
 
-            if (currentLine.equals("Narrator: 'Something bigger is about to unfold...'")) {
-                new javax.swing.Timer(5000, e -> {
-                    stopBlinkingEffect();
+            if (currentLine.equals("N")) {
+                stopBlinkingEffect();
 
-                    javax.swing.SwingUtilities.invokeLater(() -> {
-                        frame.showScreen("AsherValeGameplayOutsideBar");
-                    });
-                }).start();
+                javax.swing.SwingUtilities.invokeLater(() -> {
+                    frame.showScreen("AsherValeGameplayOutsideBar");
+                });
+            } else {
+                playTypewriterEffect(currentLine);
             }
-
             dialogueIndex++;
-            
         } else {
             lblDialogue.setVisible(false);
             btnContinue.setVisible(false);
@@ -323,7 +319,8 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
                     "\"He asked too many questions\"",
                     "Kieran wasn’t just waiting for someone. He was pressing for answers",
                     "Narrator: 'The objective has been completed... but is that the end?'",
-                    "Narrator: 'Something bigger is about to unfold...'"
+                    "Narrator: 'Something bigger is about to unfold...'",
+                    "N"
                 };
                 break;
 
@@ -333,7 +330,8 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
                     "That guy... the bartender... saw Kieran last. They argued. Then Kieran left alone",
                     "A pause. A shake of the head",
                     "Narrator: 'The objective has been completed... but is that the end?'",
-                    "Narrator: 'Something bigger is about to unfold...'"
+                    "Narrator: 'Something bigger is about to unfold...'",
+                    "N"
                 };
                 break;
 
@@ -345,7 +343,8 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
                     "His gut tightens. Everyone leaves prints. Even Kieran. Unless someone wiped them away",
                     "Beside it, Hale lazily polishes another glass, his movements practiced, too practiced",
                     "Narrator: 'The objective has been completed... but is that the end?'",
-                    "Narrator: 'Something bigger is about to unfold...'"
+                    "Narrator: 'Something bigger is about to unfold...'",
+                    "N"
                 };
                 break;
 
@@ -355,7 +354,8 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
                     "Hastily written, the ink smudged from sweat or rain. The words barely readable:",
                     "\"Asher, March 17, NOT an accident. They know.\"",
                     "Narrator: 'The objective has been completed... but is that the end?'",
-                    "Narrator: 'Something bigger is about to unfold...'"
+                    "Narrator: 'Something bigger is about to unfold...'",
+                    "N"
                 };
                 break;
 
@@ -367,14 +367,16 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
                     "Not just spilled wine. Not just whiskey. Something else",
                     "A chill runs down his spine. Had someone tried to clean up a mess that shouldn’t have been there?",
                     "Narrator: 'The objective has been completed... but is that the end?'",
-                    "Narrator: 'Something bigger is about to unfold...'"
+                    "Narrator: 'Something bigger is about to unfold...'",
+                    "N"
                 };
                 break;
 
             default:
                 lines = new String[] {
                     "Narrator: 'The objective has been completed... but is that the end?'",
-                    "Narrator: 'Something bigger is about to unfold...'"
+                    "Narrator: 'Something bigger is about to unfold...'",
+                    "N"
                 };
                 break;
         }
