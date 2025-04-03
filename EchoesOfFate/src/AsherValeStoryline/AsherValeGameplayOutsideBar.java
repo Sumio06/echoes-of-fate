@@ -202,10 +202,10 @@ public class AsherValeGameplayOutsideBar extends javax.swing.JPanel {
         } else {
             // If we've passed Scene 1 and Scene 2, show Scene 3 and Scene 4 dialogues
             if (dialogueIndex >= SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length) {
-                frame.showScreen("AsherValeItaewonGameplayBar2"); // Transition to next screen
+                frame.showScreen("AsherValeGameplayWarehouse");
                 return;
             }
-            showNextDialogue(); // Show the next dialogue based on the index
+            showNextDialogue();
         }
     }
 

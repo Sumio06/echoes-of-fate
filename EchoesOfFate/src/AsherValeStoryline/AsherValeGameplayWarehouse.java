@@ -4,6 +4,8 @@
  */
 package AsherValeStoryline;
 
+import echoesoffate.MainFrame;
+
 /**
  *
  * @author User
@@ -13,7 +15,11 @@ public class AsherValeGameplayWarehouse extends javax.swing.JPanel {
     /**
      * Creates new form AsherValeGameplayWarehouse
      */
-    public AsherValeGameplayWarehouse() {
+    
+    private MainFrame frame; 
+    
+    public AsherValeGameplayWarehouse(MainFrame frame) {
+        this.frame = frame;
         initComponents();
     }
 
@@ -26,19 +32,18 @@ public class AsherValeGameplayWarehouse extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        lblBackground = new javax.swing.JLabel();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
+        lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/inside_warehouse.png"))); // NOI18N
+        add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -70, 1600, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblBackground;
     // End of variables declaration//GEN-END:variables
 }
