@@ -21,101 +21,101 @@ import javax.swing.Timer;
 public class AsherVale extends javax.swing.JPanel {
      
     private MainFrame frame;
-    private String[] SCENE1 = {
-    "March 16, 2025... 2:37 AM...",
-    "(A dim alley in Itaewon. Neon lights flicker. Rain-slick pavement reflects the glow.)",
-    "(Kieran Vale walks alone, hands in pockets, breath visible in the cold air.)",
-    "Kieran (muttering): Should’ve gone home...",
-    "(A gust of wind. Lights flicker—then darkness.)",
-    "Kieran: Hello?...",
-    "(Silence. A shadow shifts. Movement—behind him.)",
-    "(A hand grips his shoulder. Cold steel sinks into his stomach.)",
-    "Kieran (gasping): Ngh...!",
-    "(He staggers, fingers brushing warm, sticky blood.)",
-    "Kieran (weakly): No... wait...",
-    "(He collapses. The killer watches—then vanishes into the dark.)",
-    "(Minutes later, Asher Vale enters the alley, heart pounding.)",
-    "Asher (under his breath): Where the hell are you, Kieran?",
-    "(Then, he sees the body. His stomach drops.)",
-    "Asher: No...",
-    "(He rushes forward, shaking Kieran. Skin—too cold.)",
-    "(Two fingers to the neck. Nothing.)",
-    "Asher (whispering): No... no, no...",
-    "(His hands tremble. The world blurs.)"
-};
+        private String[] SCENE1 = {
+        "March 16, 2025... 2:37 AM...",
+        "(A dim alley in Itaewon. Neon lights flicker. Rain-slick pavement reflects the glow.)",
+        "(Kieran Vale walks alone, hands in pockets, breath visible in the cold air.)",
+        "Kieran (muttering): Should’ve gone home...",
+        "(A gust of wind. Lights flicker—then darkness.)",
+        "Kieran: Hello?...",
+        "(Silence. A shadow shifts. Movement—behind him.)",
+        "(A hand grips his shoulder. Cold steel sinks into his stomach.)",
+        "Kieran (gasping): Ngh...!",
+        "(He staggers, fingers brushing warm, sticky blood.)",
+        "Kieran (weakly): No... wait...",
+        "(He collapses. The killer watches—then vanishes into the dark.)",
+        "(Minutes later, Asher Vale enters the alley, heart pounding.)",
+        "Asher (under his breath): Where the hell are you, Kieran?",
+        "(Then, he sees the body. His stomach drops.)",
+        "Asher: No...",
+        "(He rushes forward, shaking Kieran. Skin—too cold.)",
+        "(Two fingers to the neck. Nothing.)",
+        "Asher (whispering): No... no, no...",
+        "(His hands tremble. The world blurs.)"
+    };
 
-private String[] SCENE2 = {
-    "(Footsteps. Fast. Someone running.)",
-    "(Asher's head snaps up. A shadow turns the corner.)",
-    "Asher: HEY!",
-    "(He bolts, chasing the figure through twisting alleys.)",
-    "Asher (gritted teeth): You’re not getting away!",
-    "(He gains on them—almost there—)",
-    "(Then, the figure vanishes.)",
-    "(Asher skids to a stop, panting. No sign of them.)"
-};
+    private String[] SCENE2 = {
+        "(Footsteps. Fast. Someone running.)",
+        "(Asher's head snaps up. A shadow turns the corner.)",
+        "Asher: HEY!",
+        "(He bolts, chasing the figure through twisting alleys.)",
+        "Asher (gritted teeth): You’re not getting away!",
+        "(He gains on them—almost there—)",
+        "(Then, the figure vanishes.)",
+        "(Asher skids to a stop, panting. No sign of them.)"
+    };
 
-private String[] SCENE3 = {
-    "(Then, he sees it. A door. Rusted. Old.)",
-    "Asher: That wasn’t there before...",
-    "(He grips the icy handle. Hesitates. Pushes it open.)"
-};
+    private String[] SCENE3 = {
+        "(Then, he sees it. A door. Rusted. Old.)",
+        "Asher: That wasn’t there before...",
+        "(He grips the icy handle. Hesitates. Pushes it open.)"
+    };
 
-private String[] SCENE4 = {
-    "(Inside: A dim corridor. Silent. Dusty. Empty.)",
-    "Asher (scanning): Where did he go?",
-    "(He turns to leave. The alley outside—wrong.)",
-    "(Fog creeps unnaturally. Neon signs flicker, distorted.)",
-    "Asher (frowning): What the...?",
-    "(The ground bends beneath him. A ringing noise—shrill—warping.)",
-    "(His breath catches. His vision twists.)",
-    "(Then, everything snaps back.)"
-};
+    private String[] SCENE4 = {
+        "(Inside: A dim corridor. Silent. Dusty. Empty.)",
+        "Asher (scanning): Where did he go?",
+        "(He turns to leave. The alley outside—wrong.)",
+        "(Fog creeps unnaturally. Neon signs flicker, distorted.)",
+        "Asher (frowning): What the...?",
+        "(The ground bends beneath him. A ringing noise—shrill—warping.)",
+        "(His breath catches. His vision twists.)",
+        "(Then, everything snaps back.)"
+    };
 
-private String[] SCENE5 = {
-    "(The alley is... normal. But eerily silent.)",
-    "(His phone buzzes. He checks it.)",
-    "(Screen reads: February 15, 2025. One month earlier.)",
-    "Asher (whispering): No...",
-    "(The door behind him is gone.)",
-    "(Time hasn’t just shifted. It’s unraveled.)"
-};
+    private String[] SCENE5 = {
+        "(The alley is... normal. But eerily silent.)",
+        "(His phone buzzes. He checks it.)",
+        "(Screen reads: February 15, 2025. One month earlier.)",
+        "Asher (whispering): No...",
+        "(The door behind him is gone.)",
+        "(Time hasn’t just shifted. It’s unraveled.)"
+    };
 
-private String[] SCENE6 = {
-    "(A ringing phone. Not his.)",
-    "(He turns—an old payphone stands under flickering light.)",
-    "(His gut tightens. That wasn’t there before.)",
-    "(He steps forward. Picks up.)",
-    "Mysterious Voice: You have one month.",
-    "Asher: Who is this?!",
-    "Mysterious Voice: Stop the murder. Or time will erase you.",
-    "(Static distorts the line.)",
-    "Asher: What’s happening?!",
-    "Mysterious Voice: The clock is already ticking.",
-    "(Call ends. No beep. Just... silence.)"
-};
+    private String[] SCENE6 = {
+        "(A ringing phone. Not his.)",
+        "(He turns—an old payphone stands under flickering light.)",
+        "(His gut tightens. That wasn’t there before.)",
+        "(He steps forward. Picks up.)",
+        "Mysterious Voice: You have one month.",
+        "Asher: Who is this?!",
+        "Mysterious Voice: Stop the murder. Or time will erase you.",
+        "(Static distorts the line.)",
+        "Asher: What’s happening?!",
+        "Mysterious Voice: The clock is already ticking.",
+        "(Call ends. No beep. Just... silence.)"
+    };
 
-private String[] SCENE7 = {
-    "(He blinks—the phone booth is gone.)",
-    "(His chest tightens. Then, his phone buzzes.)",
-    "(A new message. From Kieran.)",
-    "Kieran: 'Yo, you free? Kinda bored.'",
-    "(Asher stares. Kieran is alive. For now.)",
-    "(He scrolls past messages—a location pin.)",
-    "(Hours before Kieran’s death. But not this alley.)",
-    "Asher (muttering): Why was he here?",
-    "(He exhales sharply. Focus. Retrace Kieran’s steps.)",
-    "(He tucks his phone away. Heads into the night.)",
-    "(The investigation begins.)"
-};
+    private String[] SCENE7 = {
+        "(He blinks—the phone booth is gone.)",
+        "(His chest tightens. Then, his phone buzzes.)",
+        "(A new message. From Kieran.)",
+        "Kieran: 'Yo, you free? Kinda bored.'",
+        "(Asher stares. Kieran is alive. For now.)",
+        "(He scrolls past messages—a location pin.)",
+        "(Hours before Kieran’s death. But not this alley.)",
+        "Asher (muttering): Why was he here?",
+        "(He exhales sharply. Focus. Retrace Kieran’s steps.)",
+        "(He tucks his phone away. Heads into the night.)",
+        "(The investigation begins.)"
+    };
 
-private String[] SCENE8 = {
-    "(Asher walks through Itaewon, the city unfamiliar.)",
-    "(Across the street—familiar neon lights. A bar.)",
-    "Asher: You always did love this place...",
-    "(He steps inside. If he's back in time, he needs to start somewhere.)",
-    "(Maybe the answers are waiting inside.)"
-};
+    private String[] SCENE8 = {
+        "(Asher walks through Itaewon, the city unfamiliar.)",
+        "(Across the street—familiar neon lights. A bar.)",
+        "Asher: You always did love this place...",
+        "(He steps inside. If he's back in time, he needs to start somewhere.)",
+        "(Maybe the answers are waiting inside.)"
+    };
     
     private int dialogueIndex = 0;
     private int charIndex = 0;

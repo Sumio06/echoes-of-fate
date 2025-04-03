@@ -32,35 +32,50 @@ public class AsherValeGameplayOutsideBar extends javax.swing.JPanel {
     private MainFrame frame; 
     
     private String[] SCENE1 = {
-        "(The door creaks as Asher steps inside)",
-        "The warm glow of hanging lights barely reaches the corners of the room.",
-        " The low hum of jazz plays from an old jukebox",
-        "(A bartender, wiping down glasses, barely glances up)",
-        "(A few patrons nurse their drinks, lost in their own worlds)",
-        "(Asher moves toward the bar, scanning the room)",
-        "Bartender (gruffly): Haven’t seen you ‘round here before",
-        "Asher (calmly): Just looking for someone. Kieran Vale. He used to come here",
-        "(The bartender’s hands pause for half a second before he keeps wiping the glass)",
-        "Bartender: Lotta folks come and go. Hard to remember names",
-        "(The bartender exhales through his nose, setting the glass down)",
-        "Bartender: Look, kid, people don’t ask too many questions in a place like this",
-        "But... yeah, he was here. Sat right there, corner booth. Alone. Seemed... tense",
-        "Asher: Tense?",
-        "Bartender: Like he was waiting for someone. Kept checking his phone",
-        "But whoever he was expecting? They never showed.",
-        "(Asher’s stomach tightens)",
-        "Asher: Did he talk to anyone?",
-        "Bartender (hesitates, then nods toward a table in the back): Ask her",
-        "(Asher follows his gaze. A woman sits alone, swirling a glass of whiskey.)",
-        "(Sharp eyes. Like she sees more than she lets on)",
-        "(Asher exhales, then makes his way over)",
+        "(Asher watches a shadowy figure slip out of the bar, moving with purpose)",
+        "(There’s something off about them, Asher’s instincts flare)",
+        "Asher (to himself): Who’s that?"
+    };
+    
+    private String[] SCENE2 = {
+        "(He takes a step toward the door, but the figure glances back, noticing him)",
+        "(In an instant, the figure bolts, disappearing into the dark alley)",
+        "Asher (gritted teeth): Hey!",
+        "(He quickly follows, but the figure is fast, slipping through the maze of streets)",
+        "(Asher chases, but the figure’s lead is too great)",
+        "(He slows down, looking around the alley. Nothing)",
+        "(Then, he notices something: a crumpled piece of paper on the ground.)",
+        "(Asher picks it up and reads the words ‘Namdaemun Warehouse’ written on it)",
+        "Asher (muttering): Namdaemun... what’s going on here?",
+        "(He pockets the paper, a new lead forming in his mind)",
+        "(Time to head to the warehouse)"
+    };
+    
+    private String[] SCENE3 = {
+        "(Asher stands in front of the warehouse, the cold air biting at his skin)",
+        "Asher (muttering): This is it... the Namdaemun Warehouse.",
+        "(He looks around cautiously, making sure no one is watching)",
+        "Asher (thinking to himself): I need to be careful. I don’t know who or what’s inside.",
+        "(He takes a deep breath and pushes the door open, stepping into the dark, musty interior.)"
+    };
+    
+    private String[] SCENE4 = {
+        "(The door creaks as Asher steps inside, the air heavy with the scent of dust and mildew)",
+        "(He hears faint sounds echoing through the vast, empty space of the warehouse)",
+        "Asher (whispering): Hello? Is anyone here?",
+        "(There’s no response. The warehouse is eerily quiet, save for the distant sound of something shifting)",
+        "(He moves forward cautiously, every step echoing through the empty space)",
+        "Asher (gritting his teeth): Someone’s been here recently... I need to find more clues.",
+        "(Suddenly, he spots something on the ground - a strange marking, maybe a symbol?)",
+        "(Asher kneels down to inspect it closely)",
+        "Asher (to himself): What the hell is this? It doesn’t look like anything I’ve seen before..."
     };
 
     private int dialogueIndex = 0;
     private int charIndex = 0;
     private Timer timer;
     private Clip typewriterClip;
-    
+
     public AsherValeGameplayOutsideBar(MainFrame frame) {
         this.frame = frame;
         initComponents();
@@ -136,24 +151,61 @@ public class AsherValeGameplayOutsideBar extends javax.swing.JPanel {
 
     private void showNextDialogue() {
         if (dialogueIndex < SCENE1.length) {
-            displayText(SCENE1[dialogueIndex]); 
+            displayText(SCENE1[dialogueIndex]);
             dialogueIndex++;
-        } else {
+        } 
+        else if (dialogueIndex < SCENE1.length + SCENE2.length) {
+            displayText(SCENE2[dialogueIndex - SCENE1.length]);
+
+            if (dialogueIndex == SCENE1.length) {
+                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/alleyway_paper.png")));
+            }
+
+            dialogueIndex++;
+        } 
+        else if (dialogueIndex < SCENE1.length + SCENE2.length + SCENE3.length) {
+            displayText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]);
+
+            if (dialogueIndex == SCENE1.length + SCENE2.length) {
+                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/outside_warehouse.png")));
+            }
+
+            dialogueIndex++;
+        }
+        else if (dialogueIndex < SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length) {
+            displayText(SCENE4[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length]);
+
+            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length) {
+                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/inside_warehouse.png")));
+            }
+
+            dialogueIndex++;
+        } 
+        else {
             lblDialogue.setText("End of dialogue.");
         }
     }
-
+    
     private void advanceDialogue() {
         if (timer != null && timer.isRunning()) {
             timer.stop();
             stopTypewriterSound();
-            lblDialogue.setText(SCENE1[dialogueIndex - 1]);
+            if (dialogueIndex - 1 < SCENE1.length) {
+                lblDialogue.setText(SCENE1[dialogueIndex - 1]);
+            } else if (dialogueIndex - 1 < SCENE1.length + SCENE2.length) {
+                lblDialogue.setText(SCENE2[dialogueIndex - SCENE1.length - 1]);
+            } else if (dialogueIndex - 1 < SCENE1.length + SCENE2.length + SCENE3.length) {
+                lblDialogue.setText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length - 1]);
+            } else if (dialogueIndex - 1 < SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length) {
+                lblDialogue.setText(SCENE4[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - 1]);
+            }
         } else {
-            if (dialogueIndex >= SCENE1.length) {
-                frame.showScreen("AsherValeItaewonGameplayBar2");
+            // If we've passed Scene 1 and Scene 2, show Scene 3 and Scene 4 dialogues
+            if (dialogueIndex >= SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length) {
+                frame.showScreen("AsherValeItaewonGameplayBar2"); // Transition to next screen
                 return;
             }
-            showNextDialogue();
+            showNextDialogue(); // Show the next dialogue based on the index
         }
     }
 
@@ -204,8 +256,8 @@ public class AsherValeGameplayOutsideBar extends javax.swing.JPanel {
 
         lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/outside_bar.png"))); // NOI18N
-        add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/bar_shadowfigure.png"))); // NOI18N
+        add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -70, 1600, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed

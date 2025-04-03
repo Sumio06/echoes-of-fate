@@ -101,7 +101,7 @@ public class ChooseCharacter extends javax.swing.JPanel {
                 btnAsherValeActionPerformed(evt);
             }
         });
-        add(btnAsherVale, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 740, 145, 50));
+        add(btnAsherVale, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 750, 145, 50));
 
         btnBack.setBackground(new java.awt.Color(83, 77, 169, 100));
         btnBack.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
@@ -119,7 +119,7 @@ public class ChooseCharacter extends javax.swing.JPanel {
         lblChooseCharacter.setForeground(new java.awt.Color(255, 255, 255));
         lblChooseCharacter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblChooseCharacter.setText("Choose Character");
-        add(lblChooseCharacter, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 230, 370, 43));
+        add(lblChooseCharacter, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 240, 370, 43));
 
         lblChooseCharacterBackground.setBackground(new java.awt.Color(36, 43, 53, 200));
         lblChooseCharacterBackground.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N

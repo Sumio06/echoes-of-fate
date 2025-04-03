@@ -5,6 +5,7 @@
 package AsherValeStoryline;
 
 import echoesoffate.MainFrame;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -54,12 +55,45 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     private int charIndex = 0;
     private String fullText;
     private Clip typewriterClip;
+    private int cluesFound = 0; 
 
     public void startGameplay() {
-        playTypewriterEffect("Objective:", "Look for evidences...");
+        
+        lblObjective.setText("");
+        lblObjective1.setText("");
+        lblCluesFound.setText("");
+        
+        playTypewriterEffect("Objective:", "Look for evidences...", new Runnable() {
+            @Override
+            public void run() {
+                playClueCountTypewriterEffect();
+            }
+        });
     }
 
-    private void playTypewriterEffect(String firstText, String secondText) {
+    private void playClueCountTypewriterEffect() {
+        final String clueText = "Clues Found: 0/5";
+        final int[] charIndex = {0};
+        lblCluesFound.setForeground(Color.RED);
+
+        lblCluesFound.setText("");
+
+        Timer clueTypewriterTimer = new Timer(100, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (charIndex[0] < clueText.length()) {
+                    lblCluesFound.setText(lblCluesFound.getText() + clueText.charAt(charIndex[0]));
+                    charIndex[0]++;
+                } else {
+                    ((Timer)e.getSource()).stop();
+                }
+            }
+        });
+
+        clueTypewriterTimer.start();
+    }
+    
+    private void playTypewriterEffect(String firstText, String secondText, Runnable onComplete) {
         fullText = firstText;
         charIndex = 0;
         lblObjective.setText("");
@@ -76,7 +110,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
                 } else {
                     typewriterTimer.stop();
                     stopTypewriterSound();
-                    javax.swing.SwingUtilities.invokeLater(() -> startSecondText(secondText));
+                    javax.swing.SwingUtilities.invokeLater(() -> startSecondText(secondText, onComplete));
                 }
             }
         });
@@ -84,7 +118,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         typewriterTimer.start();
     }
 
-    private void startSecondText(String secondText) {
+    private void startSecondText(String secondText, Runnable onComplete) {
         fullText = secondText;
         charIndex = 0;
         playTypewriterSound();
@@ -98,6 +132,9 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
                 } else {
                     typewriterTimer.stop();
                     stopTypewriterSound();
+                    if (onComplete != null) {
+                        onComplete.run();
+                    }
                 }
             }
         });
@@ -362,6 +399,16 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         }
     }
     
+    private void updateClueCount() {
+        lblCluesFound.setText("Clues Found: " + cluesFound + "/5");
+
+        if (cluesFound < 5) {
+            lblCluesFound.setForeground(Color.RED);
+        } else {
+            lblCluesFound.setForeground(new java.awt.Color(51, 255, 0));
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -373,7 +420,9 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
 
         lblObjective = new javax.swing.JLabel();
         lblObjective1 = new javax.swing.JLabel();
+        lblCluesFound = new javax.swing.JLabel();
         lblObjectiveBackground = new javax.swing.JLabel();
+        lblCluesFoundBackground = new javax.swing.JLabel();
         btnContinue = new javax.swing.JButton();
         lblContinue = new javax.swing.JLabel();
         lblDialogue = new javax.swing.JLabel();
@@ -402,13 +451,26 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblObjective1.setText("[Text]");
         add(lblObjective1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
+        lblCluesFound.setFont(new java.awt.Font("Lucida Fax", 0, 22)); // NOI18N
+        lblCluesFound.setForeground(new java.awt.Color(51, 255, 0));
+        lblCluesFound.setText("[Text]");
+        add(lblCluesFound, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 50, -1, -1));
+
         lblObjectiveBackground.setBackground(new java.awt.Color(36, 43, 53, 200));
         lblObjectiveBackground.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
         lblObjectiveBackground.setForeground(new java.awt.Color(0, 0, 0));
         lblObjectiveBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblObjectiveBackground.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.lightGray, java.awt.Color.white, java.awt.Color.blue));
         lblObjectiveBackground.setOpaque(true);
-        add(lblObjectiveBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 330, 120));
+        add(lblObjectiveBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 40, 330, 50));
+
+        lblCluesFoundBackground.setBackground(new java.awt.Color(36, 43, 53, 200));
+        lblCluesFoundBackground.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
+        lblCluesFoundBackground.setForeground(new java.awt.Color(0, 0, 0));
+        lblCluesFoundBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCluesFoundBackground.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.lightGray, java.awt.Color.white, java.awt.Color.blue));
+        lblCluesFoundBackground.setOpaque(true);
+        add(lblCluesFoundBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 330, 120));
 
         btnContinue.setBackground(new java.awt.Color(36, 43, 53, 100));
         btnContinue.setForeground(new java.awt.Color(255, 255, 255));
@@ -505,6 +567,8 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblBaristaCheck.setVisible(true);
         lastClicked = "barista";
         baristaClicked = true;
+        cluesFound++;
+        updateClueCount();
         playFoundSound();
         String[] lines = {
             "When Asher asks about Kieran, the bartender stiffens",
@@ -520,6 +584,8 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblCloseFriendCheck.setVisible(true);
         lastClicked = "closeFriend";
         closeFriendClicked = true;
+        cluesFound++;
+        updateClueCount();
         playFoundSound();
         String[] lines = {
             "A friend close to Kieran",
@@ -535,6 +601,8 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblGlassCheck.setVisible(true);
         lastClicked = "glass";
         glassClicked = true;
+        cluesFound++;
+        updateClueCount();
         playFoundSound();
         String[] lines = {
             "A Glass with No Fingerprints",
@@ -551,6 +619,8 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblStainCheck.setVisible(true);
         lastClicked = "stain";
         stainClicked = true;
+        cluesFound++;
+        updateClueCount();
         playFoundSound();
         String[] lines = {
             "A Bar Rag with a Strange Stain",
@@ -567,6 +637,8 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblNoteCheck.setVisible(true);
         lastClicked = "note";
         noteClicked = true;
+        cluesFound++;
+        updateClueCount();
         playFoundSound();
         String[] lines = {
             "A torn note...",
@@ -595,6 +667,8 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblBaristaCheck;
     private javax.swing.JLabel lblCloseFriendCheck;
+    private javax.swing.JLabel lblCluesFound;
+    private javax.swing.JLabel lblCluesFoundBackground;
     private javax.swing.JLabel lblContinue;
     private javax.swing.JLabel lblDialogue;
     private javax.swing.JLabel lblGlassCheck;
