@@ -159,8 +159,6 @@ public class AsherValeGameplayOutsideWarehouse extends javax.swing.JPanel {
             if (dialogueIndex == SCENE1.length + SCENE2.length) {
                 lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/inside_factory.png")));
             }
-        } else {
-            lblDialogue.setText("End of dialogue.");
         }
     }
 
@@ -177,7 +175,7 @@ public class AsherValeGameplayOutsideWarehouse extends javax.swing.JPanel {
             }
         } else {
             if (dialogueIndex >= SCENE1.length + SCENE2.length + SCENE3.length) {
-                frame.showScreen("AsherValeItaewonGameplayBar2");
+                frame.showScreen("AsherValeGameplayFactory");
                 return;
             }
             dialogueIndex++;
