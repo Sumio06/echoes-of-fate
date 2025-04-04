@@ -50,14 +50,6 @@ public class AsherValeGameplayWarehouse extends javax.swing.JPanel {
             }
         });
     }
-    
-    private void disableAllButtons() {
-        btnTowel.setEnabled(false);
-        btnMap.setEnabled(false);
-        btnDocument.setEnabled(false);
-        btnUSB.setEnabled(false);
-        btnPhone.setEnabled(false);
-    }
 
     private Timer typewriterTimer;
     private int charIndex = 0;
