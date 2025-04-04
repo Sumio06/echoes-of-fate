@@ -456,7 +456,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblCluesFound.setFont(new java.awt.Font("Lucida Fax", 0, 22)); // NOI18N
         lblCluesFound.setForeground(new java.awt.Color(51, 255, 0));
         lblCluesFound.setText("[Text]");
-        add(lblCluesFound, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 50, -1, -1));
+        add(lblCluesFound, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 40, -1, -1));
 
         lblObjectiveBackground.setBackground(new java.awt.Color(36, 43, 53, 200));
         lblObjectiveBackground.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
@@ -464,7 +464,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblObjectiveBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblObjectiveBackground.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.lightGray, java.awt.Color.white, java.awt.Color.blue));
         lblObjectiveBackground.setOpaque(true);
-        add(lblObjectiveBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 40, 330, 50));
+        add(lblObjectiveBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 30, 330, 50));
 
         lblCluesFoundBackground.setBackground(new java.awt.Color(36, 43, 53, 200));
         lblCluesFoundBackground.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
@@ -580,6 +580,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
+        btnBarista.setEnabled(false);
     }//GEN-LAST:event_btnBaristaActionPerformed
 
     private void btnCloseFriendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseFriendActionPerformed
@@ -597,6 +598,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
+        btnCloseFriend.setEnabled(false);
     }//GEN-LAST:event_btnCloseFriendActionPerformed
 
     private void btnGlassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGlassActionPerformed
@@ -615,6 +617,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
+        btnGlass.setEnabled(false);
     }//GEN-LAST:event_btnGlassActionPerformed
 
     private void btnStainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStainActionPerformed
@@ -633,6 +636,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
+        btnStain.setEnabled(false);
     }//GEN-LAST:event_btnStainActionPerformed
 
     private void btnNoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoteActionPerformed
@@ -649,6 +653,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
+        btnNote.setEnabled(false);
     }//GEN-LAST:event_btnNoteActionPerformed
 
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed

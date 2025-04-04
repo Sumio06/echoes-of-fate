@@ -14,7 +14,9 @@ import AsherValeStoryline.AsherVale;
 import AsherValeStoryline.AsherValeItaewonGameplayBar;
 import AsherValeStoryline.AsherValeItaewonGameplayBar2;
 import AsherValeStoryline.AsherValeGameplayOutsideBar;
+import AsherValeStoryline.AsherValeGameplayOutsideWarehouse;
 import AsherValeStoryline.AsherValeGameplayWarehouse;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -50,6 +52,7 @@ public class MainFrame extends javax.swing.JFrame {
         AsherValeItaewonGameplayBar2 asherValeItaewonGameplayBar2 = new AsherValeItaewonGameplayBar2(this);
         AsherValeGameplayOutsideBar asherValeGameplayOutsideBar = new AsherValeGameplayOutsideBar(this);
         AsherValeGameplayWarehouse asherValeGameplayWarehouse = new AsherValeGameplayWarehouse(this);
+        AsherValeGameplayOutsideWarehouse asherValeGameplayOutsideWarehouse = new AsherValeGameplayOutsideWarehouse(this);
         
         mainPanel.add(loginScreen, "Login");
         mainPanel.add(mainMenu, "Menu");
@@ -61,6 +64,7 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanel.add(asherValeItaewonGameplayBar2, "AsherValeItaewonGameplayBar2");
         mainPanel.add(asherValeGameplayOutsideBar, "AsherValeGameplayOutsideBar");
         mainPanel.add(asherValeGameplayWarehouse, "AsherValeGameplayWarehouse");
+        mainPanel.add(asherValeGameplayOutsideWarehouse, "AsherValeGameplayOutsideWarehouse");
 
         setContentPane(mainPanel);
         setVisible(true);
@@ -111,10 +115,6 @@ public class MainFrame extends javax.swing.JFrame {
 
     public void showScreen(String screenName) {
         System.out.println("Switching to panel: " + screenName);
-
-        if (screenName.equals("AsherValeGameplayOutsideBar")) {
-        new Exception("Debug: Forced switch to AsherValeGameplayOutsideBar").printStackTrace();
-    }
         
         if (screenName.equals("Login")) {
             ((LoginScreen) mainPanel.getComponent(0)).updateTextFields();

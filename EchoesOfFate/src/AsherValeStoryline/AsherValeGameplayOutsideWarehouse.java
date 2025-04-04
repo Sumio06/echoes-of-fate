@@ -14,46 +14,66 @@ import java.io.File;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.swing.*;
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
+import javax.swing.Timer;
 
 /**
  *
  * @author User
  */
-public class AsherValeItaewonGameplayBar extends javax.swing.JPanel {
+public class AsherValeGameplayOutsideWarehouse extends javax.swing.JPanel {
 
     /**
-     * Creates new form AsherValeItaewonGameplayBar
+     * Creates new form AsherGameplayOutsideWarehouse
      */
     
     private MainFrame frame; 
     
     private String[] SCENE1 = {
-        "(The door creaks open as Asher steps inside, neon light casting shadows)",
-        "The air smells of whiskey and smoke, jazz playing softly in the background",
-        "(The bartender wipes a glass, his eyes avoiding Asher’s)",
-        "Bartender (gruffly): Haven’t seen you ‘round here before",
-        "Asher (calm but intent): Looking for Kieran Vale. He used to come here",
-        "(The bartender freezes, his grip tightening on the glass)",
-        "Bartender: Lotta folks pass through. Hard to remember names",
-        "(He exhales, eyes darting away)",
-        "Bartender: Yeah, Kieran was here. Sat at that corner booth. Pressing for answers",
-        "Asher (leaning in): Answers? What kind of answers?",
-        "(The bartender hesitates, wiping the same spot on the glass)",
-        "Bartender (nervously): Questions about things... things he shouldn’t have asked",
-        "He was waiting for someone. No one showed up. He left alone",
-        "Asher (intensely): Did he talk to anyone else? Anything suspicious?",
-        "(The bartender looks away, his movements stiff)",
-        "Bartender (quietly): Some things are better left alone",
-        "(The silence between them thickens, Asher’s suspicion growing)"
+        "Asher carefully arranges all the clues he has gathered...",
+        "The half-burnt document reveals an address that leads to the Namdaemun Warehouse,",
+        "The damaged map points to a location circled several times, as if it were a place of importance.",
+        "Asher runs the numbers and connections in his head. The clues make sense now.",
+        "The shadowy figure's involvement in the killings is part of something bigger... much bigger.",
+        "He has no time to waste. His next destination is clear.",
+        "The Hanseong Industrial Complex. An abandoned factory on the outskirts of Seoul. It’s time to move.",
+        "With everything pointing to this location...",
+        "Asher makes his way to the outskirts of the city, ready for the next phase of his investigation."
+    };
+    
+    private String[] SCENE2 = {
+        "Asher arrives at the Hanseong Industrial Complex on the outskirts of Seoul.",
+        "The factory buildings stand abandoned, their rusted gates creaking in the wind.",
+        "It’s eerily silent, and something feels off as Asher approaches.",
+        "A faded sign confirms the location: Hanseong Industrial Complex.",
+        "He steps through the gate, ready for whatever lies ahead.",
+        "The place is deserted, with only the sound of his footsteps echoing.",
+        "Asher knows this is where the shadowy figure has been.",
+        "He walks toward the factory, determined to uncover the truth.",
+        "The complex is vast and dark, the air thick with dust.",
+        "He enters the factory, flashlight in hand, searching for answers."
+    };
+    
+    private String[] SCENE3 = {
+        "Inside, the factory is dark and full of old, rusting machinery.",
+        "Dust and debris cover the floor, adding to the eerie atmosphere.",
+        "A bloodstained knife lies near a workbench, hinting at something sinister.",
+        "Asher moves deeper, his senses heightened, searching for clues.",
+        "He hears a faint sound but finds nothing when he looks.",
+        "A light flickers ahead, drawing him toward it.",
+        "At the next crate, Asher finds a hidden USB drive with footage.",
+        "This USB might hold key evidence about the shadowy figure.",
+        "The factory feels alive with secrets, and Asher is determined to uncover them."
     };
 
     private int dialogueIndex = 0;
     private int charIndex = 0;
     private Timer timer;
     private Clip typewriterClip;
-
-    public AsherValeItaewonGameplayBar(MainFrame frame) {
+    
+    public AsherValeGameplayOutsideWarehouse(MainFrame frame) {
         this.frame = frame;
         initComponents();
         lblDialogue.setText("");
@@ -77,25 +97,7 @@ public class AsherValeItaewonGameplayBar extends javax.swing.JPanel {
         });
     }
     
-    private Clip doorClip;
-
-    private void playDoorSound() {
-        try {
-            if (doorClip != null && doorClip.isRunning()) {
-                doorClip.stop();
-            }
-            File soundFile = new File("src/echoesoffateassets/door.wav");
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
-            doorClip = AudioSystem.getClip();
-            doorClip.open(audioStream);
-            doorClip.start();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    
     public void startDialogue() {
-        playDoorSound();
         dialogueIndex = 0;
         showNextDialogue();
     }
@@ -146,8 +148,17 @@ public class AsherValeItaewonGameplayBar extends javax.swing.JPanel {
 
     private void showNextDialogue() {
         if (dialogueIndex < SCENE1.length) {
-            displayText(SCENE1[dialogueIndex]); 
-            dialogueIndex++;
+            displayText(SCENE1[dialogueIndex]);
+        } else if (dialogueIndex >= SCENE1.length && dialogueIndex < SCENE1.length + SCENE2.length) {
+            displayText(SCENE2[dialogueIndex - SCENE1.length]);
+            if (dialogueIndex == SCENE1.length) {
+                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/outside_factory.png")));
+            }
+        } else if (dialogueIndex >= SCENE1.length + SCENE2.length && dialogueIndex < SCENE1.length + SCENE2.length + SCENE3.length) {
+            displayText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]);
+            if (dialogueIndex == SCENE1.length + SCENE2.length) {
+                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/inside_factory.png")));
+            }
         } else {
             lblDialogue.setText("End of dialogue.");
         }
@@ -157,12 +168,19 @@ public class AsherValeItaewonGameplayBar extends javax.swing.JPanel {
         if (timer != null && timer.isRunning()) {
             timer.stop();
             stopTypewriterSound();
-            lblDialogue.setText(SCENE1[dialogueIndex - 1]);
+            if (dialogueIndex < SCENE1.length) {
+                lblDialogue.setText(SCENE1[dialogueIndex]);
+            } else if (dialogueIndex < SCENE1.length + SCENE2.length) {
+                lblDialogue.setText(SCENE2[dialogueIndex - SCENE1.length]);
+            } else if (dialogueIndex < SCENE1.length + SCENE2.length + SCENE3.length) {
+                lblDialogue.setText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]);
+            }
         } else {
-            if (dialogueIndex >= SCENE1.length) {
+            if (dialogueIndex >= SCENE1.length + SCENE2.length + SCENE3.length) {
                 frame.showScreen("AsherValeItaewonGameplayBar2");
                 return;
             }
+            dialogueIndex++;
             showNextDialogue();
         }
     }
@@ -214,8 +232,8 @@ public class AsherValeItaewonGameplayBar extends javax.swing.JPanel {
 
         lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/bar.png"))); // NOI18N
-        add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -80, -1, -1));
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/table.png"))); // NOI18N
+        add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -70, 1600, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
