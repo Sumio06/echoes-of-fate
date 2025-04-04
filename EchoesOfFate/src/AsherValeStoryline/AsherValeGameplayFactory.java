@@ -422,7 +422,9 @@ public class AsherValeGameplayFactory extends javax.swing.JPanel {
         lblObjective1 = new javax.swing.JLabel();
         lblObjective = new javax.swing.JLabel();
         lblCluesFoundBackground = new javax.swing.JLabel();
+        lblLighterCheck = new javax.swing.JLabel();
         btnKnife = new javax.swing.JButton();
+        btnCup = new javax.swing.JButton();
         btnGloves = new javax.swing.JButton();
         btnLetter = new javax.swing.JButton();
         btnLighter = new javax.swing.JButton();
@@ -434,8 +436,6 @@ public class AsherValeGameplayFactory extends javax.swing.JPanel {
         lblCupCheck = new javax.swing.JLabel();
         lblGlovesCheck = new javax.swing.JLabel();
         lblLetterCheck = new javax.swing.JLabel();
-        lblLighterCheck = new javax.swing.JLabel();
-        btnCup = new javax.swing.JButton();
         lblBackground = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -471,6 +471,9 @@ public class AsherValeGameplayFactory extends javax.swing.JPanel {
         lblCluesFoundBackground.setOpaque(true);
         add(lblCluesFoundBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 330, 120));
 
+        lblLighterCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
+        add(lblLighterCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 540, -1, -1));
+
         btnKnife.setContentAreaFilled(false);
         btnKnife.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -479,13 +482,21 @@ public class AsherValeGameplayFactory extends javax.swing.JPanel {
         });
         add(btnKnife, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 750, 70, 50));
 
+        btnCup.setContentAreaFilled(false);
+        btnCup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCupActionPerformed(evt);
+            }
+        });
+        add(btnCup, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 560, 30, 20));
+
         btnGloves.setContentAreaFilled(false);
         btnGloves.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGlovesActionPerformed(evt);
             }
         });
-        add(btnGloves, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 650, 70, 40));
+        add(btnGloves, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 790, 90, 50));
 
         btnLetter.setContentAreaFilled(false);
         btnLetter.addActionListener(new java.awt.event.ActionListener() {
@@ -493,7 +504,7 @@ public class AsherValeGameplayFactory extends javax.swing.JPanel {
                 btnLetterActionPerformed(evt);
             }
         });
-        add(btnLetter, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 730, 40, 40));
+        add(btnLetter, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 730, 40, 40));
 
         btnLighter.setContentAreaFilled(false);
         btnLighter.addActionListener(new java.awt.event.ActionListener() {
@@ -501,7 +512,7 @@ public class AsherValeGameplayFactory extends javax.swing.JPanel {
                 btnLighterActionPerformed(evt);
             }
         });
-        add(btnLighter, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 740, 40, 40));
+        add(btnLighter, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 540, 40, 30));
 
         btnContinue.setBackground(new java.awt.Color(36, 43, 53, 100));
         btnContinue.setForeground(new java.awt.Color(255, 255, 255));
@@ -535,24 +546,13 @@ public class AsherValeGameplayFactory extends javax.swing.JPanel {
         add(lblKnifeCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 770, -1, -1));
 
         lblCupCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
-        add(lblCupCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 810, -1, -1));
+        add(lblCupCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 560, -1, -1));
 
         lblGlovesCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
-        add(lblGlovesCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 650, -1, -1));
+        add(lblGlovesCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 800, -1, -1));
 
         lblLetterCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
-        add(lblLetterCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 740, -1, -1));
-
-        lblLighterCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
-        add(lblLighterCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 750, -1, -1));
-
-        btnCup.setContentAreaFilled(false);
-        btnCup.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCupActionPerformed(evt);
-            }
-        });
-        add(btnCup, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 810, 50, 40));
+        add(lblLetterCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 740, -1, -1));
 
         lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
