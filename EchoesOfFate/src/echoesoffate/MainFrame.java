@@ -15,6 +15,7 @@ import AsherValeStoryline.AsherValeGameplayAfterRooftop;
 import AsherValeStoryline.AsherValeGameplayApartment;
 import AsherValeStoryline.AsherValeGameplayContainer;
 import AsherValeStoryline.AsherValeGameplayFactory;
+import AsherValeStoryline.AsherValeGameplayHotel;
 import AsherValeStoryline.AsherValeGameplayOutsideApartment;
 import AsherValeStoryline.AsherValeItaewonGameplayBar;
 import AsherValeStoryline.AsherValeItaewonGameplayBar2;
@@ -69,6 +70,7 @@ public class MainFrame extends javax.swing.JFrame {
         AsherValeGameplayOutsideContainer asherValeGameplayOutsideContainer = new AsherValeGameplayOutsideContainer(this);
         AsherValeGameplayRooftop asherValeGameplayRooftop = new AsherValeGameplayRooftop(this);
         AsherValeGameplayAfterRooftop asherValeGameplayAfterRooftop = new AsherValeGameplayAfterRooftop(this);
+        AsherValeGameplayHotel asherValeGameplayHotel = new AsherValeGameplayHotel(this);
         
         mainPanel.add(loginScreen, "Login");
         mainPanel.add(mainMenu, "Menu");
@@ -89,6 +91,7 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanel.add(asherValeGameplayOutsideContainer, "AsherValeGameplayOutsideContainer");
         mainPanel.add(asherValeGameplayRooftop, "AsherValeGameplayRooftop");
         mainPanel.add(asherValeGameplayAfterRooftop, "AsherValeGameplayAfterRooftop");
+        mainPanel.add(asherValeGameplayHotel, "AsherValeGameplayHotel");
 
         setContentPane(mainPanel);
         setVisible(true);
