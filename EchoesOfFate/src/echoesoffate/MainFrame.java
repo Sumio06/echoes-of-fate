@@ -11,7 +11,9 @@ package echoesoffate;
 
 import AsherValeStoryline.AsherValeItaewonGameplay1;
 import AsherValeStoryline.AsherVale;
+import AsherValeStoryline.AsherValeGameplayApartment;
 import AsherValeStoryline.AsherValeGameplayFactory;
+import AsherValeStoryline.AsherValeGameplayOutsideApartment;
 import AsherValeStoryline.AsherValeItaewonGameplayBar;
 import AsherValeStoryline.AsherValeItaewonGameplayBar2;
 import AsherValeStoryline.AsherValeGameplayOutsideBar;
@@ -57,6 +59,8 @@ public class MainFrame extends javax.swing.JFrame {
         AsherValeGameplayOutsideWarehouse asherValeGameplayOutsideWarehouse = new AsherValeGameplayOutsideWarehouse(this);
         AsherValeGameplayFactory asherValeGameplayFactory = new AsherValeGameplayFactory(this);
         AsherValeGameplaySeoulToBusan asherValeGameplaySeoulToBusan = new AsherValeGameplaySeoulToBusan(this);
+        AsherValeGameplayApartment asherValeGameplayApartment = new AsherValeGameplayApartment(this);
+        AsherValeGameplayOutsideApartment asherValeGameplayOutsideApartment = new AsherValeGameplayOutsideApartment(this);
         
         mainPanel.add(loginScreen, "Login");
         mainPanel.add(mainMenu, "Menu");
@@ -71,6 +75,8 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanel.add(asherValeGameplayOutsideWarehouse, "AsherValeGameplayOutsideWarehouse");
         mainPanel.add(asherValeGameplayFactory, "AsherValeGameplayFactory");
         mainPanel.add(asherValeGameplaySeoulToBusan, "AsherValeGameplaySeoulToBusan");
+        mainPanel.add(asherValeGameplayApartment, "AsherValeGameplayApartment");
+        mainPanel.add(asherValeGameplayOutsideApartment, "AsherValeGameplayOutsideApartment");
 
         setContentPane(mainPanel);
         setVisible(true);

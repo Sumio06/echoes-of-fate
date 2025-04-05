@@ -23,80 +23,20 @@ import javax.swing.Timer;
  *
  * @author User
  */
-public class AsherValeGameplaySeoulToBusan extends javax.swing.JPanel {
+public class AsherValeGameplayOutsideApartment extends javax.swing.JPanel {
 
     /**
-     * Creates new form AsherValeGameplaySeoulToBusan
+     * Creates new form AsherValeGameplayOutsideApartment
      */
     
     private MainFrame frame;
     
-    private String[] SCENE1 = {
-        "Asher’s mind raced as he left the Hanseong Complex.",
-        "He needed answers, and they pointed to Busan",
-        "The noise of Seoul’s streets faded as he reached the train station",
-        "The city buzzed around him, but his focus was singular",
-        "His footsteps echoed on the platform as he prepared to board"
-    };
-    
-    private String[] SCENE2 = {
-        "With a deep breath, Asher stepped onto the train platform",
-        "He glanced at the train, its destination clear: Busan",
-        "The sound of the train doors opening felt like an invitation",
-        "Asher boarded the train, settling into a quiet seat",
-        "The hum of the tracks beneath him brought a sense of calm"
-    };
-    
-    private String[] SCENE3 = {
-        "Asher gazed out the window as the city faded away",
-        "The train sped past rolling hills, fields, and distant shores",
-        "The afternoon sun bathed the world in golden light",
-        "His thoughts drifted, memories of simpler days with Kieran",
-        "'Remember that day, Kieran?' he wondered softly",
-        "The peaceful scene outside only reminded him of what was lost"
-    };
-    
-    private String[] SCENE4 = {
-        "As the sun began to set, vibrant colors filled the sky",
-        "The light reflected off the horizon, making Asher's heart ache",
-        "It was a time long past, when everything felt easier",
-        "'We didn't have to chase shadows back then,' he thought",
-        "But there was no turning back now. Only forward to Busan",
-        "As the train rumbled on, his resolve"
-    };
-    
-    private String[] SCENE5 = {
-        "Asher stepped off the train, boots hitting the pavement of Busan’s station",
-        "The city, once quieter, greeted him with a foggy haze and the faint scent of saltwater",
-        "Busan, now a place thick with secrets, seemed different, like it had been waiting for him",
-        "The clues led him here, and every step felt heavier with the weight of the mystery",
-        "He scanned the bustling streets, feeling the pressure mount as he moved towards the docks",
-        "Each moment pulled him closer to Kieran’s killer. There was no going back now"
-    };
-    
-    private String[] SCENE6 = {
-        "Asher’s destination was clear—a rundown apartment on the edge of town",
-        "The address had surfaced in his investigation, promising more answers",
-        "The busy city faded as he walked deeper into quieter, darker streets",
-        "With every step, the tension inside him grew; he was getting closer",
-        "The building loomed ahead, a forgotten structure filled with uncertainty",
-        "Asher's hand tightened around the strap of his bag. He was almost there"
-    };
-    
-    private String[] SCENE7 = {
-        "(Asher steps inside. The door creaks behind him)",
-        "Asher (quietly): You were here, Kieran...",
-        "(A rustle. Not the wind. Just memory)",
-        "(He sets down the bloodstained letter from Seoul—stares at the room like it might speak)",
-        "Asher: Let’s find what you left behind"
-    };
-
     private int dialogueIndex = 0;
     private int charIndex = 0;
     private Timer timer;
     private Clip typewriterClip;
     
-    public AsherValeGameplaySeoulToBusan(MainFrame frame) {
+    public AsherValeGameplayOutsideApartment(MainFrame frame) {
         this.frame = frame;
         initComponents();
         lblDialogue.setText("");
@@ -119,6 +59,25 @@ public class AsherValeGameplaySeoulToBusan extends javax.swing.JPanel {
             }
         });
     }
+    
+    private String[] SCENE1 = {
+        "(Asher steps out of the apartment, document in hand, thoughts racing)",
+        "(The cold night air cuts through him, the weight of the case pressing)",
+        "Asher (whispers): Hale’s involved... but how deep?",
+        "(He glances at the crumpled document in his pocket)",
+        "Asher (determined): This document... it's the lead I needed"
+    };
+    
+    private String[] SCENE2 = {
+        "(Asher pulls out the folded document, ink smudged but legible)",
+        "Asher (reading aloud): 'Shipment Invoice, Unit 47, Sector D – Dockside Logistics... March 3, 3:00 PM...'",
+        "(He notices the fake company name, a chill runs down his spine)",
+        "Asher (to himself): Hale’s alias... this is it",
+        "(He folds the document carefully, his mind racing)",
+        "Asher (muttering): A meeting at Dockside. I need to be there",
+        "(He heads to his car, pulse quickening)",
+        "(Asher starts the engine, heading toward Dockside Logistics)"
+    };
     
     public void startDialogue() {
         dialogueIndex = 0;
@@ -178,55 +137,11 @@ public class AsherValeGameplaySeoulToBusan extends javax.swing.JPanel {
             displayText(SCENE2[dialogueIndex - SCENE1.length]);
 
             if (dialogueIndex == SCENE1.length) {
-                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/entering_train.png")));
+                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/alleyway_paper.png")));
             }
 
             dialogueIndex++;
         } 
-        else if (dialogueIndex < SCENE1.length + SCENE2.length + SCENE3.length) {
-            displayText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]);
-
-            if (dialogueIndex == SCENE1.length + SCENE2.length) {
-                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/sunset_train.png")));
-            }
-
-            dialogueIndex++;
-        }
-        else if (dialogueIndex < SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length) {
-            displayText(SCENE4[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length]);
-
-            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length) {
-                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/evening_train.png")));
-            }
-            dialogueIndex++;
-        } 
-        else if (dialogueIndex < SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length) {
-            displayText(SCENE5[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length]);
-
-            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length) {
-                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/busan_station.png")));
-            }
-
-            dialogueIndex++;
-        }
-        else if (dialogueIndex < SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length) {
-            displayText(SCENE6[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length]);
-
-            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length) {
-                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/apartment.png")));
-            }
-
-            dialogueIndex++;
-        } 
-        else if (dialogueIndex < SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length) {
-            displayText(SCENE7[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length]);
-
-            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length) {
-                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/inside_apartment.png")));
-            }
-
-            dialogueIndex++;
-        }
         else {
             lblDialogue.setText("End of dialogue.");
         }
@@ -240,20 +155,10 @@ public class AsherValeGameplaySeoulToBusan extends javax.swing.JPanel {
                 lblDialogue.setText(SCENE1[dialogueIndex - 1]);
             } else if (dialogueIndex - 1 < SCENE1.length + SCENE2.length) {
                 lblDialogue.setText(SCENE2[dialogueIndex - SCENE1.length - 1]);
-            } else if (dialogueIndex - 1 < SCENE1.length + SCENE2.length + SCENE3.length) {
-                lblDialogue.setText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length - 1]);
-            } else if (dialogueIndex - 1 < SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length) {
-                lblDialogue.setText(SCENE4[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - 1]);
-            } else if (dialogueIndex - 1 < SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length) {
-                lblDialogue.setText(SCENE5[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - 1]);
-            } else if (dialogueIndex - 1 < SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length) {
-                lblDialogue.setText(SCENE6[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - 1]);
-            } else if (dialogueIndex - 1 < SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length) {
-                lblDialogue.setText(SCENE7[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - 1]);
             }
         } else {
-            if (dialogueIndex >= SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length) {
-                frame.showScreen("AsherValeGameplayApartment");
+            if (dialogueIndex >= SCENE1.length + SCENE2.length ) {
+                frame.showScreen("AsherValeGameplayWarehouse");
                 return;
             }
             showNextDialogue();
@@ -307,7 +212,7 @@ public class AsherValeGameplaySeoulToBusan extends javax.swing.JPanel {
 
         lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/seoul_station.png"))); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/bar_shadowfigure.png"))); // NOI18N
         add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -70, 1600, -1));
     }// </editor-fold>//GEN-END:initComponents
 
