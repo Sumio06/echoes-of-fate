@@ -336,8 +336,8 @@ public class AsherValeGameplayContainer extends javax.swing.JPanel {
             case "metro":
                 lines = new String[] {
                     "A torn metro pass with Hale’s alias...",
-                    "Hale came to the port deliberately that night.",
-                    "The meeting, it’s soon. Something’s about to happen.",
+                    "Hale came to the port deliberately that night",
+                    "The meeting, it’s soon. Something’s about to happen",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'",
                     "N"
@@ -569,9 +569,9 @@ public class AsherValeGameplayContainer extends javax.swing.JPanel {
         updateClueCount();
         playFoundSound();
         String[] lines = {
-            "A marked blueprint of the port – an escape note.",
-            "Backside reads: 'Rooftop. Line of sight. Only safe way out.'",
-            "This points Asher to the rooftop for Investigation 3."
+            "A torn metro pass with Hale’s alias...",
+            "Hale came to the port deliberately that night",
+            "The meeting, it’s soon. Something’s about to happen",
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
