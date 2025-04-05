@@ -18,15 +18,15 @@ import javax.swing.Timer;
  *
  * @author User
  */
-public class AsherValeGameplayContainer extends javax.swing.JPanel {
+public class AsherValeGameplayRooftop extends javax.swing.JPanel {
 
     /**
-     * Creates new form AsherValeGameplayContainer
+     * Creates new form AsherValeGameplayRooftop
      */
     
     private MainFrame frame;
     
-    public AsherValeGameplayContainer(MainFrame frame) {
+    public AsherValeGameplayRooftop(MainFrame frame) {
         this.frame = frame;
         initComponents();
         
@@ -37,11 +37,11 @@ public class AsherValeGameplayContainer extends javax.swing.JPanel {
         lblContinue.setVisible(false);
         lblLoginFormBackground.setVisible(false);
         btnContinue.setVisible(false);
-        lblBlueprintCheck.setVisible(false);
-        lblPhotoCheck.setVisible(false);
-        lblFilesCheck.setVisible(false);
-        lblMetroCheck.setVisible(false);
-        lblJacketCheck.setVisible(false);
+        lblTicketCheck.setVisible(false);
+        lblLetterCheck.setVisible(false);
+        lblDocumentCheck.setVisible(false);
+        lblKeycardCheck.setVisible(false);
+        lblDrugsCheck.setVisible(false);
 
         addComponentListener(new java.awt.event.ComponentAdapter() {
             @Override
@@ -264,16 +264,16 @@ public class AsherValeGameplayContainer extends javax.swing.JPanel {
         typewriterTimer.start();
     }
 
-    private boolean jacketClicked = false;
-    private boolean photoClicked = false;
-    private boolean wiretapClicked = false;
-    private boolean metroClicked = false;
-    private boolean blueprintClicked = false;
+    private boolean letterClicked = false;
+    private boolean drugsClicked = false;
+    private boolean keycardClicked = false;
+    private boolean documentClicked = false;
+    private boolean ticketClicked = false;
     private boolean isObjectiveComplete = false;
     
 
     private void checkObjectiveCompletion() {
-        if (jacketClicked && photoClicked && wiretapClicked && metroClicked && blueprintClicked) {
+        if (letterClicked && drugsClicked && keycardClicked && documentClicked && ticketClicked) {
             if (!isObjectiveComplete) {
                 lblObjective.setText("Objective Complete");
                 lblObjective.setForeground(new java.awt.Color(51, 255, 0));
@@ -311,56 +311,55 @@ public class AsherValeGameplayContainer extends javax.swing.JPanel {
         String[] lines;
 
         switch(lastClicked) {
-             case "photo":
+            case "letter":
                 lines = new String[] {
-                    "A faded surveillance photo, wedged behind a crate panel...",
-                    "A man enters the container at 12:42 AM. Hale’s shadow follows.",
-                    "No timestamp, no location... but the details stand out.",
+                    "A direct order from the bartender, confirming Hale's involvement",
+                    "It explicitly states that Hale ordered Kieran’s elimination",
+                    "But the reason behind it is still a mystery",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'",
                     "N"
                 };
                 break;
 
-            case "files":
+            case "keycard":
                 lines = new String[] {
-                    "A wiretap transcript stuffed in an oil-stained envelope...",
-                    "Threats, paranoia. Hale’s operation unraveling.",
-                    "There’s leverage, something bigger at stake.",
+                    "A keycard from a hotel in Jeju, found on the informant",
+                    "An address is scribbled on the back, pointing to a specific location",
+                    "This hotel could hold the key to unraveling the mystery",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'",
                     "N"
                 };
                 break;
 
-            case "metro":
+            case "ticket":
                 lines = new String[] {
-                    "A torn metro pass with Hale’s alias...",
-                    "Hale came to the port deliberately that night.",
-                    "The meeting, it’s soon. Something’s about to happen.",
+                    "A ferry ticket to Jeju, dated for the same night Kieran vanished",
+                    "It shows Kieran was supposed to leave, but something stopped him",
+                    "Was he caught in something bigger than he realized?",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'",
                     "N"
                 };
                 break;
 
-            case "jacket":
+            case "drugs":
                 lines = new String[] {
-                    "A damaged voice recorder inside a torn jacket pocket...",
-                    "The casing is cracked, but the data chip is intact.",
-                    "A warning: '...the ledger... bartender... can’t trust...' Then silence.",
-                    "This might be the last message from someone involved.",
+                    "A stash of drugs, directly linked to the smuggling operation",
+                    "It’s more evidence of the bartender’s illegal dealings",
+                    "This could be the key to understanding the entire network",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'",
                     "N"
                 };
                 break;
 
-            case "blueprint":
+            case "document":
                 lines = new String[] {
-                    "A marked blueprint of the port – an escape note.",
-                    "Backside reads: 'Haneul Rooftop. Line of sight. Only safe way out.'",
-                    "This points to the Haneul Rooftop",
+                    "A note with a time and location—'Meet at the docks, 3 AM.'",
+                    "It suggests a final exchange, or possibly a departure.",
+                    "This could be where everything comes together.",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'",
                     "N"
@@ -405,7 +404,6 @@ public class AsherValeGameplayContainer extends javax.swing.JPanel {
             lblCluesFound.setForeground(new java.awt.Color(51, 255, 0));
         }
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -421,20 +419,20 @@ public class AsherValeGameplayContainer extends javax.swing.JPanel {
         lblObjective1 = new javax.swing.JLabel();
         lblObjective = new javax.swing.JLabel();
         lblCluesFoundBackground = new javax.swing.JLabel();
-        btnJacket = new javax.swing.JButton();
-        btnMetro = new javax.swing.JButton();
-        btnFiles = new javax.swing.JButton();
-        btnPhoto = new javax.swing.JButton();
-        btnBlueprint = new javax.swing.JButton();
+        btnDrugs = new javax.swing.JButton();
+        btnKeycard = new javax.swing.JButton();
+        btnLetter = new javax.swing.JButton();
+        btnTicket = new javax.swing.JButton();
+        btnDocument = new javax.swing.JButton();
         btnContinue = new javax.swing.JButton();
         lblContinue = new javax.swing.JLabel();
         lblDialogue = new javax.swing.JLabel();
         lblLoginFormBackground = new javax.swing.JLabel();
-        lblJacketCheck = new javax.swing.JLabel();
-        lblMetroCheck = new javax.swing.JLabel();
-        lblFilesCheck = new javax.swing.JLabel();
-        lblPhotoCheck = new javax.swing.JLabel();
-        lblBlueprintCheck = new javax.swing.JLabel();
+        lblDrugsCheck = new javax.swing.JLabel();
+        lblKeycardCheck = new javax.swing.JLabel();
+        lblDocumentCheck = new javax.swing.JLabel();
+        lblLetterCheck = new javax.swing.JLabel();
+        lblTicketCheck = new javax.swing.JLabel();
         lblBackground = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -470,45 +468,45 @@ public class AsherValeGameplayContainer extends javax.swing.JPanel {
         lblCluesFoundBackground.setOpaque(true);
         add(lblCluesFoundBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 330, 120));
 
-        btnJacket.setContentAreaFilled(false);
-        btnJacket.addActionListener(new java.awt.event.ActionListener() {
+        btnDrugs.setContentAreaFilled(false);
+        btnDrugs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnJacketActionPerformed(evt);
+                btnDrugsActionPerformed(evt);
             }
         });
-        add(btnJacket, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 790, 150, 140));
+        add(btnDrugs, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 530, 40, 40));
 
-        btnMetro.setContentAreaFilled(false);
-        btnMetro.addActionListener(new java.awt.event.ActionListener() {
+        btnKeycard.setContentAreaFilled(false);
+        btnKeycard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMetroActionPerformed(evt);
+                btnKeycardActionPerformed(evt);
             }
         });
-        add(btnMetro, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 630, 110, 30));
+        add(btnKeycard, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 480, 30, 30));
 
-        btnFiles.setContentAreaFilled(false);
-        btnFiles.addActionListener(new java.awt.event.ActionListener() {
+        btnLetter.setContentAreaFilled(false);
+        btnLetter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFilesActionPerformed(evt);
+                btnLetterActionPerformed(evt);
             }
         });
-        add(btnFiles, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 620, 40, 40));
+        add(btnLetter, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 470, 40, 40));
 
-        btnPhoto.setContentAreaFilled(false);
-        btnPhoto.addActionListener(new java.awt.event.ActionListener() {
+        btnTicket.setContentAreaFilled(false);
+        btnTicket.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPhotoActionPerformed(evt);
+                btnTicketActionPerformed(evt);
             }
         });
-        add(btnPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 770, 40, 40));
+        add(btnTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 720, 40, 30));
 
-        btnBlueprint.setContentAreaFilled(false);
-        btnBlueprint.addActionListener(new java.awt.event.ActionListener() {
+        btnDocument.setContentAreaFilled(false);
+        btnDocument.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBlueprintActionPerformed(evt);
+                btnDocumentActionPerformed(evt);
             }
         });
-        add(btnBlueprint, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 670, 40, 30));
+        add(btnDocument, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 590, 30, 30));
 
         btnContinue.setBackground(new java.awt.Color(36, 43, 53, 100));
         btnContinue.setForeground(new java.awt.Color(255, 255, 255));
@@ -538,98 +536,29 @@ public class AsherValeGameplayContainer extends javax.swing.JPanel {
         lblLoginFormBackground.setOpaque(true);
         add(lblLoginFormBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 570, 1430, 230));
 
-        lblJacketCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
-        add(lblJacketCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 820, -1, -1));
+        lblDrugsCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
+        add(lblDrugsCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 540, -1, -1));
 
-        lblMetroCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
-        add(lblMetroCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 630, -1, -1));
+        lblKeycardCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
+        add(lblKeycardCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 480, -1, -1));
 
-        lblFilesCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
-        add(lblFilesCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 630, -1, -1));
+        lblDocumentCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
+        add(lblDocumentCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 590, -1, -1));
 
-        lblPhotoCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
-        add(lblPhotoCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 770, -1, -1));
+        lblLetterCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
+        add(lblLetterCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 480, -1, -1));
 
-        lblBlueprintCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
-        add(lblBlueprintCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 670, -1, -1));
+        lblTicketCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
+        add(lblTicketCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 720, -1, -1));
 
         lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/inside_shipping_container.png"))); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/rooftop.png"))); // NOI18N
         add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -70, 1600, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private String lastClicked = "";
     
-    private void btnMetroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMetroActionPerformed
-        lblMetroCheck.setVisible(true);
-        metroClicked = true;
-        lastClicked = "metro";
-        cluesFound++;
-        updateClueCount();
-        playFoundSound();
-        String[] lines = {
-            "A marked blueprint of the port – an escape note.",
-            "Backside reads: 'Rooftop. Line of sight. Only safe way out.'",
-            "This points Asher to the rooftop for Investigation 3."
-        };
-        playDialogueTypewriterEffect(lines);
-        checkObjectiveCompletion();
-        btnMetro.setEnabled(false);
-    }//GEN-LAST:event_btnMetroActionPerformed
-
-    private void btnFilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilesActionPerformed
-        lblFilesCheck.setVisible(true);
-        wiretapClicked = true;
-        lastClicked = "files";
-        cluesFound++;
-        updateClueCount();
-        playFoundSound();
-        String[] lines = {
-            "A wiretap transcript stuffed in an oil-stained envelope...",
-            "Threats, paranoia. Hale’s operation unraveling.",
-            "There’s leverage, something bigger at stake."
-        };
-        playDialogueTypewriterEffect(lines);
-        checkObjectiveCompletion();
-        btnFiles.setEnabled(false);
-    }//GEN-LAST:event_btnFilesActionPerformed
-
-    private void btnPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhotoActionPerformed
-        lblPhotoCheck.setVisible(true);
-        photoClicked = true;
-        lastClicked = "photo";
-        cluesFound++;
-        updateClueCount();
-        playFoundSound();
-        String[] lines = {
-            "A faded surveillance photo, wedged behind a crate panel...",
-            "A man enters the container at 12:42 AM. Hale’s shadow follows.",
-            "No timestamp, no location... but the details stand out."
-        };
-        playDialogueTypewriterEffect(lines);
-        checkObjectiveCompletion();
-        btnPhoto.setEnabled(false);
-    }//GEN-LAST:event_btnPhotoActionPerformed
-
-    private void btnBlueprintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBlueprintActionPerformed
-        lblBlueprintCheck.setVisible(true);
-        blueprintClicked = true;
-        lastClicked = "blueprint";
-        cluesFound++;
-        updateClueCount();
-        playFoundSound();
-        String[] lines = {
-            "A marked blueprint of the port – an escape note.",
-            "Backside reads: 'Haneul Rooftop. Line of sight. Only safe way out.'",
-            "This points to the Haneul Rooftop",
-            "This lighter is commonly used by a known assassin operating in Busan"
-        };
-        playDialogueTypewriterEffect(lines);
-        checkObjectiveCompletion();
-        btnBlueprint.setEnabled(false);
-    }//GEN-LAST:event_btnBlueprintActionPerformed
-
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
         if (isDialogueComplete || isSkipping) {
             showNextLine();
@@ -638,45 +567,112 @@ public class AsherValeGameplayContainer extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnContinueActionPerformed
 
-    private void btnJacketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJacketActionPerformed
-        lblJacketCheck.setVisible(true);
-        jacketClicked = true;
-        lastClicked = "jacket";
+    private void btnDrugsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDrugsActionPerformed
+        lblDrugsCheck.setVisible(true);
+        drugsClicked = true;
+        lastClicked = "drugs";
         cluesFound++;
         updateClueCount();
         playFoundSound();
         String[] lines = {
-            "A damaged voice recorder inside a torn jacket pocket...",
-            "The casing is cracked, but the data chip is intact.",
-            "A warning: '...the ledger... bartender... can’t trust...' Then silence.",
-            "This might be the last message from someone involved."
+            "A stash of drugs, directly linked to the smuggling operation",
+            "It’s more evidence of the bartender’s illegal dealings",
+            "This could be the key to understanding the entire network"
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
-        btnJacket.setEnabled(false);
-    }//GEN-LAST:event_btnJacketActionPerformed
+        btnDrugs.setEnabled(false);
+    }//GEN-LAST:event_btnDrugsActionPerformed
+
+    private void btnKeycardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeycardActionPerformed
+        lblKeycardCheck.setVisible(true);
+        keycardClicked = true;
+        lastClicked = "keycard";
+        cluesFound++;
+        updateClueCount();
+        playFoundSound();
+        String[] lines = {
+            "A keycard from a hotel in Jeju, found on the informant",
+            "An address is scribbled on the back, pointing to a specific location",
+            "This hotel could hold the key to unraveling the mystery"
+        };
+        playDialogueTypewriterEffect(lines);
+        checkObjectiveCompletion();
+        btnKeycard.setEnabled(false);
+    }//GEN-LAST:event_btnKeycardActionPerformed
+
+    private void btnLetterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLetterActionPerformed
+        lblLetterCheck.setVisible(true);
+        letterClicked = true;
+        lastClicked = "letter";
+        cluesFound++;
+        updateClueCount();
+        playFoundSound();
+        String[] lines = {
+            "A direct order from the bartender, confirming Hale's involvement",
+            "It explicitly states that Hale ordered Kieran’s elimination",
+            "But the reason behind it is still a mystery"
+        };
+        playDialogueTypewriterEffect(lines);
+        checkObjectiveCompletion();
+        btnLetter.setEnabled(false);
+    }//GEN-LAST:event_btnLetterActionPerformed
+
+    private void btnTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTicketActionPerformed
+        lblTicketCheck.setVisible(true);
+        ticketClicked = true;
+        lastClicked = "ticket";
+        cluesFound++;
+        updateClueCount();
+        playFoundSound();
+        String[] lines = {
+            "A ferry ticket to Jeju, dated for the same night Kieran vanished",
+            "It shows Kieran was supposed to leave, but something stopped him",
+            "Was he caught in something bigger than he realized?"
+        };
+        playDialogueTypewriterEffect(lines);
+        checkObjectiveCompletion();
+        btnTicket.setEnabled(false);
+    }//GEN-LAST:event_btnTicketActionPerformed
+
+    private void btnDocumentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDocumentActionPerformed
+        lblDocumentCheck.setVisible(true);
+        documentClicked = true;
+        lastClicked = "document";
+        cluesFound++;
+        updateClueCount();
+        playFoundSound();
+        String[] lines = {
+            "A note with a time and location—'Meet at the docks, 3 AM'",
+            "It suggests a final exchange, or possibly a departure",
+            "This could be where everything comes together"
+        };
+        playDialogueTypewriterEffect(lines);
+        checkObjectiveCompletion();
+        btnDocument.setEnabled(false);
+    }//GEN-LAST:event_btnDocumentActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBlueprint;
     private javax.swing.JButton btnContinue;
-    private javax.swing.JButton btnFiles;
-    private javax.swing.JButton btnJacket;
-    private javax.swing.JButton btnMetro;
-    private javax.swing.JButton btnPhoto;
+    private javax.swing.JButton btnDocument;
+    private javax.swing.JButton btnDrugs;
+    private javax.swing.JButton btnKeycard;
+    private javax.swing.JButton btnLetter;
+    private javax.swing.JButton btnTicket;
     private javax.swing.JLabel lblBackground;
-    private javax.swing.JLabel lblBlueprintCheck;
     private javax.swing.JLabel lblCluesFound;
     private javax.swing.JLabel lblCluesFoundBackground;
     private javax.swing.JLabel lblContinue;
     private javax.swing.JLabel lblDialogue;
-    private javax.swing.JLabel lblFilesCheck;
-    private javax.swing.JLabel lblJacketCheck;
+    private javax.swing.JLabel lblDocumentCheck;
+    private javax.swing.JLabel lblDrugsCheck;
+    private javax.swing.JLabel lblKeycardCheck;
+    private javax.swing.JLabel lblLetterCheck;
     private javax.swing.JLabel lblLoginFormBackground;
-    private javax.swing.JLabel lblMetroCheck;
     private javax.swing.JLabel lblObjective;
     private javax.swing.JLabel lblObjective1;
     private javax.swing.JLabel lblObjectiveBackground;
-    private javax.swing.JLabel lblPhotoCheck;
+    private javax.swing.JLabel lblTicketCheck;
     // End of variables declaration//GEN-END:variables
 }
