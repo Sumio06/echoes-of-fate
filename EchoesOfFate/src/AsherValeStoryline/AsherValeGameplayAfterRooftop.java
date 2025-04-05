@@ -113,11 +113,26 @@ public class AsherValeGameplayAfterRooftop extends javax.swing.JPanel {
         "Asher: 'I’m looking for Kieran Vale. He stayed here recently'",
         "Receptionist: 'Yes, a week ago. Quiet guest, room near the back'",
         "Asher (thinking): 'Near the stairwell... I’ll check'",
-        "(Asher heads down the hallway)",
+        "(Asher heads down the hallway)"
+    };
+    
+    private String[] SCENE7 = {
         "Asher (thinking): 'Let’s see what’s inside'",
         "(He stops in front of Room 203, door slightly ajar)",
         "Asher (thinking): 'This is it'",
-        "(He pushes the door open, stepping inside)"
+        "(He pushes the door open, stepping inside)",
+    };
+    
+    private String[] SCENE8 = {
+        "Asher (thinking): 'Let’s see what’s inside'",
+        "(He stops in front of Room 203, door slightly ajar)",
+        "Asher (thinking): 'This is it'",
+        "(He pushes the door open, stepping inside)",
+        "Asher (thinking): 'It’s quiet... too quiet.'",
+        "(The room is dim, with a faint smell of old wood and dust)",
+        "(Asher steps inside cautiously, scanning the room)",
+        "Asher (thinking): 'Something feels off. I need to be careful.'",
+        "(He walks further into the room, the door creaking shut behind him)",
     };
     
     
@@ -189,7 +204,7 @@ public class AsherValeGameplayAfterRooftop extends javax.swing.JPanel {
             displayText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]);
 
             if (dialogueIndex == SCENE1.length + SCENE2.length) {
-                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/leaving_busan/outside_warehouse.png")));
+                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/leaving_busan.png")));
             }
 
             dialogueIndex++;
@@ -206,7 +221,7 @@ public class AsherValeGameplayAfterRooftop extends javax.swing.JPanel {
             displayText(SCENE5[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length]);
 
             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length) {
-                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/quiet_streets_jeju.png")));
+                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/hotel_haneul.png")));
             }
 
             dialogueIndex++;
@@ -215,7 +230,25 @@ public class AsherValeGameplayAfterRooftop extends javax.swing.JPanel {
             displayText(SCENE6[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length]);
 
             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length) {
-                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/inside_hotel.png")));
+                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/hotel_lobby.png")));
+            }
+
+            dialogueIndex++;
+        }
+        else if (dialogueIndex < SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length) {
+            displayText(SCENE7[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length]);
+
+            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length) {
+                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/outside_room.png")));
+            }
+
+            dialogueIndex++;
+        }
+        else if (dialogueIndex < SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length + SCENE8.length) {
+            displayText(SCENE8[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length]);
+
+            if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length) {
+                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/inside_room.png")));
             }
 
             dialogueIndex++;
@@ -241,9 +274,13 @@ public class AsherValeGameplayAfterRooftop extends javax.swing.JPanel {
                 lblDialogue.setText(SCENE5[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - 1]);
             } else if (dialogueIndex - 1 < SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length) {
                 lblDialogue.setText(SCENE6[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - 1]);
+            } else if (dialogueIndex - 1 < SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length) {
+                lblDialogue.setText(SCENE7[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - 1]);
+            } else if (dialogueIndex - 1 < SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length + SCENE8.length) {
+                lblDialogue.setText(SCENE8[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length - SCENE4.length - SCENE5.length - SCENE6.length - SCENE7.length - 1]);
             }
         } else {
-            if (dialogueIndex >= SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length) {
+            if (dialogueIndex >= SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length + SCENE8.length) {
                 frame.showScreen("AsherValeGameplayWarehouse");
                 return;
             }

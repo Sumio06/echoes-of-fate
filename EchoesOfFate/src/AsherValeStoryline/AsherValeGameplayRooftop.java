@@ -324,7 +324,7 @@ public class AsherValeGameplayRooftop extends javax.swing.JPanel {
 
             case "keycard":
                 lines = new String[] {
-                    "A keycard from a hotel in Jeju, found on the informant",
+                    "A keycard from Hotel Haneul in Jeju, found on the informant",
                     "An address is scribbled on the back, pointing to a specific location",
                     "This hotel could hold the key to unraveling the mystery",
                     "Narrator: 'The objective has been completed... but is that the end?'",
@@ -592,9 +592,9 @@ public class AsherValeGameplayRooftop extends javax.swing.JPanel {
         updateClueCount();
         playFoundSound();
         String[] lines = {
-            "A keycard from a hotel in Jeju, found on the informant",
+            "A keycard from Hotel Haneul in Jeju, found on the informant",
             "An address is scribbled on the back, pointing to a specific location",
-            "This hotel could hold the key to unraveling the mystery"
+            "This hotel could hold the key to unraveling the mystery",
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();

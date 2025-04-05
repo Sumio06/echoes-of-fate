@@ -41,7 +41,8 @@ public class ChooseCharacter extends javax.swing.JPanel {
         if (confirm == JOptionPane.YES_OPTION) { 
             userData.setCharacter(characterName); 
             System.out.println("Selected Character: " + userData.getCharacter());
-            frame.showScreen(characterName);
+            //frame.showScreen(characterName);
+            frame.showScreen("AsherValeGameplayAfterRooftop");
         }
     }
    
