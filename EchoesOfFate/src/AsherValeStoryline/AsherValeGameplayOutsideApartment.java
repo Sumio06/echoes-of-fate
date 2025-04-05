@@ -69,14 +69,19 @@ public class AsherValeGameplayOutsideApartment extends javax.swing.JPanel {
     };
     
     private String[] SCENE2 = {
-        "(Asher pulls out the folded document, ink smudged but legible)",
-        "Asher (reading aloud): 'Shipment Invoice, Unit 47, Sector D – Dockside Logistics... March 3, 3:00 PM...'",
-        "(He notices the fake company name, a chill runs down his spine)",
-        "Asher (to himself): Hale’s alias... this is it",
-        "(He folds the document carefully, his mind racing)",
-        "Asher (muttering): A meeting at Dockside. I need to be there",
-        "(He heads to his car, pulse quickening)",
-        "(Asher starts the engine, heading toward Dockside Logistics)"
+        "(Asher stands outside, the night air sharp against his skin)",
+        "(He looks down at the crumpled document, processing the details)",
+        "Asher (whispers): Dockside Logistics... Unit 47, Sector D...",
+        "(He scans the quiet surroundings, tension in the air)",
+        "Asher (to himself): This is it. I have to find out what’s going on.",
+        "(He pockets the document and heads toward the shipping container)"
+    };
+
+    private String[] SCENE3 = {
+        "(Asher enters the shipping container, the air thick and musty)",
+        "(The faint sound of his footsteps echoes off the metal walls)",
+        "Asher (whispering): Let’s see what Hale’s been hiding here...",
+        "(Asher cautiously moves deeper into the container, searching for any clue)"
     };
     
     public void startDialogue() {
@@ -137,11 +142,20 @@ public class AsherValeGameplayOutsideApartment extends javax.swing.JPanel {
             displayText(SCENE2[dialogueIndex - SCENE1.length]);
 
             if (dialogueIndex == SCENE1.length) {
-                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/alleyway_paper.png")));
+                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/shipping_container.png")));
             }
 
             dialogueIndex++;
         } 
+        else if (dialogueIndex < SCENE1.length + SCENE2.length + SCENE3.length) {
+            displayText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]);
+
+            if (dialogueIndex == SCENE1.length + SCENE2.length) {
+                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/inside_shipping_container.png")));
+            }
+
+            dialogueIndex++;
+        }
         else {
             lblDialogue.setText("End of dialogue.");
         }
@@ -155,10 +169,12 @@ public class AsherValeGameplayOutsideApartment extends javax.swing.JPanel {
                 lblDialogue.setText(SCENE1[dialogueIndex - 1]);
             } else if (dialogueIndex - 1 < SCENE1.length + SCENE2.length) {
                 lblDialogue.setText(SCENE2[dialogueIndex - SCENE1.length - 1]);
+            } else if (dialogueIndex - 1 < SCENE1.length + SCENE2.length + SCENE3.length) {
+                lblDialogue.setText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length - 1]);
             }
         } else {
-            if (dialogueIndex >= SCENE1.length + SCENE2.length ) {
-                frame.showScreen("AsherValeGameplayWarehouse");
+            if (dialogueIndex >= SCENE1.length + SCENE2.length + SCENE3.length) {
+                frame.showScreen("AsherValeGameplayContainer");
                 return;
             }
             showNextDialogue();
@@ -212,7 +228,7 @@ public class AsherValeGameplayOutsideApartment extends javax.swing.JPanel {
 
         lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/bar_shadowfigure.png"))); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/scene2_alleyway.png"))); // NOI18N
         add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -70, 1600, -1));
     }// </editor-fold>//GEN-END:initComponents
 
