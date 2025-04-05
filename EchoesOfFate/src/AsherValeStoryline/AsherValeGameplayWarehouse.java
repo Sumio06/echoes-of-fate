@@ -336,7 +336,7 @@ public class AsherValeGameplayWarehouse extends javax.swing.JPanel {
             case "document":
                 lines = new String[] {
                     "A partially destroyed document...",
-                    "The text is faded, but it contains an address in Seoul, \"Namdaemun Warehouse\"",
+                    "The text is faded, but it contains an address in Seoul, \"Hanseong Industrial Complex\"",
                     "The figure must have dropped it while escaping",
                     "This leads you closer to the truth",
                     "Narrator: 'The objective has been completed... but is that the end?'",
@@ -607,7 +607,7 @@ public class AsherValeGameplayWarehouse extends javax.swing.JPanel {
         playFoundSound();
         String[] lines = {
             "A partially destroyed document...",
-            "The text is faded, but it contains an address in Seoul, \"Namdaemun Warehouse\"",
+            "The text is faded, but it contains an address in Seoul, \"Hanseong Industrial Complex\"",
             "The figure must have dropped it while escaping",
             "This leads you closer to the truth"
         };
