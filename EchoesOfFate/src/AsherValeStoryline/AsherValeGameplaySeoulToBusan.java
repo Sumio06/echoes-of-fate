@@ -170,6 +170,10 @@ public class AsherValeGameplaySeoulToBusan extends javax.swing.JPanel {
     }
 
     private void showNextDialogue() {
+        if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length) {
+             frame.afterTrainRideBusan();
+    }        
+        
         if (dialogueIndex < SCENE1.length) {
             displayText(SCENE1[dialogueIndex]);
             dialogueIndex++;

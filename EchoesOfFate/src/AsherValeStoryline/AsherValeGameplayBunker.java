@@ -189,7 +189,7 @@ public class AsherValeGameplayBunker extends javax.swing.JPanel {
                 stopBlinkingEffect();
 
                 javax.swing.SwingUtilities.invokeLater(() -> {
-                    frame.showScreen("AsherValeGameplaySeoulToBusan");
+                    frame.showScreen("AsherValeGameplayOutsideBunker");
                 });
             } else {
                 playTypewriterEffect(currentLine);

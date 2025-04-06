@@ -42,7 +42,8 @@ public class ChooseCharacter extends javax.swing.JPanel {
         if (confirm == JOptionPane.YES_OPTION) { 
             userData.setCharacter(characterName); 
             System.out.println("Selected Character: " + userData.getCharacter());
-            frame.showScreen(characterName);
+            //frame.showScreen(characterName);
+           frame.showScreen("AsherValeGameplayOutsideApartment");
         }
     }
    
@@ -50,7 +51,10 @@ public class ChooseCharacter extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        asherIcon1 = new javax.swing.JLabel();
+        txtCeleste = new javax.swing.JLabel();
+        txtRen = new javax.swing.JLabel();
+        txtAsher = new javax.swing.JLabel();
+        renIcon = new javax.swing.JLabel();
         asherIcon = new javax.swing.JLabel();
         celesteIcon = new javax.swing.JLabel();
         lblGameTitle = new javax.swing.JLabel();
@@ -65,32 +69,50 @@ public class ChooseCharacter extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        asherIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/chooseCharacterPics/ren.png"))); // NOI18N
-        add(asherIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 310, 430, 420));
+        txtCeleste.setFont(new java.awt.Font("FZShuTi", 0, 36)); // NOI18N
+        txtCeleste.setForeground(new java.awt.Color(255, 255, 255));
+        txtCeleste.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtCeleste.setText("Ren Takahashi");
+        add(txtCeleste, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 700, 370, 43));
+
+        txtRen.setFont(new java.awt.Font("FZShuTi", 0, 36)); // NOI18N
+        txtRen.setForeground(new java.awt.Color(255, 255, 255));
+        txtRen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRen.setText("Ren Takahashi");
+        add(txtRen, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 700, 370, 43));
+
+        txtAsher.setFont(new java.awt.Font("FZShuTi", 0, 36)); // NOI18N
+        txtAsher.setForeground(new java.awt.Color(255, 255, 255));
+        txtAsher.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtAsher.setText("Asher Vale");
+        add(txtAsher, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 700, 370, 43));
+
+        renIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/chooseCharacterPics/ren.png"))); // NOI18N
+        add(renIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, 430, 420));
 
         asherIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/chooseCharacterPics/asher.png"))); // NOI18N
-        add(asherIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 400, 420));
+        add(asherIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 400, 420));
 
         celesteIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffate/chooseCharacterPics/celeste.png"))); // NOI18N
-        add(celesteIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 310, 400, 420));
+        add(celesteIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 270, 400, 420));
 
         lblGameTitle.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 70)); // NOI18N
         lblGameTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblGameTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblGameTitle.setText("Echoes of Fate");
-        add(lblGameTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 770, 90));
+        add(lblGameTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 770, 90));
 
         btnCelesteNakamura.setBackground(new java.awt.Color(83, 77, 169, 100));
         btnCelesteNakamura.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         btnCelesteNakamura.setForeground(new java.awt.Color(255, 255, 255));
         btnCelesteNakamura.setText("Celeste Nakamura");
-        add(btnCelesteNakamura, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 750, 188, 50));
+        add(btnCelesteNakamura, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 270, 390, 410));
 
         btnRenTakahashi.setBackground(new java.awt.Color(83, 77, 169, 100));
         btnRenTakahashi.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         btnRenTakahashi.setForeground(new java.awt.Color(255, 255, 255));
         btnRenTakahashi.setText("Ren Takahashi");
-        add(btnRenTakahashi, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 750, 154, 50));
+        add(btnRenTakahashi, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, 390, 410));
 
         btnAsherVale.setBackground(new java.awt.Color(83, 77, 169, 100));
         btnAsherVale.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
@@ -101,7 +123,7 @@ public class ChooseCharacter extends javax.swing.JPanel {
                 btnAsherValeActionPerformed(evt);
             }
         });
-        add(btnAsherVale, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 750, 145, 50));
+        add(btnAsherVale, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 390, 410));
 
         btnBack.setBackground(new java.awt.Color(83, 77, 169, 100));
         btnBack.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
@@ -113,13 +135,13 @@ public class ChooseCharacter extends javax.swing.JPanel {
         lblQuote1.setForeground(new java.awt.Color(255, 255, 255));
         lblQuote1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblQuote1.setText("Step into the past, before it erases you.");
-        add(lblQuote1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, 540, 40));
+        add(lblQuote1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 540, 40));
 
         lblChooseCharacter.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         lblChooseCharacter.setForeground(new java.awt.Color(255, 255, 255));
         lblChooseCharacter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblChooseCharacter.setText("Choose Character");
-        add(lblChooseCharacter, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 240, 370, 43));
+        add(lblChooseCharacter, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 200, 370, 43));
 
         lblChooseCharacterBackground.setBackground(new java.awt.Color(36, 43, 53, 200));
         lblChooseCharacterBackground.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
@@ -127,7 +149,7 @@ public class ChooseCharacter extends javax.swing.JPanel {
         lblChooseCharacterBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblChooseCharacterBackground.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.lightGray, java.awt.Color.white, java.awt.Color.blue));
         lblChooseCharacterBackground.setOpaque(true);
-        add(lblChooseCharacterBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 1410, 610));
+        add(lblChooseCharacterBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 1410, 610));
 
         lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -142,7 +164,6 @@ public class ChooseCharacter extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel asherIcon;
-    private javax.swing.JLabel asherIcon1;
     private javax.swing.JButton btnAsherVale;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCelesteNakamura;
@@ -153,5 +174,9 @@ public class ChooseCharacter extends javax.swing.JPanel {
     private javax.swing.JLabel lblChooseCharacterBackground;
     private javax.swing.JLabel lblGameTitle;
     private javax.swing.JLabel lblQuote1;
+    private javax.swing.JLabel renIcon;
+    private javax.swing.JLabel txtAsher;
+    private javax.swing.JLabel txtCeleste;
+    private javax.swing.JLabel txtRen;
     // End of variables declaration//GEN-END:variables
 }

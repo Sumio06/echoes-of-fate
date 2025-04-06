@@ -147,6 +147,12 @@ public class AsherValeGameplayOutsideWarehouse extends javax.swing.JPanel {
     }
 
     private void showNextDialogue() {
+        if (dialogueIndex == SCENE1.length) {
+    lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/outside_factory.png")));
+    frame.onWarehouseScene2Start();
+}
+
+        
         if (dialogueIndex < SCENE1.length) {
             displayText(SCENE1[dialogueIndex]);
         } else if (dialogueIndex >= SCENE1.length && dialogueIndex < SCENE1.length + SCENE2.length) {

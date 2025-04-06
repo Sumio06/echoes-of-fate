@@ -191,7 +191,7 @@ public class AsherValeGameplayRooftop extends javax.swing.JPanel {
                 stopBlinkingEffect();
 
                 javax.swing.SwingUtilities.invokeLater(() -> {
-                    frame.showScreen("AsherValeGameplayOutsideContainer");
+                    frame.showScreen("AsherValeGameplayAfterRooftop");
                 });
             } else {
                 playTypewriterEffect(currentLine);

@@ -134,6 +134,10 @@ public class AsherValeGameplayOutsideContainer extends javax.swing.JPanel {
     }
 
     private void showNextDialogue() {
+        if(dialogueIndex == SCENE1.length){
+            frame.toRoofTop();
+        }
+        
         if (dialogueIndex < SCENE1.length) {
             displayText(SCENE1[dialogueIndex]);
             dialogueIndex++;

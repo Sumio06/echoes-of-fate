@@ -134,6 +134,10 @@ public class AsherValeGameplayOutsideApartment extends javax.swing.JPanel {
     }
 
     private void showNextDialogue() {
+        if(dialogueIndex == SCENE1.length){
+            frame.inShippingContainer();
+        }
+        
         if (dialogueIndex < SCENE1.length) {
             displayText(SCENE1[dialogueIndex]);
             dialogueIndex++;

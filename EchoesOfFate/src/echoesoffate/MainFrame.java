@@ -93,12 +93,18 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanel.add(asherValeGameplayOutsideWarehouse, "AsherValeGameplayOutsideWarehouse");
         mainPanel.add(asherValeGameplayFactory, "AsherValeGameplayFactory");
         mainPanel.add(asherValeGameplaySeoulToBusan, "AsherValeGameplaySeoulToBusan");
+        
         mainPanel.add(asherValeGameplayApartment, "AsherValeGameplayApartment");
         mainPanel.add(asherValeGameplayOutsideApartment, "AsherValeGameplayOutsideApartment");
         mainPanel.add(asherValeGameplayContainer, "AsherValeGameplayContainer");
         mainPanel.add(asherValeGameplayOutsideContainer, "AsherValeGameplayOutsideContainer");
+        
+        
+       
         mainPanel.add(asherValeGameplayRooftop, "AsherValeGameplayRooftop");
         mainPanel.add(asherValeGameplayAfterRooftop, "AsherValeGameplayAfterRooftop");
+        
+        
         mainPanel.add(asherValeGameplayHotel, "AsherValeGameplayHotel");
         mainPanel.add(asherValeGameplayOutsideHotel, "AsherValeGameplayOutsideHotel");
         mainPanel.add(asherValeGameplayBunker, "AsherValeGameplayBunker");
@@ -169,10 +175,28 @@ public class MainFrame extends javax.swing.JFrame {
             playBackgroundMusic("src/echoesoffateassets/gameplay_background_music.wav");
             ((AsherVale) mainPanel.getComponent(4)).startDialogue();
         } 
-        if (screenName.equals("AsherValeItaewonGameplayBar2")) {
-            playBackgroundMusic("src/echoesoffateassets/jazz.wav");
+        if (screenName.equals("AsherValeItaewonGameplayBar")) {
+            playBackgroundMusic("src/echoesoffateassets/jazz.wav");    
+        }      
+                               
+        if (screenName.equals("AsherValeGameplayOutsideBar")) {
+            playBackgroundMusic("src/echoesoffateassets/outsidebar_music.wav");
         }
-        
+         if (screenName.equals("AsherValeGameplayWarehouse")) {
+            playBackgroundMusic("src/echoesoffateassets/outsideandinsidenamdamwarehouse_music.wav");    
+        } 
+         
+      
+         if (screenName.equals("AsherValeGameplaySeoulToBusan")) {
+            playBackgroundMusic("src/echoesoffateassets/transitionseoultobusan.wav");    
+        } 
+         
+         if (screenName.equals("AsherValeGameplayApartment")) {
+            playBackgroundMusic("src/echoesoffateassets/busaninvestigation1_music.wav");    
+        } 
+         
+         
+   
         cardLayout.show(mainPanel, screenName);
     }
      
@@ -180,6 +204,28 @@ public class MainFrame extends javax.swing.JFrame {
         userData.setUsername(username);
         userData.setPassword(password);
     }
+    
+    
+    public void onWarehouseScene2Start() {
+    playBackgroundMusic("src/echoesoffateassets/outisdefactory_music.wav");
+}
+    
+    public void afterTrainRideBusan() {
+    playBackgroundMusic("src/echoesoffateassets/busanarrival_music.wav");
+}   
+    
+    public void inShippingContainer(){
+         playBackgroundMusic("src/echoesoffateassets/busaninvestigation2_music.wav"); 
+    }
+    
+    public void toRoofTop(){
+         playBackgroundMusic("src/echoesoffateassets/busaninvestigation3_music.wav"); 
+    }
+    
+    public void afterRoofTop(){
+         playBackgroundMusic("src/echoesoffateassets/busantojejuislandtransition_music.wav"); 
+    }
+
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

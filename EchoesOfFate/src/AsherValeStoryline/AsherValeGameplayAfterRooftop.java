@@ -116,14 +116,8 @@ public class AsherValeGameplayAfterRooftop extends javax.swing.JPanel {
         "(Asher heads down the hallway)"
     };
     
-    private String[] SCENE7 = {
-        "Asher (thinking): 'Let’s see what’s inside'",
-        "(He stops in front of Room 203, door slightly ajar)",
-        "Asher (thinking): 'This is it'",
-        "(He pushes the door open, stepping inside)",
-    };
     
-    private String[] SCENE8 = {
+    private String[] SCENE7 = {
         "Asher (thinking): 'Let’s see what’s inside'",
         "(He stops in front of Room 203, door slightly ajar)",
         "Asher (thinking): 'This is it'",
@@ -132,7 +126,11 @@ public class AsherValeGameplayAfterRooftop extends javax.swing.JPanel {
         "(The room is dim, with a faint smell of old wood and dust)",
         "(Asher steps inside cautiously, scanning the room)",
         "Asher (thinking): 'Something feels off. I need to be careful.'",
-        "(He walks further into the room, the door creaking shut behind him)",
+        
+    };
+    
+    private String[] SCENE8 = {
+        "(He walks further into the room, the door creaking shut behind him)"
     };
     
     
@@ -187,6 +185,15 @@ public class AsherValeGameplayAfterRooftop extends javax.swing.JPanel {
     }
 
     private void showNextDialogue() {
+        if(dialogueIndex == SCENE1.length){
+            frame.afterRoofTop();
+        }
+        
+        //need pani e change wapa nahoman godwin add music 
+        if(dialogueIndex == SCENE1.length +SCENE2.length +SCENE3.length +SCENE4.length){
+            frame.inShippingContainer();
+        }
+        
         if (dialogueIndex < SCENE1.length) {
             displayText(SCENE1[dialogueIndex]);
             dialogueIndex++;
