@@ -69,6 +69,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
                 playClueCountTypewriterEffect();
             }
         });
+        startCountdownTimer();
     }
 
     private void playClueCountTypewriterEffect() {
@@ -411,6 +412,48 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         }
     }
     
+    private Timer countdownTimer;
+    private int timeRemaining = 60;
+
+    public void startCountdownTimer() {
+        countdownTimer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (timeRemaining > 0) {
+                    timeRemaining--;
+                    updateTimerDisplay();
+                } else {
+                    onTimeOut();
+                }
+            }
+        });
+        countdownTimer.start();
+    }
+
+    private void updateTimerDisplay() {
+
+        int minutes = timeRemaining / 60;
+        int seconds = timeRemaining % 60;
+        lblTimer.setText(String.format("Time Remaining: %02d:%02d", minutes, seconds));
+    }
+
+    private void onTimeOut() {
+        countdownTimer.stop();
+
+
+        String[] lines = {
+            "Time's up! You couldn't solve the case in time...",
+            "Asher (sighing): 'I must go back and try again...'",
+            "Narrator: 'Back to the past. The case remains unsolved.'",
+            "N"
+        };
+        playDialogueTypewriterEffect(lines);
+
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            frame.showScreen("AsherValeItaewonGameplayBar");
+        });
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -422,6 +465,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
 
         lblObjective = new javax.swing.JLabel();
         lblObjective1 = new javax.swing.JLabel();
+        lblTimer = new javax.swing.JLabel();
         lblCluesFound = new javax.swing.JLabel();
         lblObjectiveBackground = new javax.swing.JLabel();
         lblCluesFoundBackground = new javax.swing.JLabel();
@@ -453,6 +497,11 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblObjective1.setText("[Text]");
         add(lblObjective1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
+        lblTimer.setFont(new java.awt.Font("Lucida Fax", 0, 22)); // NOI18N
+        lblTimer.setForeground(new java.awt.Color(51, 255, 0));
+        lblTimer.setText("[Text]");
+        add(lblTimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 80, -1, -1));
+
         lblCluesFound.setFont(new java.awt.Font("Lucida Fax", 0, 22)); // NOI18N
         lblCluesFound.setForeground(new java.awt.Color(51, 255, 0));
         lblCluesFound.setText("[Text]");
@@ -464,7 +513,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblObjectiveBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblObjectiveBackground.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.lightGray, java.awt.Color.white, java.awt.Color.blue));
         lblObjectiveBackground.setOpaque(true);
-        add(lblObjectiveBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 30, 330, 50));
+        add(lblObjectiveBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 30, 330, 100));
 
         lblCluesFoundBackground.setBackground(new java.awt.Color(36, 43, 53, 200));
         lblCluesFoundBackground.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
@@ -685,5 +734,6 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     private javax.swing.JLabel lblObjective1;
     private javax.swing.JLabel lblObjectiveBackground;
     private javax.swing.JLabel lblStainCheck;
+    private javax.swing.JLabel lblTimer;
     // End of variables declaration//GEN-END:variables
 }
