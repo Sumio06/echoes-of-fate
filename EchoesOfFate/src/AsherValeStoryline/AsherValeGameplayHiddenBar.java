@@ -192,7 +192,7 @@ public class AsherValeGameplayHiddenBar extends javax.swing.JPanel {
                 stopBlinkingEffect();
 
                 javax.swing.SwingUtilities.invokeLater(() -> {
-                    frame.showScreen("AsherValeGameplayOutsideContainer");
+                    frame.showScreen("AsherValeGameplayAfterHiddenBar");
                 });
             } else {
                 playTypewriterEffect(currentLine);

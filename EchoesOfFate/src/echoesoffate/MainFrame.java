@@ -11,6 +11,7 @@ package echoesoffate;
 
 import AsherValeStoryline.AsherValeItaewonGameplay1;
 import AsherValeStoryline.AsherVale;
+import AsherValeStoryline.AsherValeGameplayAfterHiddenBar;
 import AsherValeStoryline.AsherValeGameplayAfterRooftop;
 import AsherValeStoryline.AsherValeGameplayApartment;
 import AsherValeStoryline.AsherValeGameplayBunker;
@@ -79,6 +80,7 @@ public class MainFrame extends javax.swing.JFrame {
         AsherValeGameplayBunker asherValeGameplayBunker = new AsherValeGameplayBunker(this);
         AsherValeGameplayOutsideBunker asherValeGameplayOutsideBunker = new AsherValeGameplayOutsideBunker(this);
         AsherValeGameplayHiddenBar asherValeGameplayHiddenBar = new AsherValeGameplayHiddenBar(this);
+        AsherValeGameplayAfterHiddenBar asherValeGameplayAfterHiddenBar = new AsherValeGameplayAfterHiddenBar(this);
         
         mainPanel.add(loginScreen, "Login");
         mainPanel.add(mainMenu, "Menu");
@@ -92,24 +94,19 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanel.add(asherValeGameplayWarehouse, "AsherValeGameplayWarehouse");
         mainPanel.add(asherValeGameplayOutsideWarehouse, "AsherValeGameplayOutsideWarehouse");
         mainPanel.add(asherValeGameplayFactory, "AsherValeGameplayFactory");
-        mainPanel.add(asherValeGameplaySeoulToBusan, "AsherValeGameplaySeoulToBusan");
-        
+        mainPanel.add(asherValeGameplaySeoulToBusan, "AsherValeGameplaySeoulToBusan"); 
         mainPanel.add(asherValeGameplayApartment, "AsherValeGameplayApartment");
         mainPanel.add(asherValeGameplayOutsideApartment, "AsherValeGameplayOutsideApartment");
         mainPanel.add(asherValeGameplayContainer, "AsherValeGameplayContainer");
         mainPanel.add(asherValeGameplayOutsideContainer, "AsherValeGameplayOutsideContainer");
-        
-        
-       
         mainPanel.add(asherValeGameplayRooftop, "AsherValeGameplayRooftop");
         mainPanel.add(asherValeGameplayAfterRooftop, "AsherValeGameplayAfterRooftop");
-        
-        
         mainPanel.add(asherValeGameplayHotel, "AsherValeGameplayHotel");
         mainPanel.add(asherValeGameplayOutsideHotel, "AsherValeGameplayOutsideHotel");
         mainPanel.add(asherValeGameplayBunker, "AsherValeGameplayBunker");
         mainPanel.add(asherValeGameplayOutsideBunker, "AsherValeGameplayOutsideBunker");
         mainPanel.add(asherValeGameplayHiddenBar, "AsherValeGameplayHiddenBar");
+        mainPanel.add(asherValeGameplayAfterHiddenBar, "AsherValeGameplayAfterHiddenBar");
 
         setContentPane(mainPanel);
         setVisible(true);
@@ -194,9 +191,7 @@ public class MainFrame extends javax.swing.JFrame {
          if (screenName.equals("AsherValeGameplayApartment")) {
             playBackgroundMusic("src/echoesoffateassets/busaninvestigation1_music.wav");    
         } 
-         
-         
-   
+
         cardLayout.show(mainPanel, screenName);
     }
      
