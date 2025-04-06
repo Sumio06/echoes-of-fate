@@ -75,10 +75,11 @@ public class AsherValeGameplayApartment extends javax.swing.JPanel {
         final String clueText = "Clues Found: 0/5";
         final int[] charIndex = {0};
         lblCluesFound.setForeground(Color.RED);
-
         lblCluesFound.setText("");
 
-        Timer clueTypewriterTimer = new Timer(100, new ActionListener() {
+        playTypewriterSound();
+
+        Timer clueTypewriterTimer = new Timer(50, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (charIndex[0] < clueText.length()) {
@@ -86,6 +87,7 @@ public class AsherValeGameplayApartment extends javax.swing.JPanel {
                     charIndex[0]++;
                 } else {
                     ((Timer)e.getSource()).stop();
+                    stopTypewriterSound();
                 }
             }
         });
@@ -316,7 +318,7 @@ public class AsherValeGameplayApartment extends javax.swing.JPanel {
                     "A faded photograph...",
                     "It shows Kieran sitting at a dimly lit bar, locked in tense conversation with a man",
                     "No timestamp, no location... but that tattoo stands out",
-                    "This could identify the contact. The objective is getting closer to completion",
+                    "This could identify the contact",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'",
                     "N"
@@ -328,7 +330,7 @@ public class AsherValeGameplayApartment extends javax.swing.JPanel {
                     "A crumpled note...",
                     "Barely legible writing bleeds through the creases and ink smudges",
                     "'Hale. He knows. The back room.' That name again",
-                    "This confirms the bartender's connection. The objective is getting closer to completion",
+                    "This confirms the bartender's connection",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'",
                     "N"
@@ -342,7 +344,6 @@ public class AsherValeGameplayApartment extends javax.swing.JPanel {
                     "Destination: 'Unit 47, Sector D – Dockside Logistics'",
                     "Date and time: March 3, 3:00 PM. A meeting, and it’s soon",
                     "Asher realizes this is the lead he's been waiting for",
-                    "The objective is getting closer to completion",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'"
                 };
@@ -353,7 +354,7 @@ public class AsherValeGameplayApartment extends javax.swing.JPanel {
                     "A damaged voice recorder...",
                     "The casing is cracked, but the data chip is mostly intact",
                     "Kieran's voice: '...the ledger... bartender... can’t trust...' Then silence",
-                    "A direct warning—possibly his last. The objective is getting closer to completion",
+                    "A direct warning—possibly his last",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'",
                     "N"
@@ -365,7 +366,7 @@ public class AsherValeGameplayApartment extends javax.swing.JPanel {
                     "An empty pistol magazine...",
                     "Lying cold on the floor, as if dropped mid-conflict",
                     "No sign of the weapon—only the implication of haste or struggle",
-                    "This may be the moment Kieran vanished. The objective is getting closer to completion",
+                    "This may be the moment Kieran vanished",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'",
                     "N"
@@ -583,7 +584,6 @@ public class AsherValeGameplayApartment extends javax.swing.JPanel {
         String[] lines = {
             "A faded photograph...",
             "It shows Kieran sitting at a dimly lit bar, locked in tense conversation with a man",
-            "whose forearm bears a jagged tattoo",
             "No timestamp, no location... but that tattoo stands out",
             "This could identify the contact"
         };
@@ -649,7 +649,7 @@ public class AsherValeGameplayApartment extends javax.swing.JPanel {
 
     private void btnPaperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaperActionPerformed
         lblPaperCheck.setVisible(true);
-        lastClicked = "document";
+        lastClicked = "paper";
         paperClicked = true;
         cluesFound++;
         updateClueCount();

@@ -75,10 +75,11 @@ public class AsherValeGameplayWarehouse extends javax.swing.JPanel {
         final String clueText = "Clues Found: 0/5";
         final int[] charIndex = {0};
         lblCluesFound.setForeground(Color.RED);
-
         lblCluesFound.setText("");
 
-        Timer clueTypewriterTimer = new Timer(100, new ActionListener() {
+        playTypewriterSound();
+
+        Timer clueTypewriterTimer = new Timer(50, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (charIndex[0] < clueText.length()) {
@@ -86,6 +87,7 @@ public class AsherValeGameplayWarehouse extends javax.swing.JPanel {
                     charIndex[0]++;
                 } else {
                     ((Timer)e.getSource()).stop();
+                    stopTypewriterSound();
                 }
             }
         });
@@ -573,7 +575,7 @@ public class AsherValeGameplayWarehouse extends javax.swing.JPanel {
             "A burner phone...",
             "The screen is cracked, but the last received message is still visible",
             "\"Too risky. Move now\"",
-            "This could be a crucial lead. The objective is getting closer to completion"
+            "This could be a crucial lead"
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
@@ -591,7 +593,7 @@ public class AsherValeGameplayWarehouse extends javax.swing.JPanel {
             "A hidden USB drive...",
             "It was tucked away inside a crate, containing grainy footage",
             "The footage shows the shadowy figure meeting someone in the warehouse hours before you arrived",
-            "This could tie the figure to a larger operation. The objective is getting closer to completion"
+            "This could tie the figure to a larger operation"
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
@@ -609,7 +611,6 @@ public class AsherValeGameplayWarehouse extends javax.swing.JPanel {
             "A partially destroyed document...",
             "The text is faded, but it contains an address in Seoul, \"Hanseong Industrial Complex\"",
             "The figure must have dropped it while escaping",
-            "This leads you closer to the truth"
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();

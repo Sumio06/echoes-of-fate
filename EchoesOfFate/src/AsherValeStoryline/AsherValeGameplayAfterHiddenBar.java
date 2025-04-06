@@ -226,7 +226,7 @@ public class AsherValeGameplayAfterHiddenBar extends javax.swing.JPanel {
             }
         } else {
             if (dialogueIndex >= SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length) {
-                frame.showScreen("AsherValeGameplayContainer");
+                frame.showScreen("AsherValeGameplayEnding");
                 return;
             }
             showNextDialogue();

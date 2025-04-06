@@ -75,10 +75,11 @@ public class AsherValeGameplayFactory extends javax.swing.JPanel {
         final String clueText = "Clues Found: 0/5";
         final int[] charIndex = {0};
         lblCluesFound.setForeground(Color.RED);
-
         lblCluesFound.setText("");
 
-        Timer clueTypewriterTimer = new Timer(100, new ActionListener() {
+        playTypewriterSound();
+
+        Timer clueTypewriterTimer = new Timer(50, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (charIndex[0] < clueText.length()) {
@@ -86,6 +87,7 @@ public class AsherValeGameplayFactory extends javax.swing.JPanel {
                     charIndex[0]++;
                 } else {
                     ((Timer)e.getSource()).stop();
+                    stopTypewriterSound();
                 }
             }
         });

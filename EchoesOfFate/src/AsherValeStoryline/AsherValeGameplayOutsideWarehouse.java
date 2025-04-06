@@ -63,8 +63,6 @@ public class AsherValeGameplayOutsideWarehouse extends javax.swing.JPanel {
         "Asher moves deeper, his senses heightened, searching for clues",
         "He hears a faint sound but finds nothing when he looks",
         "A light flickers ahead, drawing him toward it",
-        "At the next crate, Asher finds a hidden USB drive with footage",
-        "This USB might hold key evidence about the shadowy figure",
         "The factory feels alive with secrets, and Asher is determined to uncover them"
     };
 

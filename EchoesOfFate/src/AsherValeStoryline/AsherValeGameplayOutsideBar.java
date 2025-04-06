@@ -53,9 +53,9 @@ public class AsherValeGameplayOutsideBar extends javax.swing.JPanel {
     
     private String[] SCENE3 = {
         "(Asher stands in front of the warehouse, the cold air biting at his skin)",
-        "Asher (muttering): This is it... the Namdaemun Warehouse.",
+        "Asher (muttering): This is it... the Namdaemun Warehouse",
         "(He looks around cautiously, making sure no one is watching)",
-        "Asher (thinking to himself): I need to be careful. I don’t know who or what’s inside.",
+        "Asher (thinking to himself): I need to be careful. I don’t know who or what’s inside",
         "(He takes a deep breath and pushes the door open, stepping into the dark, musty interior)"
     };
     
@@ -65,7 +65,7 @@ public class AsherValeGameplayOutsideBar extends javax.swing.JPanel {
         "Asher (whispering): Hello? Is anyone here?",
         "(There’s no response. The warehouse is eerily quiet, save for the distant sound of something shifting)",
         "(He moves forward cautiously, every step echoing through the empty space)",
-        "Asher (gritting his teeth): Someone’s been here recently... I need to find more clues.",
+        "Asher (gritting his teeth): Someone’s been here recently... I need to find more clues",
         "(Suddenly, he spots something on the ground, a strange marking, maybe a symbol?)",
         "(Asher kneels down to inspect it closely)",
         "Asher (to himself): What the hell is this? It doesn’t look like anything I’ve seen before..."
