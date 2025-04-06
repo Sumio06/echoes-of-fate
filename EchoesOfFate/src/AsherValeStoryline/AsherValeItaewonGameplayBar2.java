@@ -424,8 +424,8 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblObjective = new javax.swing.JLabel();
         lblObjective1 = new javax.swing.JLabel();
         lblCluesFound = new javax.swing.JLabel();
-        lblObjectiveBackground = new javax.swing.JLabel();
         lblCluesFoundBackground = new javax.swing.JLabel();
+        lblObjectiveBackground = new javax.swing.JLabel();
         btnContinue = new javax.swing.JButton();
         lblContinue = new javax.swing.JLabel();
         lblDialogue = new javax.swing.JLabel();
@@ -459,14 +459,6 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblCluesFound.setText("[Text]");
         add(lblCluesFound, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 40, -1, -1));
 
-        lblObjectiveBackground.setBackground(new java.awt.Color(36, 43, 53, 200));
-        lblObjectiveBackground.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
-        lblObjectiveBackground.setForeground(new java.awt.Color(0, 0, 0));
-        lblObjectiveBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblObjectiveBackground.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.lightGray, java.awt.Color.white, java.awt.Color.blue));
-        lblObjectiveBackground.setOpaque(true);
-        add(lblObjectiveBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 30, 330, 100));
-
         lblCluesFoundBackground.setBackground(new java.awt.Color(36, 43, 53, 200));
         lblCluesFoundBackground.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
         lblCluesFoundBackground.setForeground(new java.awt.Color(0, 0, 0));
@@ -474,6 +466,14 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblCluesFoundBackground.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.lightGray, java.awt.Color.white, java.awt.Color.blue));
         lblCluesFoundBackground.setOpaque(true);
         add(lblCluesFoundBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 330, 120));
+
+        lblObjectiveBackground.setBackground(new java.awt.Color(36, 43, 53, 200));
+        lblObjectiveBackground.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
+        lblObjectiveBackground.setForeground(new java.awt.Color(0, 0, 0));
+        lblObjectiveBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblObjectiveBackground.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.lightGray, java.awt.Color.white, java.awt.Color.blue));
+        lblObjectiveBackground.setOpaque(true);
+        add(lblObjectiveBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 30, 330, 50));
 
         btnContinue.setBackground(new java.awt.Color(36, 43, 53, 100));
         btnContinue.setForeground(new java.awt.Color(255, 255, 255));
