@@ -473,7 +473,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblObjectiveBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblObjectiveBackground.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.lightGray, java.awt.Color.white, java.awt.Color.blue));
         lblObjectiveBackground.setOpaque(true);
-        add(lblObjectiveBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 30, 330, 50));
+        add(lblObjectiveBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 30, 340, 50));
 
         btnContinue.setBackground(new java.awt.Color(36, 43, 53, 100));
         btnContinue.setForeground(new java.awt.Color(255, 255, 255));

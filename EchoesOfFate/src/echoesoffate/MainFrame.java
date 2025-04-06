@@ -123,13 +123,15 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
      
+    private String currentMusicPath = "";
+    
     private void playBackgroundMusic(String filepath) {
         try {
+            if (filepath.equals(currentMusicPath)) {
+                return; // already playing the same music
+            }
+
             if (clip != null && clip.isRunning()) {
-                String currentTrack = clip.getMicrosecondPosition() > 0 ? clip.toString() : "";
-                if (currentTrack.equals(filepath)) {
-                    return;
-                }
                 clip.stop();
                 clip.close();
             }
@@ -145,6 +147,8 @@ public class MainFrame extends javax.swing.JFrame {
             clip.open(audioStream);
             clip.loop(Clip.LOOP_CONTINUOUSLY);
             clip.start();
+
+            currentMusicPath = filepath;
 
             System.out.println("Playing: " + soundFile.getAbsolutePath());
         } catch (Exception e) {
@@ -165,10 +169,10 @@ public class MainFrame extends javax.swing.JFrame {
             playBackgroundMusic("src/echoesoffateassets/gameplay_background_music.wav");
             ((AsherVale) mainPanel.getComponent(4)).startDialogue();
         } 
-        else if (clip == null || !clip.isRunning()) {
-            playBackgroundMusic("src/echoesoffateassets/background_music.wav");
+        if (screenName.equals("AsherValeItaewonGameplayBar2")) {
+            playBackgroundMusic("src/echoesoffateassets/jazz.wav");
         }
-
+        
         cardLayout.show(mainPanel, screenName);
     }
      
