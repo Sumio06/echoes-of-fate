@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
  *
  * @author User
  */
+
+//GWAPOO KEAN
 public class ChooseCharacter extends javax.swing.JPanel {
 
     private MainFrame frame;
@@ -42,7 +44,7 @@ public class ChooseCharacter extends javax.swing.JPanel {
             userData.setCharacter(characterName); 
             System.out.println("Selected Character: " + userData.getCharacter());
             //frame.showScreen(characterName);
-            frame.showScreen("AsherValeItaewonGameplayBar");
+            frame.showScreen("AsherValeItaewonGameplayBar2");
         }
     }
    

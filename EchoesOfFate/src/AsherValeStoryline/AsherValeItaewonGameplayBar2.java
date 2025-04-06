@@ -42,6 +42,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblNoteCheck.setVisible(false);
         lblGlassCheck.setVisible(false);
         lblStainCheck.setVisible(false);
+        lblTimer.setVisible(false);
 
         addComponentListener(new java.awt.event.ComponentAdapter() {
             @Override
@@ -58,21 +59,46 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     private int cluesFound = 0; 
 
     public void startGameplay() {
-        
         lblObjective.setText("");
         lblObjective1.setText("");
         lblCluesFound.setText("");
-        
+        lblTimer.setVisible(false);
+
         playTypewriterEffect("Objective:", "Look for evidences...", new Runnable() {
             @Override
             public void run() {
-                playClueCountTypewriterEffect();
+                playClueCountTypewriterEffect(new Runnable() {
+                    @Override
+                    public void run() {
+                        lblTimer.setVisible(true);
+                        playTimerTypewriterEffect();
+                    }
+                });
             }
         });
-        startCountdownTimer();
     }
 
-    private void playClueCountTypewriterEffect() {
+    private void playTimerTypewriterEffect() {
+        final String timeText = String.format("Time Remaining: %02d:%02d", timeRemaining / 60, timeRemaining % 60);
+        lblTimer.setText("");
+        charIndex = 0;
+
+        Timer timerTypewriterTimer = new Timer(100, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (charIndex < timeText.length()) {
+                    lblTimer.setText(lblTimer.getText() + timeText.charAt(charIndex));
+                    charIndex++;
+                } else {
+                    ((Timer)e.getSource()).stop();
+                    startCountdownTimer();
+                }
+            }
+        });
+        timerTypewriterTimer.start();
+    }
+
+    private void playClueCountTypewriterEffect(Runnable onComplete) {
         final String clueText = "Clues Found: 0/5";
         final int[] charIndex = {0};
         lblCluesFound.setForeground(Color.RED);
@@ -87,6 +113,9 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
                     charIndex[0]++;
                 } else {
                     ((Timer)e.getSource()).stop();
+                    if (onComplete != null) {
+                        onComplete.run();
+                    }
                 }
             }
         });
@@ -231,7 +260,8 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         }
     }
 
-
+    private boolean isTimerInitialized = false;
+    
     private void playTypewriterEffect(String text) {
         lblDialogue.setText("");
         charIndex = 0;
@@ -257,6 +287,11 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
                         typewriterTimer.stop();
                         stopTypewriterSound();
                         isDialogueComplete = true;
+
+                        if (!isTimerInitialized) {
+                            startCountdownTimer();
+                            isTimerInitialized = true;
+                        }
                     }
                 }
             }
@@ -415,7 +450,7 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     private Timer countdownTimer;
     private int timeRemaining = 60;
 
-    public void startCountdownTimer() {
+    private void startCountdownTimer() {
         countdownTimer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -428,14 +463,17 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
             }
         });
         countdownTimer.start();
+        updateTimerDisplay();
     }
 
     private void updateTimerDisplay() {
-
         int minutes = timeRemaining / 60;
         int seconds = timeRemaining % 60;
-        lblTimer.setText(String.format("Time Remaining: %02d:%02d", minutes, seconds));
+        String timeText = String.format("Time Remaining: %02d:%02d", minutes, seconds);
+        lblTimer.setText(timeText);
+        lblTimer.setVisible(true);
     }
+
 
     private void onTimeOut() {
         countdownTimer.stop();
