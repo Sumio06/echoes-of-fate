@@ -594,7 +594,7 @@ public class AsherValeGameplayRooftop extends javax.swing.JPanel {
         String[] lines = {
             "A keycard from Hotel Haneul in Jeju, found on the informant",
             "An address is scribbled on the back, pointing to a specific location",
-            "This hotel could hold the key to unraveling the mystery",
+            "This hotel could hold the key to unraveling the mystery"
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();

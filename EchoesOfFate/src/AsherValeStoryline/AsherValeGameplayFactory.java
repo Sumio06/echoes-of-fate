@@ -609,7 +609,7 @@ public class AsherValeGameplayFactory extends javax.swing.JPanel {
             "A pair of blood-stained gloves...",
             "They are black and found near the exit of the factory, stained with blood",
             "They were likely used during the killing, but there’s no indication of a specific city involved",
-            "This could provide a lead to trace the killer",
+            "This could provide a lead to trace the killer"
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
@@ -645,7 +645,7 @@ public class AsherValeGameplayFactory extends javax.swing.JPanel {
             "A bloodstained knife...",
             "It’s large, covered in fresh blood, found in a corner of the factory",
             "It seems to have been used in a recent killing, but there’s no direct link to a specific location",
-            "This could be important",
+            "This could be important"
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();

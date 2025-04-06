@@ -13,14 +13,18 @@ import AsherValeStoryline.AsherValeItaewonGameplay1;
 import AsherValeStoryline.AsherVale;
 import AsherValeStoryline.AsherValeGameplayAfterRooftop;
 import AsherValeStoryline.AsherValeGameplayApartment;
+import AsherValeStoryline.AsherValeGameplayBunker;
 import AsherValeStoryline.AsherValeGameplayContainer;
 import AsherValeStoryline.AsherValeGameplayFactory;
+import AsherValeStoryline.AsherValeGameplayHiddenBar;
 import AsherValeStoryline.AsherValeGameplayHotel;
 import AsherValeStoryline.AsherValeGameplayOutsideApartment;
 import AsherValeStoryline.AsherValeItaewonGameplayBar;
 import AsherValeStoryline.AsherValeItaewonGameplayBar2;
 import AsherValeStoryline.AsherValeGameplayOutsideBar;
+import AsherValeStoryline.AsherValeGameplayOutsideBunker;
 import AsherValeStoryline.AsherValeGameplayOutsideContainer;
+import AsherValeStoryline.AsherValeGameplayOutsideHotel;
 import AsherValeStoryline.AsherValeGameplayOutsideWarehouse;
 import AsherValeStoryline.AsherValeGameplayRooftop;
 import AsherValeStoryline.AsherValeGameplaySeoulToBusan;
@@ -71,6 +75,10 @@ public class MainFrame extends javax.swing.JFrame {
         AsherValeGameplayRooftop asherValeGameplayRooftop = new AsherValeGameplayRooftop(this);
         AsherValeGameplayAfterRooftop asherValeGameplayAfterRooftop = new AsherValeGameplayAfterRooftop(this);
         AsherValeGameplayHotel asherValeGameplayHotel = new AsherValeGameplayHotel(this);
+        AsherValeGameplayOutsideHotel asherValeGameplayOutsideHotel = new AsherValeGameplayOutsideHotel(this);
+        AsherValeGameplayBunker asherValeGameplayBunker = new AsherValeGameplayBunker(this);
+        AsherValeGameplayOutsideBunker asherValeGameplayOutsideBunker = new AsherValeGameplayOutsideBunker(this);
+        AsherValeGameplayHiddenBar asherValeGameplayHiddenBar = new AsherValeGameplayHiddenBar(this);
         
         mainPanel.add(loginScreen, "Login");
         mainPanel.add(mainMenu, "Menu");
@@ -92,6 +100,10 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanel.add(asherValeGameplayRooftop, "AsherValeGameplayRooftop");
         mainPanel.add(asherValeGameplayAfterRooftop, "AsherValeGameplayAfterRooftop");
         mainPanel.add(asherValeGameplayHotel, "AsherValeGameplayHotel");
+        mainPanel.add(asherValeGameplayOutsideHotel, "AsherValeGameplayOutsideHotel");
+        mainPanel.add(asherValeGameplayBunker, "AsherValeGameplayBunker");
+        mainPanel.add(asherValeGameplayOutsideBunker, "AsherValeGameplayOutsideBunker");
+        mainPanel.add(asherValeGameplayHiddenBar, "AsherValeGameplayHiddenBar");
 
         setContentPane(mainPanel);
         setVisible(true);

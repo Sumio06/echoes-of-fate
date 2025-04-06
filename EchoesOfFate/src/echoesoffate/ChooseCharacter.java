@@ -42,7 +42,7 @@ public class ChooseCharacter extends javax.swing.JPanel {
             userData.setCharacter(characterName); 
             System.out.println("Selected Character: " + userData.getCharacter());
             //frame.showScreen(characterName);
-            frame.showScreen("AsherValeGameplayAfterRooftop");
+            frame.showScreen("AsherValeGameplayOutsideBunker");
         }
     }
    

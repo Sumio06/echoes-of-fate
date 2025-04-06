@@ -571,7 +571,7 @@ public class AsherValeGameplayContainer extends javax.swing.JPanel {
         String[] lines = {
             "A torn metro pass with Hale’s alias...",
             "Hale came to the port deliberately that night",
-            "The meeting, it’s soon. Something’s about to happen",
+            "The meeting, it’s soon. Something’s about to happen"
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();

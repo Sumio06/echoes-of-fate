@@ -18,15 +18,15 @@ import javax.swing.Timer;
  *
  * @author User
  */
-public class AsherValeGameplayHotel extends javax.swing.JPanel {
+public class AsherValeGameplayBunker extends javax.swing.JPanel {
 
     /**
-     * Creates new form AsherValeGameplayHotel
+     * Creates new form AsherValeGameplayBunker
      */
     
     private MainFrame frame;
     
-    public AsherValeGameplayHotel(MainFrame frame) {
+    public AsherValeGameplayBunker(MainFrame frame) {
         this.frame = frame;
         initComponents();
         
@@ -37,11 +37,11 @@ public class AsherValeGameplayHotel extends javax.swing.JPanel {
         lblContinue.setVisible(false);
         lblLoginFormBackground.setVisible(false);
         btnContinue.setVisible(false);
-        lblKeyCheck.setVisible(false);
-        lblMirrorCheck.setVisible(false);
-        lblGlovesCheck.setVisible(false);
-        lblGlassCheck.setVisible(false);
-        lblLampCheck.setVisible(false);
+        lblNotebookCheck.setVisible(false);
+        lblBulletCheck.setVisible(false);
+        lblMapCheck.setVisible(false);
+        lblHandcuffsCheck.setVisible(false);
+        lblWatchCheck.setVisible(false);
 
         addComponentListener(new java.awt.event.ComponentAdapter() {
             @Override
@@ -262,16 +262,16 @@ public class AsherValeGameplayHotel extends javax.swing.JPanel {
         typewriterTimer.start();
     }
     
-    private boolean glassClicked = false;
-    private boolean mirrorClicked = false;
-    private boolean keyClicked = false;
-    private boolean lampClicked = false;
-    private boolean glovesClicked = false;
+    private boolean notebookClicked = false;
+    private boolean watchClicked = false;
+    private boolean ledgerClicked = false;
+    private boolean bulletClicked = false;
+    private boolean mapClicked = false;
     private boolean isObjectiveComplete = false;
     
 
     private void checkObjectiveCompletion() {
-        if (glassClicked && mirrorClicked && glovesClicked && keyClicked && glovesClicked) {
+        if (notebookClicked && watchClicked && ledgerClicked && bulletClicked && mapClicked) {
             if (!isObjectiveComplete) {
                 lblObjective.setText("Objective Complete");
                 lblObjective.setForeground(new java.awt.Color(51, 255, 0));
@@ -309,61 +309,62 @@ public class AsherValeGameplayHotel extends javax.swing.JPanel {
         String[] lines;
 
         switch(lastClicked) {
-            case "lamp":
+            case "notebook":
                 lines = new String[] {
-                    "A shattered lamp with a hidden compartment...",
-                    "Inside the cracked base lies a half-burned note: 'He’s watching. Don’t trust anyone, not even Hale.'",
-                    "A warning. Someone else was involved—someone dangerous.",
+                    "A bloodstained notebook with frantic handwriting...",
+                    "Found on a rickety shelf, the pages are torn and stained with blood",
+                    "One entry reads: 'They’re watching. The final meeting is set. I have to go... even if it’s a trap'",
+                    "Clues of growing paranoia, betrayal, and Hale’s operation scatter across every page",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'",
                     "N"
                 };
                 break;
 
-            case "key":
+            case "map":
+                lines = new String[] {
+                    "A map with a final meeting point circled in red...",
+                    "Found on the desk, weathered and worn from use",
+                    "A location marked: 'The Last Deal. The Final Confrontation'",
+                    "This was Kieran’s destination—the moment everything unraveled",
+                    "Narrator: 'The objective has been completed... but is that the end?'",
+                    "Narrator: 'Something bigger is about to unfold...'",
+                    "N"
+                };
+                break;
+
+            case "bullet":
+                lines = new String[] {
+                    "A spent bullet casing buried beneath the floor...",
+                    "The caliber matches Kieran’s sidearm—it was fired during a confrontation",
+                    "He fought back. The evidence of the struggle is real, brutal, and recent",
+                    "Narrator: 'The objective has been completed... but is that the end?'",
+                    "Narrator: 'Something bigger is about to unfold...'",
+                    "N"
+                };
+                break;
+
+            case "watch":
+                lines = new String[] {
+                    "A set of handcuffs with a broken lock...",
+                    "Found hanging from a rusty pipe, the lock snapped cleanly in two",
+                    "A sign of a violent escape—Kieran was likely restrained and broke free",
+                    "Narrator: 'The objective has been completed... but is that the end?'",
+                    "Narrator: 'Something bigger is about to unfold...'",
+                    "N"
+                };
+                break;
+            case "ledger":
                 lines = new String[] {
                     "A brass key with etched coordinates...",
-                    "It was hidden in a drawer, tucked between pages of a journal",
-                    "The coordinates point to a location outside the city, a bunker",
+                    "Hidden in a drawer, tucked between pages of a worn journal",
+                    "The numbers lead deep into the woods—beneath an old tree, a hidden cave lies waiting",
+                    "This key isn’t just a clue—it’s an invitation to the final chapter Kieran couldn’t finish",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'",
                     "N"
                 };
                 break;
-
-            case "gloves":
-                lines = new String[] {
-                    "A torn pair of gloves stained with ink and oil...",
-                    "Found under the mattress, the fingertips worn from frantic use",
-                    "Ink from a manifest, oil from machinery—these weren’t just gloves. They were part of something bigger",
-                    "Narrator: 'The objective has been completed... but is that the end?'",
-                    "Narrator: 'Something bigger is about to unfold...'",
-                    "N"
-                };
-                break;
-
-            case "glass":
-                lines = new String[] {
-                    "A blood-streaked glass shard...",
-                    "Jagged and fresh, found near the desk. The blood still damp",
-                    "There was a fight here. Someone tried to escape, and someone got hurt",
-                    "Narrator: 'The objective has been completed... but is that the end?'",
-                    "Narrator: 'Something bigger is about to unfold...'",
-                    "N"
-                };
-                break;
-
-            case "mirror":
-                lines = new String[] {
-                    "A shattered, bloodied mirror fragment...",
-                    "Its cracked surface reflects a face—distorted, almost familiar",
-                    "The scratches suggest a struggle. The reflection hints at something Kieran saw—something terrifying",
-                    "Narrator: 'The objective has been completed... but is that the end?'",
-                    "Narrator: 'Something bigger is about to unfold...'",
-                    "N"
-                };
-                break;
-
             default:
                 lines = new String[] {
                     "Narrator: 'The objective has been completed... but is that the end?'",
@@ -417,20 +418,20 @@ public class AsherValeGameplayHotel extends javax.swing.JPanel {
         lblObjective1 = new javax.swing.JLabel();
         lblObjective = new javax.swing.JLabel();
         lblCluesFoundBackground = new javax.swing.JLabel();
-        btnGlass = new javax.swing.JButton();
-        btnLamp = new javax.swing.JButton();
-        btnMirror = new javax.swing.JButton();
-        btnGloves = new javax.swing.JButton();
-        btnKey = new javax.swing.JButton();
+        btnNotebook = new javax.swing.JButton();
+        btnHandcuffs = new javax.swing.JButton();
+        btnWatch = new javax.swing.JButton();
+        btnMap = new javax.swing.JButton();
+        btnBullet = new javax.swing.JButton();
         btnContinue = new javax.swing.JButton();
         lblContinue = new javax.swing.JLabel();
         lblDialogue = new javax.swing.JLabel();
         lblLoginFormBackground = new javax.swing.JLabel();
-        lblGlassCheck = new javax.swing.JLabel();
-        lblMirrorCheck = new javax.swing.JLabel();
-        lblKeyCheck = new javax.swing.JLabel();
-        lblLampCheck = new javax.swing.JLabel();
-        lblGlovesCheck = new javax.swing.JLabel();
+        lblHandcuffsCheck = new javax.swing.JLabel();
+        lblBulletCheck = new javax.swing.JLabel();
+        lblNotebookCheck = new javax.swing.JLabel();
+        lblWatchCheck = new javax.swing.JLabel();
+        lblMapCheck = new javax.swing.JLabel();
         lblBackground = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -466,45 +467,45 @@ public class AsherValeGameplayHotel extends javax.swing.JPanel {
         lblCluesFoundBackground.setOpaque(true);
         add(lblCluesFoundBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 330, 120));
 
-        btnGlass.setContentAreaFilled(false);
-        btnGlass.addActionListener(new java.awt.event.ActionListener() {
+        btnNotebook.setContentAreaFilled(false);
+        btnNotebook.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGlassActionPerformed(evt);
+                btnNotebookActionPerformed(evt);
             }
         });
-        add(btnGlass, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 610, 60, 60));
+        add(btnNotebook, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 620, 60, 70));
 
-        btnLamp.setContentAreaFilled(false);
-        btnLamp.addActionListener(new java.awt.event.ActionListener() {
+        btnHandcuffs.setContentAreaFilled(false);
+        btnHandcuffs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLampActionPerformed(evt);
+                btnHandcuffsActionPerformed(evt);
             }
         });
-        add(btnLamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 730, 120, 120));
+        add(btnHandcuffs, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 650, 60, 50));
 
-        btnMirror.setContentAreaFilled(false);
-        btnMirror.addActionListener(new java.awt.event.ActionListener() {
+        btnWatch.setContentAreaFilled(false);
+        btnWatch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMirrorActionPerformed(evt);
+                btnWatchActionPerformed(evt);
             }
         });
-        add(btnMirror, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 600, 90, 80));
+        add(btnWatch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 510, 60, 40));
 
-        btnGloves.setContentAreaFilled(false);
-        btnGloves.addActionListener(new java.awt.event.ActionListener() {
+        btnMap.setContentAreaFilled(false);
+        btnMap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGlovesActionPerformed(evt);
+                btnMapActionPerformed(evt);
             }
         });
-        add(btnGloves, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 730, 90, 90));
+        add(btnMap, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 680, 60, 60));
 
-        btnKey.setContentAreaFilled(false);
-        btnKey.addActionListener(new java.awt.event.ActionListener() {
+        btnBullet.setContentAreaFilled(false);
+        btnBullet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnKeyActionPerformed(evt);
+                btnBulletActionPerformed(evt);
             }
         });
-        add(btnKey, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 50, 50));
+        add(btnBullet, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 690, 30, 20));
 
         btnContinue.setBackground(new java.awt.Color(36, 43, 53, 100));
         btnContinue.setForeground(new java.awt.Color(255, 255, 255));
@@ -534,33 +535,51 @@ public class AsherValeGameplayHotel extends javax.swing.JPanel {
         lblLoginFormBackground.setOpaque(true);
         add(lblLoginFormBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 570, 1430, 230));
 
-        lblGlassCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
-        add(lblGlassCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 620, -1, -1));
+        lblHandcuffsCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
+        add(lblHandcuffsCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 660, -1, -1));
 
-        lblMirrorCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
-        add(lblMirrorCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 620, -1, -1));
+        lblBulletCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
+        add(lblBulletCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 680, -1, -1));
 
-        lblKeyCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
-        add(lblKeyCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, -1, -1));
+        lblNotebookCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
+        add(lblNotebookCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 640, -1, -1));
 
-        lblLampCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
-        add(lblLampCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 760, -1, -1));
+        lblWatchCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
+        add(lblWatchCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(1420, 510, -1, -1));
 
-        lblGlovesCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
-        add(lblGlovesCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 760, -1, -1));
+        lblMapCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/check2.png"))); // NOI18N
+        add(lblMapCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(1340, 700, -1, -1));
 
         lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/inside_room.png"))); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/inside_bunker.png"))); // NOI18N
         add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -70, 1600, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private String lastClicked = "";
     
-    private void btnLampActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLampActionPerformed
-        lblLampCheck.setVisible(true);
-        lampClicked = true;
-        lastClicked = "lamp";
+    private void btnNotebookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotebookActionPerformed
+        lblNotebookCheck.setVisible(true);
+        notebookClicked = true;
+        lastClicked = "notebook";
+        cluesFound++;
+        updateClueCount();
+        playFoundSound();
+        String[] lines = {
+            "A bloodstained notebook with frantic handwriting...",
+            "Found on a rickety shelf, the pages are torn and stained with blood",
+            "One entry reads: 'They’re watching. The final meeting is set. I have to go... even if it’s a trap'",
+            "Clues of growing paranoia, betrayal, and Hale’s operation scatter across every page"
+        };
+        playDialogueTypewriterEffect(lines);
+        checkObjectiveCompletion();
+        btnNotebook.setEnabled(false);
+    }//GEN-LAST:event_btnNotebookActionPerformed
+
+    private void btnHandcuffsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHandcuffsActionPerformed
+        lblHandcuffsCheck.setVisible(true);
+        ledgerClicked = true;
+        lastClicked = "ledger";
         cluesFound++;
         updateClueCount();
         playFoundSound();
@@ -571,76 +590,60 @@ public class AsherValeGameplayHotel extends javax.swing.JPanel {
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
-        btnLamp.setEnabled(false);
-    }//GEN-LAST:event_btnLampActionPerformed
+        btnHandcuffs.setEnabled(false);
+    }//GEN-LAST:event_btnHandcuffsActionPerformed
 
-    private void btnMirrorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMirrorActionPerformed
-        lblMirrorCheck.setVisible(true);
-        mirrorClicked = true;
-        lastClicked = "mirror";
+    private void btnWatchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWatchActionPerformed
+        lblWatchCheck.setVisible(true);
+        watchClicked = true;
+        lastClicked = "watch";
         cluesFound++;
         updateClueCount();
         playFoundSound();
         String[] lines = {
-            "A shattered, bloodied mirror fragment...",
-            "Its cracked surface reflects a face—distorted, almost familiar",
-            "The scratches suggest a struggle. The reflection hints at something Kieran saw—something terrifying"
+            "A set of handcuffs with a broken lock...",
+            "Found hanging from a rusty pipe, the lock snapped cleanly in two",
+            "A sign of a violent escape—Kieran was likely restrained and broke free",
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
-        btnMirror.setEnabled(false);
-    }//GEN-LAST:event_btnMirrorActionPerformed
+        btnWatch.setEnabled(false);
+    }//GEN-LAST:event_btnWatchActionPerformed
 
-    private void btnGlassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGlassActionPerformed
-        lblGlassCheck.setVisible(true);
-        glassClicked = true;
-        lastClicked = "glass";
+    private void btnMapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMapActionPerformed
+        lblMapCheck.setVisible(true);
+        mapClicked = true;
+        lastClicked = "map";
         cluesFound++;
         updateClueCount();
         playFoundSound();
         String[] lines = {
-            "A blood-streaked glass shard...",
-            "Jagged and fresh, found near the desk. The blood still damp",
-            "There was a fight here. Someone tried to escape, and someone got hurt"
+            "A map with a final meeting point circled in red...",
+            "Found on the desk, weathered and worn from use",
+            "A location marked: 'The Last Deal. The Final Confrontation'",
+            "This was Kieran’s destination—the moment everything unraveled"
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
-        btnGlass.setEnabled(false);
-    }//GEN-LAST:event_btnGlassActionPerformed
+        btnMap.setEnabled(false);
+    }//GEN-LAST:event_btnMapActionPerformed
 
-    private void btnGlovesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGlovesActionPerformed
-        lblGlovesCheck.setVisible(true);
-        glovesClicked = true;
-        lastClicked = "gloves";
+    private void btnBulletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBulletActionPerformed
+        lblBulletCheck.setVisible(true);
+        bulletClicked = true;
+        lastClicked = "bullet";
         cluesFound++;
         updateClueCount();
         playFoundSound();
         String[] lines = {
-            "A torn pair of gloves stained with ink and oil...",
-            "Found under the mattress, the fingertips worn from frantic use",
-            "Ink from a manifest, oil from machinery—these weren’t just gloves. They were part of something bigger"
+           "A spent bullet casing buried beneath the floor...",
+           "The caliber matches Kieran’s sidearm—it was fired during a confrontation",
+           "He fought back. The evidence of the struggle is real, brutal, and recent",
         };
         playDialogueTypewriterEffect(lines);
         checkObjectiveCompletion();
-        btnGloves.setEnabled(false);
-    }//GEN-LAST:event_btnGlovesActionPerformed
-
-    private void btnKeyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeyActionPerformed
-        lblKeyCheck.setVisible(true);
-        keyClicked = true;
-        lastClicked = "key";
-        cluesFound++;
-        updateClueCount();
-        playFoundSound();
-        String[] lines = {
-            "A brass key with etched coordinates...",
-            "It was hidden in a drawer, tucked between pages of a journal",
-            "The coordinates point to a location outside the city, a bunker"
-        };
-        playDialogueTypewriterEffect(lines);
-        checkObjectiveCompletion();
-        btnKey.setEnabled(false);
-    }//GEN-LAST:event_btnKeyActionPerformed
+        btnBullet.setEnabled(false);
+    }//GEN-LAST:event_btnBulletActionPerformed
 
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
         if (isDialogueComplete || isSkipping) {
@@ -650,27 +653,26 @@ public class AsherValeGameplayHotel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnContinueActionPerformed
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBullet;
     private javax.swing.JButton btnContinue;
-    private javax.swing.JButton btnGlass;
-    private javax.swing.JButton btnGloves;
-    private javax.swing.JButton btnKey;
-    private javax.swing.JButton btnLamp;
-    private javax.swing.JButton btnMirror;
+    private javax.swing.JButton btnHandcuffs;
+    private javax.swing.JButton btnMap;
+    private javax.swing.JButton btnNotebook;
+    private javax.swing.JButton btnWatch;
     private javax.swing.JLabel lblBackground;
+    private javax.swing.JLabel lblBulletCheck;
     private javax.swing.JLabel lblCluesFound;
     private javax.swing.JLabel lblCluesFoundBackground;
     private javax.swing.JLabel lblContinue;
     private javax.swing.JLabel lblDialogue;
-    private javax.swing.JLabel lblGlassCheck;
-    private javax.swing.JLabel lblGlovesCheck;
-    private javax.swing.JLabel lblKeyCheck;
-    private javax.swing.JLabel lblLampCheck;
+    private javax.swing.JLabel lblHandcuffsCheck;
     private javax.swing.JLabel lblLoginFormBackground;
-    private javax.swing.JLabel lblMirrorCheck;
+    private javax.swing.JLabel lblMapCheck;
+    private javax.swing.JLabel lblNotebookCheck;
     private javax.swing.JLabel lblObjective;
     private javax.swing.JLabel lblObjective1;
     private javax.swing.JLabel lblObjectiveBackground;
+    private javax.swing.JLabel lblWatchCheck;
     // End of variables declaration//GEN-END:variables
 }

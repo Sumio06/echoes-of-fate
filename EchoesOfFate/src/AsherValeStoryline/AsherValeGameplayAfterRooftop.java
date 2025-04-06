@@ -281,7 +281,7 @@ public class AsherValeGameplayAfterRooftop extends javax.swing.JPanel {
             }
         } else {
             if (dialogueIndex >= SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length + SCENE5.length + SCENE6.length + SCENE7.length + SCENE8.length) {
-                frame.showScreen("AsherValeGameplayWarehouse");
+                frame.showScreen("AsherValeGameplayHotel");
                 return;
             }
             showNextDialogue();
