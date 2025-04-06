@@ -11,7 +11,6 @@ import javax.swing.JOptionPane;
  * @author User
  */
 
-//GWAPOO KEAN
 public class ChooseCharacter extends javax.swing.JPanel {
 
     private MainFrame frame;

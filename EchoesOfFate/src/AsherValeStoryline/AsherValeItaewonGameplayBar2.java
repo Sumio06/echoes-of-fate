@@ -42,7 +42,6 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblNoteCheck.setVisible(false);
         lblGlassCheck.setVisible(false);
         lblStainCheck.setVisible(false);
-        lblTimer.setVisible(false);
 
         addComponentListener(new java.awt.event.ComponentAdapter() {
             @Override
@@ -59,46 +58,20 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     private int cluesFound = 0; 
 
     public void startGameplay() {
+        
         lblObjective.setText("");
         lblObjective1.setText("");
         lblCluesFound.setText("");
-        lblTimer.setVisible(false);
-
+        
         playTypewriterEffect("Objective:", "Look for evidences...", new Runnable() {
             @Override
             public void run() {
-                playClueCountTypewriterEffect(new Runnable() {
-                    @Override
-                    public void run() {
-                        lblTimer.setVisible(true);
-                        playTimerTypewriterEffect();
-                    }
-                });
+                playClueCountTypewriterEffect();
             }
         });
     }
 
-    private void playTimerTypewriterEffect() {
-        final String timeText = String.format("Time Remaining: %02d:%02d", timeRemaining / 60, timeRemaining % 60);
-        lblTimer.setText("");
-        charIndex = 0;
-
-        Timer timerTypewriterTimer = new Timer(100, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (charIndex < timeText.length()) {
-                    lblTimer.setText(lblTimer.getText() + timeText.charAt(charIndex));
-                    charIndex++;
-                } else {
-                    ((Timer)e.getSource()).stop();
-                    startCountdownTimer();
-                }
-            }
-        });
-        timerTypewriterTimer.start();
-    }
-
-    private void playClueCountTypewriterEffect(Runnable onComplete) {
+    private void playClueCountTypewriterEffect() {
         final String clueText = "Clues Found: 0/5";
         final int[] charIndex = {0};
         lblCluesFound.setForeground(Color.RED);
@@ -113,9 +86,6 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
                     charIndex[0]++;
                 } else {
                     ((Timer)e.getSource()).stop();
-                    if (onComplete != null) {
-                        onComplete.run();
-                    }
                 }
             }
         });
@@ -287,11 +257,6 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
                         typewriterTimer.stop();
                         stopTypewriterSound();
                         isDialogueComplete = true;
-
-                        if (!isTimerInitialized) {
-                            startCountdownTimer();
-                            isTimerInitialized = true;
-                        }
                     }
                 }
             }
@@ -447,51 +412,6 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         }
     }
     
-    private Timer countdownTimer;
-    private int timeRemaining = 60;
-
-    private void startCountdownTimer() {
-        countdownTimer = new Timer(1000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (timeRemaining > 0) {
-                    timeRemaining--;
-                    updateTimerDisplay();
-                } else {
-                    onTimeOut();
-                }
-            }
-        });
-        countdownTimer.start();
-        updateTimerDisplay();
-    }
-
-    private void updateTimerDisplay() {
-        int minutes = timeRemaining / 60;
-        int seconds = timeRemaining % 60;
-        String timeText = String.format("Time Remaining: %02d:%02d", minutes, seconds);
-        lblTimer.setText(timeText);
-        lblTimer.setVisible(true);
-    }
-
-
-    private void onTimeOut() {
-        countdownTimer.stop();
-
-
-        String[] lines = {
-            "Time's up! You couldn't solve the case in time...",
-            "Asher (sighing): 'I must go back and try again...'",
-            "Narrator: 'Back to the past. The case remains unsolved.'",
-            "N"
-        };
-        playDialogueTypewriterEffect(lines);
-
-        javax.swing.SwingUtilities.invokeLater(() -> {
-            frame.showScreen("AsherValeItaewonGameplayBar");
-        });
-    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -503,7 +423,6 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
 
         lblObjective = new javax.swing.JLabel();
         lblObjective1 = new javax.swing.JLabel();
-        lblTimer = new javax.swing.JLabel();
         lblCluesFound = new javax.swing.JLabel();
         lblObjectiveBackground = new javax.swing.JLabel();
         lblCluesFoundBackground = new javax.swing.JLabel();
@@ -534,11 +453,6 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
         lblObjective1.setForeground(new java.awt.Color(51, 255, 0));
         lblObjective1.setText("[Text]");
         add(lblObjective1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
-
-        lblTimer.setFont(new java.awt.Font("Lucida Fax", 0, 22)); // NOI18N
-        lblTimer.setForeground(new java.awt.Color(51, 255, 0));
-        lblTimer.setText("[Text]");
-        add(lblTimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 80, -1, -1));
 
         lblCluesFound.setFont(new java.awt.Font("Lucida Fax", 0, 22)); // NOI18N
         lblCluesFound.setForeground(new java.awt.Color(51, 255, 0));
@@ -772,6 +686,5 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
     private javax.swing.JLabel lblObjective1;
     private javax.swing.JLabel lblObjectiveBackground;
     private javax.swing.JLabel lblStainCheck;
-    private javax.swing.JLabel lblTimer;
     // End of variables declaration//GEN-END:variables
 }
