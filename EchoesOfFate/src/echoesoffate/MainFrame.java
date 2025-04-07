@@ -34,7 +34,14 @@ import AsherValeStoryline.AsherValeGameplayWarehouse;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -110,8 +117,6 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanel.add(asherValeGameplayHiddenBar, "AsherValeGameplayHiddenBar");
         mainPanel.add(asherValeGameplayAfterHiddenBar, "AsherValeGameplayAfterHiddenBar");
         mainPanel.add(asherValeGameplayEnding, "AsherValeGameplayEnding");
-        
-        
 
         setContentPane(mainPanel);
         setVisible(true);
@@ -207,6 +212,7 @@ public class MainFrame extends javax.swing.JFrame {
            
 
         cardLayout.show(mainPanel, screenName);
+        logPanelSwitch(screenName);
     }
      
     public void setUserData(String username, String password) {
@@ -248,6 +254,19 @@ public class MainFrame extends javax.swing.JFrame {
          
        public void afterHiddenBar(){
          playBackgroundMusic("src/echoesoffateassets/thecall.wav"); 
+    }
+       
+    private void logPanelSwitch(String screenName) {
+        String filePath = "C:\\Users\\User\\Documents\\NetBeansProjects\\EchoesOfFate\\EchoesOfFateFileHandling.txt";
+        LocalDateTime now = LocalDateTime.now();
+        String timestamp = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        String logEntry = "[" + timestamp + "] Switched to panel: " + screenName + "\n";
+
+        try (FileWriter writer = new FileWriter(filePath, true)) {
+            writer.write(logEntry);
+        } catch (IOException e) {
+            System.err.println("Error writing to log file: " + e.getMessage());
+        }
     }
 
     public static void main(String args[]) {

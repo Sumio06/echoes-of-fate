@@ -11,6 +11,10 @@ package echoesoffate;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 public class LoginScreen extends javax.swing.JPanel {
 
@@ -28,6 +32,7 @@ public class LoginScreen extends javax.swing.JPanel {
        initComponents(); 
        
        btnLogin.addActionListener(e -> {
+           playButtonClickSound();
            String enteredUsername = userData.getUsername();
            if (!userData.getUsername().equals(txtUsername.getText()) || !userData.getPassword().equals(txtPassword.getText())) {
            JOptionPane.showMessageDialog(this, "Username Not Found!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -40,16 +45,35 @@ public class LoginScreen extends javax.swing.JPanel {
            System.out.println("Logging in as: " + enteredUsername);
            frame.showScreen("Menu");
        });
-       btnRegister.addActionListener(e -> frame.showScreen("Register"));      
+       btnRegister.addActionListener(e -> {
+            playButtonClickSound();
+            frame.showScreen("Register");
+        });    
     }
     
     public void updateTextFields(){
        txtUsername.setText(userData.getUsername());
        txtPassword.setText(userData.getPassword());
-        
+    }
+    
+    private Clip clickClip;
+    
+    private void playButtonClickSound() {
+        try {
+            if (clickClip != null && clickClip.isRunning()) {
+                clickClip.stop();
+            }
+            File soundFile = new File("src/echoesoffateassets/button_click.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+            clickClip = AudioSystem.getClip();
+            clickClip.open(audioStream);
+            clickClip.setFramePosition(0);
+            clickClip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

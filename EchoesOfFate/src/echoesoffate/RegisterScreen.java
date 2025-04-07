@@ -9,6 +9,10 @@ package echoesoffate;
  * @author Kean Saligue
  */
 
+import java.io.File;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 
 public class RegisterScreen extends javax.swing.JPanel {
@@ -19,8 +23,15 @@ public class RegisterScreen extends javax.swing.JPanel {
         this.frame = frame;
         this.userData = userData;
         initComponents();
-        btnSubmit.addActionListener(e -> registerUser());
-        btnBack.addActionListener(e -> frame.showScreen("Login"));
+        btnSubmit.addActionListener(e -> {
+            playButtonClickSound();
+            registerUser();
+        });
+
+        btnBack.addActionListener(e -> {
+            playButtonClickSound();
+            frame.showScreen("Login");
+        });
     }
     
     private void registerUser() {
@@ -28,7 +39,6 @@ public class RegisterScreen extends javax.swing.JPanel {
         String username = txtUsername.getText();
         String password = txtPassword.getText();
 
-        // Check If Field Are Empty
         if (username.isEmpty() || password.isEmpty() || username.equals("") || password.equals("")) {
             JOptionPane.showMessageDialog(this, "Fields cannot be empty.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -38,14 +48,29 @@ public class RegisterScreen extends javax.swing.JPanel {
             return;
         }
         
-        // Update userData to MainFrame
         frame.setUserData(username, password);
         
-        //Test
         System.out.println("Registered: " + username + " / " + password);
         
-        //Go To Login Screen If userData is updated
         frame.showScreen("Login");
+    }
+    
+    private Clip clickClip;
+    
+    private void playButtonClickSound() {
+        try {
+            if (clickClip != null && clickClip.isRunning()) {
+                clickClip.stop();
+            }
+            File soundFile = new File("src/echoesoffateassets/button_click.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+            clickClip = AudioSystem.getClip();
+            clickClip.open(audioStream);
+            clickClip.setFramePosition(0);
+            clickClip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     @SuppressWarnings("unchecked")

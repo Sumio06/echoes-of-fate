@@ -4,6 +4,10 @@
  */
 package echoesoffate;
 
+import java.io.File;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,14 +26,28 @@ public class ChooseCharacter extends javax.swing.JPanel {
         this.frame = frame;
         this.userData = userData;
         setupButtonActions();
-        btnBack.addActionListener(e -> frame.showScreen("Menu"));
+        btnBack.addActionListener(e -> {
+            playButtonClickSound();
+            frame.showScreen("Menu");
+        });
     }
     
     private void setupButtonActions() {
-        btnCelesteNakamura.addActionListener(e -> selectCharacter("CelesteNakamura", "Celeste Nakamura"));
-        btnRenTakahashi.addActionListener(e -> selectCharacter("RenTakahashi", "Ren Takahashi"));
-        btnAsherVale.addActionListener(e -> selectCharacter("AsherVale", "Asher Vale"));
-    }
+    btnCelesteNakamura.addActionListener(e -> {
+        playButtonClickSound();
+        selectCharacter("CelesteNakamura", "Celeste Nakamura");
+    });
+    
+    btnRenTakahashi.addActionListener(e -> {
+        playButtonClickSound();
+        selectCharacter("RenTakahashi", "Ren Takahashi");
+    });
+    
+    btnAsherVale.addActionListener(e -> {
+        playButtonClickSound();
+        selectCharacter("AsherVale", "Asher Vale");
+    });
+}
        
     private void selectCharacter(String characterName, String character) {
         int confirm = JOptionPane.showConfirmDialog(
@@ -43,6 +61,24 @@ public class ChooseCharacter extends javax.swing.JPanel {
             userData.setCharacter(characterName); 
             System.out.println("Selected Character: " + userData.getCharacter());
             frame.showScreen(characterName);
+        }
+    }
+    
+    private Clip clickClip;
+    
+    private void playButtonClickSound() {
+        try {
+            if (clickClip != null && clickClip.isRunning()) {
+                clickClip.stop();
+            }
+            File soundFile = new File("src/echoesoffateassets/button_click.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+            clickClip = AudioSystem.getClip();
+            clickClip.open(audioStream);
+            clickClip.setFramePosition(0);
+            clickClip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
    
@@ -99,7 +135,7 @@ public class ChooseCharacter extends javax.swing.JPanel {
         lblGameTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblGameTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblGameTitle.setText("Echoes of Fate");
-        add(lblGameTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 770, 90));
+        add(lblGameTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 770, 90));
 
         btnCelesteNakamura.setBackground(new java.awt.Color(83, 77, 169, 100));
         btnCelesteNakamura.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
@@ -134,7 +170,7 @@ public class ChooseCharacter extends javax.swing.JPanel {
         lblQuote1.setForeground(new java.awt.Color(255, 255, 255));
         lblQuote1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblQuote1.setText("Step into the past, before it erases you.");
-        add(lblQuote1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 540, 40));
+        add(lblQuote1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 540, 40));
 
         lblChooseCharacter.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         lblChooseCharacter.setForeground(new java.awt.Color(255, 255, 255));

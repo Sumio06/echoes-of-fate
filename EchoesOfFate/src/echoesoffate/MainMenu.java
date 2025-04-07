@@ -9,6 +9,10 @@ package echoesoffate;
  * @author Kean Saligue
  */
 
+import java.io.File;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 
 public class MainMenu extends javax.swing.JPanel {
@@ -25,9 +29,19 @@ public class MainMenu extends javax.swing.JPanel {
         this.frame = frame;
         this.userData = userData;
         initComponents();
-        updateData(); 
-        btnExit.addActionListener(e -> exitGame());
-        btnNewGame.addActionListener(e -> frame.showScreen("ChooseCharacter"));
+        updateData();
+        btnBack.addActionListener(e -> {
+            playButtonClickSound();
+            frame.showScreen("Register");
+        });
+        btnExit.addActionListener(e -> {
+            playButtonClickSound();
+            exitGame();
+        });
+        btnNewGame.addActionListener(e -> {
+            playButtonClickSound();
+            frame.showScreen("ChooseCharacter");
+        });
     }
 
      public void updateData() {
@@ -51,10 +65,29 @@ public class MainMenu extends javax.swing.JPanel {
         userData.setPassword(password);
     }
      
+     private Clip clickClip;
+    
+    private void playButtonClickSound() {
+        try {
+            if (clickClip != null && clickClip.isRunning()) {
+                clickClip.stop();
+            }
+            File soundFile = new File("src/echoesoffateassets/button_click.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+            clickClip = AudioSystem.getClip();
+            clickClip.open(audioStream);
+            clickClip.setFramePosition(0);
+            clickClip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnBack = new javax.swing.JButton();
         lblGameTitle = new javax.swing.JLabel();
         lblQuote = new javax.swing.JLabel();
         lblMsg = new javax.swing.JLabel();
@@ -67,6 +100,12 @@ public class MainMenu extends javax.swing.JPanel {
         lblBackground = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnBack.setBackground(new java.awt.Color(83, 77, 169, 100));
+        btnBack.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("Back");
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 140, 50));
 
         lblGameTitle.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 70)); // NOI18N
         lblGameTitle.setForeground(new java.awt.Color(255, 255, 255));
@@ -132,6 +171,7 @@ public class MainMenu extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLoadGame;
     private javax.swing.JButton btnNewGame;
