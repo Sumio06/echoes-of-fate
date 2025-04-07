@@ -206,7 +206,7 @@ public class MainFrame extends javax.swing.JFrame {
         } 
            
            if (screenName.equals("AsherValeGameplayAfterHiddenBar")) {
-            playBackgroundMusic("src/echoesoffateassets/haleconfrontation.wav");    
+            playBackgroundMusic("src/echoesoffateassets/confrontation.wav");    
         } 
            
 
