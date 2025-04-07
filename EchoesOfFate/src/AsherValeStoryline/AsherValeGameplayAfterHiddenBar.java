@@ -172,6 +172,10 @@ public class AsherValeGameplayAfterHiddenBar extends javax.swing.JPanel {
     }
 
     private void showNextDialogue() {
+        if(dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length){
+            frame.afterHiddenBar();
+        }
+        
         if (dialogueIndex < SCENE1.length) {
             displayText(SCENE1[dialogueIndex]);
             dialogueIndex++;

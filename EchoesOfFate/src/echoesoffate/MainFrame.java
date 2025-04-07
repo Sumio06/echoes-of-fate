@@ -102,7 +102,11 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanel.add(asherValeGameplayContainer, "AsherValeGameplayContainer");
         mainPanel.add(asherValeGameplayOutsideContainer, "AsherValeGameplayOutsideContainer");
         mainPanel.add(asherValeGameplayRooftop, "AsherValeGameplayRooftop");
+        
         mainPanel.add(asherValeGameplayAfterRooftop, "AsherValeGameplayAfterRooftop");
+        
+    
+        
         mainPanel.add(asherValeGameplayHotel, "AsherValeGameplayHotel");
         mainPanel.add(asherValeGameplayOutsideHotel, "AsherValeGameplayOutsideHotel");
         mainPanel.add(asherValeGameplayBunker, "AsherValeGameplayBunker");
@@ -110,6 +114,8 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanel.add(asherValeGameplayHiddenBar, "AsherValeGameplayHiddenBar");
         mainPanel.add(asherValeGameplayAfterHiddenBar, "AsherValeGameplayAfterHiddenBar");
         mainPanel.add(asherValeGameplayEnding, "AsherValeGameplayEnding");
+        
+        
 
         setContentPane(mainPanel);
         setVisible(true);
@@ -134,7 +140,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void playBackgroundMusic(String filepath) {
         try {
             if (filepath.equals(currentMusicPath)) {
-                return; // already playing the same music
+                return; 
             }
 
             if (clip != null && clip.isRunning()) {
@@ -194,6 +200,15 @@ public class MainFrame extends javax.swing.JFrame {
          if (screenName.equals("AsherValeGameplayApartment")) {
             playBackgroundMusic("src/echoesoffateassets/busaninvestigation1_music.wav");    
         } 
+         
+          if (screenName.equals("AsherValeGameplayHotel")) {
+            playBackgroundMusic("src/echoesoffateassets/jejuinvestigation1_music.wav");    
+        } 
+           
+           if (screenName.equals("AsherValeGameplayAfterHiddenBar")) {
+            playBackgroundMusic("src/echoesoffateassets/haleconfrontation.wav");    
+        } 
+           
 
         cardLayout.show(mainPanel, screenName);
     }
@@ -221,8 +236,24 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     public void afterRoofTop(){
-         playBackgroundMusic("src/echoesoffateassets/busantojejuislandtransition_music.wav"); 
+         playBackgroundMusic("src/echoesoffateassets/jejuislandarrival_music.wav"); 
     }
+    public void insideCoastHotel(){
+         playBackgroundMusic("src/echoesoffateassets/jejuinvestigation1_music.wav"); 
+    }
+    
+    public void afterHotel(){
+         playBackgroundMusic("src/echoesoffateassets/jejuinvestigation2_music.wav"); 
+    }
+    
+    public void afterBunker(){
+         playBackgroundMusic("src/echoesoffateassets/jejuinvestigation3_music.wav"); 
+    }
+         
+       public void afterHiddenBar(){
+         playBackgroundMusic("src/echoesoffateassets/thecall.wav"); 
+    }
+    
 
     
     public static void main(String args[]) {

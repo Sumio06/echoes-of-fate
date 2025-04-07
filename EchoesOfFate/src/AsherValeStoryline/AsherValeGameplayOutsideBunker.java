@@ -137,6 +137,10 @@ public class AsherValeGameplayOutsideBunker extends javax.swing.JPanel {
     }
 
     private void showNextDialogue() {
+        if(dialogueIndex == SCENE1.length){
+            frame.afterBunker();
+        }
+        
         if (dialogueIndex < SCENE1.length) {
             displayText(SCENE1[dialogueIndex]);
             dialogueIndex++;

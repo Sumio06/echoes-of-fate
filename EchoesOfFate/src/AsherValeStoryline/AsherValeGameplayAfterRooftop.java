@@ -191,7 +191,7 @@ public class AsherValeGameplayAfterRooftop extends javax.swing.JPanel {
         
         //need pani e change wapa nahoman godwin add music 
         if(dialogueIndex == SCENE1.length +SCENE2.length +SCENE3.length +SCENE4.length){
-            frame.inShippingContainer();
+            frame.insideCoastHotel();
         }
         
         if (dialogueIndex < SCENE1.length) {
