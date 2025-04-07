@@ -102,11 +102,7 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanel.add(asherValeGameplayContainer, "AsherValeGameplayContainer");
         mainPanel.add(asherValeGameplayOutsideContainer, "AsherValeGameplayOutsideContainer");
         mainPanel.add(asherValeGameplayRooftop, "AsherValeGameplayRooftop");
-        
         mainPanel.add(asherValeGameplayAfterRooftop, "AsherValeGameplayAfterRooftop");
-        
-    
-        
         mainPanel.add(asherValeGameplayHotel, "AsherValeGameplayHotel");
         mainPanel.add(asherValeGameplayOutsideHotel, "AsherValeGameplayOutsideHotel");
         mainPanel.add(asherValeGameplayBunker, "AsherValeGameplayBunker");
@@ -220,11 +216,11 @@ public class MainFrame extends javax.swing.JFrame {
     
     
     public void onWarehouseScene2Start() {
-    playBackgroundMusic("src/echoesoffateassets/outisdefactory_music.wav");
+        playBackgroundMusic("src/echoesoffateassets/outisdefactory_music.wav");
 }
     
     public void afterTrainRideBusan() {
-    playBackgroundMusic("src/echoesoffateassets/busanarrival_music.wav");
+        playBackgroundMusic("src/echoesoffateassets/busanarrival_music.wav");
 }   
     
     public void inShippingContainer(){
@@ -253,9 +249,7 @@ public class MainFrame extends javax.swing.JFrame {
        public void afterHiddenBar(){
          playBackgroundMusic("src/echoesoffateassets/thecall.wav"); 
     }
-    
 
-    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

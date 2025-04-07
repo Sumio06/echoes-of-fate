@@ -314,7 +314,7 @@ public class AsherValeGameplayHotel extends javax.swing.JPanel {
             case "lamp":
                 lines = new String[] {
                     "A shattered lamp with a hidden compartment...",
-                    "Inside the cracked base lies a half-burned note: 'He’s watching. Don’t trust anyone, not even Hale.'",
+                    "Inside the cracked base lies a half-burned note: 'He’s watching. Don’t trust anyone, not even Hale'",
                     "A warning. Someone else was involved—someone dangerous.",
                     "Narrator: 'The objective has been completed... but is that the end?'",
                     "Narrator: 'Something bigger is about to unfold...'",
@@ -568,7 +568,7 @@ public class AsherValeGameplayHotel extends javax.swing.JPanel {
         playFoundSound();
         String[] lines = {
             "A shattered lamp with a hidden compartment...",
-            "Inside the cracked base lies a half-burned note: 'He’s watching. Don’t trust anyone, not even Hale.'",
+            "Inside the cracked base lies a half-burned note: 'He’s watching. Don’t trust anyone, not even Hale'",
             "A warning. Someone else was involved—someone dangerous."
         };
         playDialogueTypewriterEffect(lines);

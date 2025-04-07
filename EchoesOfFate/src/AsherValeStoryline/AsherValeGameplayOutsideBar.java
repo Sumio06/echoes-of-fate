@@ -44,7 +44,7 @@ public class AsherValeGameplayOutsideBar extends javax.swing.JPanel {
         "(He quickly follows, but the figure is fast, slipping through the maze of streets)",
         "(Asher chases, but the figure’s lead is too great)",
         "(He slows down, looking around the alley. Nothing)",
-        "(Then, he notices something: a crumpled piece of paper on the ground.)",
+        "(Then, he notices something: a crumpled piece of paper on the ground)",
         "(Asher picks it up and reads the words ‘Namdaemun Warehouse’ written on it)",
         "Asher (muttering): Namdaemun... what’s going on here?",
         "(He pockets the paper, a new lead forming in his mind)",

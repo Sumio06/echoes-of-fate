@@ -319,7 +319,7 @@ public class AsherValeGameplayHiddenBar extends javax.swing.JPanel {
                     "On the table, a worn photo of Kieran, looking weary and untrusting...",
                     "A note is attached: 'You’re close, but this will cost you'",
                     "Asher (quietly, to himself): 'A key… but for what?'",
-                    "Narrator: 'The photo is a clue, but it’s far from the answer.'",
+                    "Narrator: 'The photo is a clue, but it’s far from the answer'",
                     "N"
                 };
                 break;
@@ -636,7 +636,7 @@ public class AsherValeGameplayHiddenBar extends javax.swing.JPanel {
         
         if (keyClicked && !rustedKeyClicked) {
             String[] lines = {
-                "Asher (grumbling): 'This isn’t the right key.'",
+                "Asher (grumbling): 'This isn’t the right key'",
                 "Narrator: 'The door remains locked. Asher needs the correct key to proceed.'"
             };
             playDialogueTypewriterEffect(lines);

@@ -119,7 +119,8 @@ public class AsherValeGameplayAfterHiddenBar extends javax.swing.JPanel {
         "(Asher’s hand trembles, the finality crashing down)",
         "Asher (whispers): He’s gone… I couldn’t save him",
         "(Asher stands frozen in the street, the phone still pressed to his ear)",
-        "(The world feels distant. Kieran’s death echoes in the silence)"
+        "(The world feels distant. Kieran’s death echoes in the silence)",
+        "(The End.)"
     };
     
     public void startDialogue() {
@@ -182,7 +183,7 @@ public class AsherValeGameplayAfterHiddenBar extends javax.swing.JPanel {
         } 
         else if (dialogueIndex < SCENE1.length + SCENE2.length) {
             if (dialogueIndex == SCENE1.length) {
-                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/inside_backroom.png")));
+                lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/fight.png")));
             }
             displayText(SCENE2[dialogueIndex - SCENE1.length]);
             dialogueIndex++;

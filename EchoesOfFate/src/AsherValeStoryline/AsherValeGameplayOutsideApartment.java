@@ -73,7 +73,7 @@ public class AsherValeGameplayOutsideApartment extends javax.swing.JPanel {
         "(He looks down at the crumpled document, processing the details)",
         "Asher (whispers): Dockside Logistics... Unit 47, Sector D...",
         "(He scans the quiet surroundings, tension in the air)",
-        "Asher (to himself): This is it. I have to find out what’s going on.",
+        "Asher (to himself): This is it. I have to find out what’s going on",
         "(He pockets the document and heads toward the shipping container)"
     };
 

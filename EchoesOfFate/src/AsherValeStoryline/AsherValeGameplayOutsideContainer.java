@@ -63,17 +63,17 @@ public class AsherValeGameplayOutsideContainer extends javax.swing.JPanel {
     private String[] SCENE1 = {
         "(Asher exits the shipping container, blueprint in hand, his mind racing)",
         "(He unfurls the blueprint, the edges crinkling in the cold night air)",
-        "Asher (whispers): This layout... it shows an access point on the rooftop.",
+        "Asher (whispers): This layout... it shows an access point on the rooftop",
         "(He scans the surrounding area, the document guiding his every move)",
-        "Asher (determined): That’s where I need to go. I’ll find out what Hale’s hiding up there."
+        "Asher (determined): That’s where I need to go. I’ll find out what Hale’s hiding up there"
     };
 
     private String[] SCENE2 = {
         "(Asher moves quickly, the blueprint still clutched tightly in his hand)",
         "(His eyes dart around, locking onto the building with the rooftop access)",
-        "Asher (to himself): The blueprint’s clear... I just need to get to that hatch.",
+        "Asher (to himself): The blueprint’s clear... I just need to get to that hatch",
         "(He reaches a nearby fire escape and begins climbing with purpose, his fingers cold against the metal rungs)",
-        "Asher (focused): Just a little higher, then I’ll have answers."
+        "Asher (focused): Just a little higher, then I’ll have answers"
     };
 
     private String[] SCENE3 = {
@@ -81,7 +81,7 @@ public class AsherValeGameplayOutsideContainer extends javax.swing.JPanel {
         "(He takes a moment to breathe, the blueprint still in his grasp)",
         "Asher (whispers): This is it. Everything points here.",
         "(He unfurls the blueprint once more, aligning it with the rooftop’s structure)",
-        "Asher (confident): I’m on the right track. Something’s up here, and I’m going to find it."
+        "Asher (confident): I’m on the right track. Something’s up here, and I’m going to find it"
     };
     
     public void startDialogue() {

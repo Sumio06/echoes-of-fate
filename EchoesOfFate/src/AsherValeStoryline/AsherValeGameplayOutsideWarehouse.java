@@ -52,17 +52,15 @@ public class AsherValeGameplayOutsideWarehouse extends javax.swing.JPanel {
         "The place is deserted, with only the sound of his footsteps echoing",
         "Asher knows this is where the shadowy figure has been",
         "He walks toward the factory, determined to uncover the truth",
-        "The complex is vast and dark, the air thick with dust",
-        "He enters the factory, flashlight in hand, searching for answers"
+        "The complex is vast and dark, the air thick with dust",  
     };
     
     private String[] SCENE3 = {
+        "He enters the factory, flashlight in hand, searching for answers",
         "Inside, the factory is dark and full of old, rusting machinery",
         "Dust and debris cover the floor, adding to the eerie atmosphere",
-        "A bloodstained knife lies near a workbench, hinting at something sinister",
         "Asher moves deeper, his senses heightened, searching for clues",
         "He hears a faint sound but finds nothing when he looks",
-        "A light flickers ahead, drawing him toward it",
         "The factory feels alive with secrets, and Asher is determined to uncover them"
     };
 

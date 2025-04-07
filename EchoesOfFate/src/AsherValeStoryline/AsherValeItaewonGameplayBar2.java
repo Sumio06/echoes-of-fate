@@ -231,8 +231,6 @@ public class AsherValeItaewonGameplayBar2 extends javax.swing.JPanel {
             lblObjective.setVisible(true);
         }
     }
-
-    private boolean isTimerInitialized = false;
     
     private void playTypewriterEffect(String text) {
         lblDialogue.setText("");

@@ -233,7 +233,7 @@ public class AsherValeGameplayOutsideHotel extends javax.swing.JPanel {
 
         lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/invoice.png"))); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/jeju_street.png"))); // NOI18N
         add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -70, 1600, -1));
     }// </editor-fold>//GEN-END:initComponents
 
