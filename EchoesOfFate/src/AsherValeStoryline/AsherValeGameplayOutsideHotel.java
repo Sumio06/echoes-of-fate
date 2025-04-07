@@ -85,6 +85,23 @@ public class AsherValeGameplayOutsideHotel extends javax.swing.JPanel {
         "(In the center: a table with scattered documents... and another locked drawer)"
     };
     
+    private Clip doorClip;
+
+    private void playDoorSound() {
+        try {
+            if (doorClip != null && doorClip.isRunning()) {
+                doorClip.stop();
+            }
+            File soundFile = new File("src/echoesoffateassets/door.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+            doorClip = AudioSystem.getClip();
+            doorClip.open(audioStream);
+            doorClip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public void startDialogue() {
         dialogueIndex = 0;
         showNextDialogue();
@@ -153,6 +170,7 @@ public class AsherValeGameplayOutsideHotel extends javax.swing.JPanel {
             dialogueIndex++;
         } 
         else if (dialogueIndex < SCENE1.length + SCENE2.length + SCENE3.length) {
+            playDoorSound();
             displayText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]);
 
             if (dialogueIndex == SCENE1.length + SCENE2.length) {

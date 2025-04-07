@@ -76,6 +76,23 @@ public class AsherValeGameplayOutsideBar extends javax.swing.JPanel {
     private Timer timer;
     private Clip typewriterClip;
 
+    private Clip doorClip;
+
+    private void playDoorSound() {
+        try {
+            if (doorClip != null && doorClip.isRunning()) {
+                doorClip.stop();
+            }
+            File soundFile = new File("src/echoesoffateassets/door.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+            doorClip = AudioSystem.getClip();
+            doorClip.open(audioStream);
+            doorClip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public AsherValeGameplayOutsideBar(MainFrame frame) {
         this.frame = frame;
         initComponents();
@@ -173,6 +190,7 @@ public class AsherValeGameplayOutsideBar extends javax.swing.JPanel {
             dialogueIndex++;
         }
         else if (dialogueIndex < SCENE1.length + SCENE2.length + SCENE3.length + SCENE4.length) {
+            playDoorSound();
             displayText(SCENE4[dialogueIndex - SCENE1.length - SCENE2.length - SCENE3.length]);
 
             if (dialogueIndex == SCENE1.length + SCENE2.length + SCENE3.length) {

@@ -123,7 +123,25 @@ public class AsherValeGameplayAfterHiddenBar extends javax.swing.JPanel {
         "(The End.)"
     };
     
+    private Clip doorClip;
+
+    private void playDoorSound() {
+        try {
+            if (doorClip != null && doorClip.isRunning()) {
+                doorClip.stop();
+            }
+            File soundFile = new File("src/echoesoffateassets/door.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+            doorClip = AudioSystem.getClip();
+            doorClip.open(audioStream);
+            doorClip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public void startDialogue() {
+        playDoorSound();
         dialogueIndex = 0;
         showNextDialogue();
     }
