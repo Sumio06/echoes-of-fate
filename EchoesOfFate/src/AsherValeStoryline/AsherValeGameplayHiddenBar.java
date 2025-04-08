@@ -64,7 +64,7 @@ public class AsherValeGameplayHiddenBar extends javax.swing.JPanel {
         lblObjective1.setText("");
         lblCluesFound.setText("");
         
-        playTypewriterEffect("Objective:", "Look for evidences...", new Runnable() {
+        playTypewriterEffect("Objective:", "Search the hidden bar...", new Runnable() {
             @Override
             public void run() {
                 playClueCountTypewriterEffect();

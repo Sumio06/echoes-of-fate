@@ -63,7 +63,7 @@ public class AsherValeGameplayRooftop extends javax.swing.JPanel {
         lblObjective1.setText("");
         lblCluesFound.setText("");
         
-        playTypewriterEffect("Objective:", "Look for evidences...", new Runnable() {
+        playTypewriterEffect("Objective:", "Search the rooftop...", new Runnable() {
             @Override
             public void run() {
                 playClueCountTypewriterEffect();

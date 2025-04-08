@@ -55,7 +55,6 @@ public class MainMenu extends javax.swing.JPanel {
             "Exit Game", JOptionPane.YES_NO_OPTION);
 
         if (confirm == JOptionPane.YES_OPTION) {
-            // Close the application
             System.exit(0);
         }
     }

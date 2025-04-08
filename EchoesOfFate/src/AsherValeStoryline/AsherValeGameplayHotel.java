@@ -63,7 +63,7 @@ public class AsherValeGameplayHotel extends javax.swing.JPanel {
         lblObjective1.setText("");
         lblCluesFound.setText("");
         
-        playTypewriterEffect("Objective:", "Look for evidences...", new Runnable() {
+        playTypewriterEffect("Objective:", "Search the hotel...", new Runnable() {
             @Override
             public void run() {
                 playClueCountTypewriterEffect();

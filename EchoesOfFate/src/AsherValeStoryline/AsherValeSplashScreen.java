@@ -35,15 +35,16 @@ public class AsherValeSplashScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblBackground = new javax.swing.JLabel();
+        lblDialogue = new javax.swing.JLabel();
         btnContinue = new javax.swing.JButton();
+        lblBackground = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
-        lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/splash_screen.png"))); // NOI18N
-        add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -70, 1600, -1));
+        lblDialogue.setFont(new java.awt.Font("Lucida Fax", 0, 22)); // NOI18N
+        lblDialogue.setForeground(new java.awt.Color(255, 255, 204));
+        lblDialogue.setText("Press Anywhere to Continue...");
+        add(lblDialogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 740, -1, -1));
 
         btnContinue.setBackground(new java.awt.Color(36, 43, 53, 100));
         btnContinue.setForeground(new java.awt.Color(255, 255, 255));
@@ -54,6 +55,11 @@ public class AsherValeSplashScreen extends javax.swing.JPanel {
             }
         });
         add(btnContinue, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1570, 960));
+
+        lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
+        lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/splash_screen.png"))); // NOI18N
+        add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -70, 1600, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
@@ -64,5 +70,6 @@ public class AsherValeSplashScreen extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnContinue;
     private javax.swing.JLabel lblBackground;
+    private javax.swing.JLabel lblDialogue;
     // End of variables declaration//GEN-END:variables
 }

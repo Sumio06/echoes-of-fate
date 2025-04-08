@@ -63,7 +63,7 @@ public class AsherValeGameplayApartment extends javax.swing.JPanel {
         lblObjective1.setText("");
         lblCluesFound.setText("");
         
-        playTypewriterEffect("Objective:", "Look for evidences...", new Runnable() {
+        playTypewriterEffect("Objective:", "Search the apartment...", new Runnable() {
             @Override
             public void run() {
                 playClueCountTypewriterEffect();
@@ -345,7 +345,8 @@ public class AsherValeGameplayApartment extends javax.swing.JPanel {
                     "Date and time: March 3, 3:00 PM. A meeting, and it’s soon",
                     "Asher realizes this is the lead he's been waiting for",
                     "Narrator: 'The objective has been completed... but is that the end?'",
-                    "Narrator: 'Something bigger is about to unfold...'"
+                    "Narrator: 'Something bigger is about to unfold...'",
+                    "N"
                 };
                 break;
 

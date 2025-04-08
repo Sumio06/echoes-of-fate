@@ -150,6 +150,8 @@ public class AsherValeGameplayOutsideHotel extends javax.swing.JPanel {
         });
         timer.start();
     }
+    
+    private boolean isDoorSoundPlayed = false;
 
     private void showNextDialogue() {
         if(dialogueIndex == SCENE1.length){
@@ -170,7 +172,10 @@ public class AsherValeGameplayOutsideHotel extends javax.swing.JPanel {
             dialogueIndex++;
         } 
         else if (dialogueIndex < SCENE1.length + SCENE2.length + SCENE3.length) {
-            playDoorSound();
+            if (!isDoorSoundPlayed) {
+                playDoorSound();
+                isDoorSoundPlayed = true;
+            }
             displayText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]);
 
             if (dialogueIndex == SCENE1.length + SCENE2.length) {

@@ -158,6 +158,8 @@ public class AsherValeGameplayOutsideWarehouse extends javax.swing.JPanel {
         });
         timer.start();
     }
+    
+    private boolean isDoorSoundPlayed = false;
 
     private void showNextDialogue() {
         if (dialogueIndex == SCENE1.length) {
@@ -174,7 +176,10 @@ public class AsherValeGameplayOutsideWarehouse extends javax.swing.JPanel {
                 lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/outside_factory.png")));
             }
         } else if (dialogueIndex >= SCENE1.length + SCENE2.length && dialogueIndex < SCENE1.length + SCENE2.length + SCENE3.length) {
-            playDoorSound();
+            if (!isDoorSoundPlayed) {
+                playDoorSound();
+                isDoorSoundPlayed = true;
+            }
             displayText(SCENE3[dialogueIndex - SCENE1.length - SCENE2.length]);
             if (dialogueIndex == SCENE1.length + SCENE2.length) {
                 lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/echoesoffateassets/inside_factory.png")));

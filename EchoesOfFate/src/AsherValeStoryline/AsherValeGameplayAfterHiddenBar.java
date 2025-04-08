@@ -124,7 +124,8 @@ public class AsherValeGameplayAfterHiddenBar extends javax.swing.JPanel {
     };
     
     private Clip doorClip;
-
+    private boolean isDoorSoundPlayed = false;
+    
     private void playDoorSound() {
         try {
             if (doorClip != null && doorClip.isRunning()) {
@@ -141,7 +142,10 @@ public class AsherValeGameplayAfterHiddenBar extends javax.swing.JPanel {
     }
     
     public void startDialogue() {
-        playDoorSound();
+        if (!isDoorSoundPlayed) {
+                playDoorSound();
+                isDoorSoundPlayed = true;
+            }
         dialogueIndex = 0;
         showNextDialogue();
     }
