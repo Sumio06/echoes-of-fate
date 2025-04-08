@@ -197,7 +197,6 @@ public class MainFrame extends javax.swing.JFrame {
             playBackgroundMusic("src/echoesoffateassets/outsideandinsidenamdamwarehouse_music.wav");    
         } 
          
-      
          if (screenName.equals("AsherValeGameplaySeoulToBusan")) {
             playBackgroundMusic("src/echoesoffateassets/transitionseoultobusan.wav");    
         } 
@@ -212,8 +211,12 @@ public class MainFrame extends javax.swing.JFrame {
            
            if (screenName.equals("AsherValeGameplayAfterHiddenBar")) {
             playBackgroundMusic("src/echoesoffateassets/confrontation.wav");    
-        }
-
+        } 
+           
+           if (screenName.equals("AsherValeGameplaySplashScreen")) {
+            playBackgroundMusic("src/echoesoffateassets/background_music.wav");    
+        } 
+           
         cardLayout.show(mainPanel, screenName);
         logPanelSwitch(screenName);
     }
