@@ -308,7 +308,6 @@ public class AsherVale extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnContinueActionPerformed
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnContinue;
     private javax.swing.JLabel lblBackground;

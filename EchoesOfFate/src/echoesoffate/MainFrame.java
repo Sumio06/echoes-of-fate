@@ -31,6 +31,7 @@ import AsherValeStoryline.AsherValeGameplayOutsideWarehouse;
 import AsherValeStoryline.AsherValeGameplayRooftop;
 import AsherValeStoryline.AsherValeGameplaySeoulToBusan;
 import AsherValeStoryline.AsherValeGameplayWarehouse;
+import AsherValeStoryline.AsherValeSplashScreen;
 
 import javax.swing.*;
 import java.awt.*;
@@ -90,6 +91,7 @@ public class MainFrame extends javax.swing.JFrame {
         AsherValeGameplayHiddenBar asherValeGameplayHiddenBar = new AsherValeGameplayHiddenBar(this);
         AsherValeGameplayAfterHiddenBar asherValeGameplayAfterHiddenBar = new AsherValeGameplayAfterHiddenBar(this);
         AsherValeGameplayEnding asherValeGameplayEnding = new AsherValeGameplayEnding(this);
+        AsherValeSplashScreen asherValeSplashScreen = new AsherValeSplashScreen(this);
         
         mainPanel.add(loginScreen, "Login");
         mainPanel.add(mainMenu, "Menu");
@@ -117,12 +119,14 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanel.add(asherValeGameplayHiddenBar, "AsherValeGameplayHiddenBar");
         mainPanel.add(asherValeGameplayAfterHiddenBar, "AsherValeGameplayAfterHiddenBar");
         mainPanel.add(asherValeGameplayEnding, "AsherValeGameplayEnding");
-
+        mainPanel.add(asherValeSplashScreen, "AsherValeSplashScreen");
+        
         setContentPane(mainPanel);
         setVisible(true);
         
         this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
         playBackgroundMusic("src/echoesoffateassets/background_music.wav");
+        showScreen("AsherValeSplashScreen");
     }
   
     @SuppressWarnings("unchecked")
@@ -208,8 +212,7 @@ public class MainFrame extends javax.swing.JFrame {
            
            if (screenName.equals("AsherValeGameplayAfterHiddenBar")) {
             playBackgroundMusic("src/echoesoffateassets/confrontation.wav");    
-        } 
-           
+        }
 
         cardLayout.show(mainPanel, screenName);
         logPanelSwitch(screenName);
