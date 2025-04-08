@@ -2,9 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package AsherValeStoryline;
+package echoesoffate;
 
 import echoesoffate.MainFrame;
+import java.io.File;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 /**
  *
@@ -22,8 +26,27 @@ public class AsherValeSplashScreen extends javax.swing.JPanel {
         this.frame = frame;
         initComponents();
         btnContinue.addActionListener(e -> {
+            playButtonClickSound();
             frame.showScreen("Login");
-        });  
+        }); 
+    }
+    
+    private Clip clickClip;
+    
+    private void playButtonClickSound() {
+        try {
+            if (clickClip != null && clickClip.isRunning()) {
+                clickClip.stop();
+            }
+            File soundFile = new File("src/echoesoffateassets/button_click.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+            clickClip = AudioSystem.getClip();
+            clickClip.open(audioStream);
+            clickClip.setFramePosition(0);
+            clickClip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**

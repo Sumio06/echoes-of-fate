@@ -22,7 +22,6 @@ public class LoginScreen extends javax.swing.JPanel {
      * Creates new form LoginScreen
      */
     
-    //Reference To MainFrame
     private MainFrame frame;
     UserData userData; 
     

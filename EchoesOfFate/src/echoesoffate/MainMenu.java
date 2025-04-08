@@ -64,7 +64,7 @@ public class MainMenu extends javax.swing.JPanel {
         userData.setPassword(password);
     }
      
-     private Clip clickClip;
+    private Clip clickClip;
     
     private void playButtonClickSound() {
         try {

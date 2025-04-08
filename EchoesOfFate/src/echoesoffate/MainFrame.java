@@ -31,7 +31,6 @@ import AsherValeStoryline.AsherValeGameplayOutsideWarehouse;
 import AsherValeStoryline.AsherValeGameplayRooftop;
 import AsherValeStoryline.AsherValeGameplaySeoulToBusan;
 import AsherValeStoryline.AsherValeGameplayWarehouse;
-import AsherValeStoryline.AsherValeSplashScreen;
 
 import javax.swing.*;
 import java.awt.*;
@@ -90,7 +89,7 @@ public class MainFrame extends javax.swing.JFrame {
         AsherValeGameplayOutsideBunker asherValeGameplayOutsideBunker = new AsherValeGameplayOutsideBunker(this);
         AsherValeGameplayHiddenBar asherValeGameplayHiddenBar = new AsherValeGameplayHiddenBar(this);
         AsherValeGameplayAfterHiddenBar asherValeGameplayAfterHiddenBar = new AsherValeGameplayAfterHiddenBar(this);
-        AsherValeGameplayEnding asherValeGameplayEnding = new AsherValeGameplayEnding(this);
+        AsherValeGameplayEnding asherValeGameplayEnding = new AsherValeGameplayEnding(this, userData);
         AsherValeSplashScreen asherValeSplashScreen = new AsherValeSplashScreen(this);
         
         mainPanel.add(loginScreen, "Login");
@@ -127,6 +126,7 @@ public class MainFrame extends javax.swing.JFrame {
         this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
         playBackgroundMusic("src/echoesoffateassets/background_music.wav");
         showScreen("AsherValeSplashScreen");
+        userData.displayAllInfo();
     }
   
     @SuppressWarnings("unchecked")

@@ -5,6 +5,12 @@
 package AsherValeStoryline;
 
 import echoesoffate.MainFrame;
+import echoesoffate.UserData;
+import java.io.File;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,10 +23,44 @@ public class AsherValeGameplayEnding extends javax.swing.JPanel {
      */
     
     private MainFrame frame;
+    UserData userData;
     
-    public AsherValeGameplayEnding(MainFrame frame) {
+    public AsherValeGameplayEnding(MainFrame frame, UserData userData) {
         this.frame = frame;
+        this.userData = userData;
         initComponents();
+        btnExit.addActionListener(e -> {
+            playButtonClickSound();
+            exitGame();
+        });
+    }
+    
+    private void exitGame() {
+        int confirm = JOptionPane.showConfirmDialog(this, 
+            "Leaving already, " + userData.getUsername() + "? But the past still calls to you…", 
+            "Exit Game", JOptionPane.YES_NO_OPTION);
+
+        if (confirm == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
+    }
+    
+    private Clip clickClip;
+    
+    private void playButtonClickSound() {
+        try {
+            if (clickClip != null && clickClip.isRunning()) {
+                clickClip.stop();
+            }
+            File soundFile = new File("src/echoesoffateassets/button_click.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+            clickClip = AudioSystem.getClip();
+            clickClip.open(audioStream);
+            clickClip.setFramePosition(0);
+            clickClip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -32,9 +72,16 @@ public class AsherValeGameplayEnding extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnExit = new javax.swing.JButton();
         lblBackground = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnExit.setBackground(new java.awt.Color(83, 77, 169, 100));
+        btnExit.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(255, 255, 255));
+        btnExit.setText("Exit Game");
+        add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 180, 50));
 
         lblBackground.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -44,6 +91,7 @@ public class AsherValeGameplayEnding extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExit;
     private javax.swing.JLabel lblBackground;
     // End of variables declaration//GEN-END:variables
 }
